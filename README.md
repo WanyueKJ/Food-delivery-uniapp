@@ -1,37 +1,44 @@
-# 万岳同城外卖配送系统UNI-APP开源版
-
-#### 介绍
-万岳同城外卖系统,提供全套外卖配送解决方案，系统包含商家端、配送端、用户端以及总管理后台、城市配送后台，在线下单购买，商家接单，骑手抢单配送！
-
-#### 软件架构
-软件架构说明
 
 
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
 
 
-#### 特技
+ 
+# 万岳同城外卖配送系统后台端
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+
+
+
+### 项目说明及部署文档（如果对你有用，请给个star！）
+##### <a target="_blank" href="http://doc.sdwanyue.com/wanyue_open_web/2006714">项目文档</a> |  <a target="_blank" href="https://www.kancloud.cn/wanyuekaiyuan11/wanyue_education/2788919">部署文档</a>  |  <a target="_blank" href="https://www.kancloud.cn/wanyuekaiyuan11/wanyue_education/2788919">常见问题</a> | <a target="_blank" href="https://www.kancloud.cn/wanyuekaiyuan11/wanyue_education/2788919">升级日志</a>
+
+---
+
+### 系统演示
+
+
+
+   
+### 项目介绍
+万岳同城外卖系统,系统包含商家端、配送端、用户端以及总管理后台、城市配送后台，在线下单，商家接单，骑手抢单配送
+* 所有使用到的框架或者组件都是基于开源项目,代码保证100%开源。
+* 系统功能通用，无论是个人还是企业都可以利用该系统快速搭建一个属于自己的外卖服务平台。
+
+
+### 技术亮点
+```
+    1.后台应用ThinkCMF快速生成现代化表单； 
+    2.PHPExcel数据导出,导出表格更加美观,可视；
+    3.支持微信/支付宝支付,支付接入更加快捷,简单；
+    4.后台多任务窗口化操作界面；
+    5.内置强大灵活的权限管理；
+    6.内置组合数据,系统配置,管理碎片化数据；
+    7.客户端完善的交互效果和动画；
+    8.高频数据缓存； 
+    9.内置PhalApi接口框架,前后端分离更方便；
+    10.WebSocket长连接减少CPU及内存使用及网络堵塞，减少请求响应时长；
+    11.支持队列降低流量高峰，解除耦合，高可用;
+    12.无需安装, clone下来即可直接使用, 完全100%真开源；
+```
+
+
+
