@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="title">不使用 SDK 简单上传例子（推荐）</view>
+    <view class="list">
+        <button type="primary" class="button" bindtap="postUpload"><text style="font-weight:bold;">[推荐]</text> 不使用 SDK 简单上传1</button>
+        <button type="primary" class="button" bindtap="simpleUpload"><text style="font-weight:bold;">[推荐]</text> 不使用 SDK 简单上传2</button>
+    </view>
+    <view class="title">小程序完整 SDK 例子（功能齐全，文件较大）</view>
+    <view class="list-panel" wx:for="{{listMap}}" wx:index="index" wx:for-item="list" wx:key="index">
+        <view class="sub-title"> {{title[index]}} {{key}}</view>
+        <view class="list">
+            <button type="primary" class="button {{index}}" bindtap="{{item}}" wx:for="{{list}}" wx:key="key">{{item}}</button>
+        </view>
+    </view>
+</view>

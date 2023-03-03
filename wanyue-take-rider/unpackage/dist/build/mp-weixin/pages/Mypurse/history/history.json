@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "历史账单",
+  "usingComponents": {
+    "z-calendar": "/components/z-calendar/z-calendar"
+  }
+}

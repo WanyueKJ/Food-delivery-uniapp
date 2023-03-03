@@ -1,0 +1,39 @@
+
+.cancle {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 20px;
+	height: 20px;
+}
+.input {
+	width: 52px;
+	height: 52px;
+	line-height: 20px;
+	text-align: center;
+	border-radius: 2px;
+	border: 1px solid rgba(232, 232, 232, 1);
+	flex-shrink: 0;
+}
+.inputrow {
+	margin-top: 30px;
+	width: calc(100% - 40px);
+	margin-left: 20px;
+	height: 60px;
+}
+.codetext {
+	color: rgba(50, 50, 50, 1);
+	font-size: 14px;
+	height: 40px;
+	width: calc(100% - 40px);
+	margin-left: 20px;
+	margin-top: 40px;
+}
+.codeview {
+	width: 288px;
+	height: 196px;
+	background-color: #FFFFFF;
+	border-radius: 8px;
+	position: relative;
+}
+

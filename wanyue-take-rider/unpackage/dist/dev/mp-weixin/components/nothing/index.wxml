@@ -1,0 +1,1 @@
+<block wx:if="{{$root.g0==0}}"><view class="nothing"><image src="../../static/image/xiangzi.png" mode="aspectFill"></image><text>{{string}}</text></view></block>

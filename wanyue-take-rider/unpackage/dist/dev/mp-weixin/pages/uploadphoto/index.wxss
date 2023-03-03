@@ -1,0 +1,37 @@
+
+.uploadbtn {
+	background-color: #FF5725;
+	height: 44px;
+	font-size: 16px;
+	color: #FFFFFF;
+	line-height: 44px;
+	width: calc(100% - 30px);
+	margin-left: 15px;
+	position: absolute;
+	bottom: 20px;
+	border-radius: 4px;
+	text-align: center;
+}
+.images {
+	margin-left: 15px;
+	margin-top: 20px;
+}
+.uploadback {
+	width: 76px;
+	height: 76px;
+	margin-right: 10px;
+}
+page {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(247, 247, 247, 100);
+}
+.title {
+	color: rgba(152, 152, 152, 1);
+	font-size: 13px;
+	width: calc(100% - 30px);
+	margin-left: 15px;
+	margin-top: 20px;
+	font-size: 13px;
+}
+

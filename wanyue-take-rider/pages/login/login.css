@@ -1,0 +1,146 @@
+.leftbtn {
+	width: 70px;
+	height: 50px;
+	font-size: 15px;
+	color: rgba(152, 152, 152, 1);
+	position: absolute;
+	right: 15px;
+}
+
+.bgimage {
+	top: 0;
+	position: absolute;
+	width: 100%;
+	height: 300px;
+}
+
+.logintitle {
+	color: rgba(54, 54, 54, 1);
+	font-weight: bolder;
+	font-size: 28px;
+	margin-left: 20px;
+	top: 150px;
+	position: absolute;
+}
+
+.vview {
+	width: calc(100% - 40px);
+	margin-left: 20px;
+	position: relative;
+	margin-top: 250px;
+}
+
+.codephoneinput {
+	width: calc(100% - 40px);
+	margin-left: 20px;
+	height: 60px;
+	border-bottom: 1px solid rgba(236, 236, 236, 1);
+	align-items: center;
+	position: relative;
+}
+
+.codetext {
+	color: rgba(201, 201, 201, 1);
+	font-size: 16px;
+	/* position: absolute; */
+	margin-right: 0;
+}
+
+.newstate {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-left: 20px;
+	margin-top: 40rpx;
+	height: 40rpx;
+}
+
+.click {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	margin-left: 1px;
+}
+
+.agree {
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+
+/* 登录按钮 输入内容时,去掉灰色效果 */
+.login-btn {
+	margin-top: 20px;
+	width: calc(100% - 40px);
+	background: linear-gradient(to right, #FF5725, #FF5725);
+}
+
+.opatity {
+	opacity: 0.5;
+}
+
+.xieyi {
+	color: #FF5725;
+	font-size: 12px;
+}
+.agreexieyi{
+	font-size: 12px;
+}
+.codetitle {
+	color: #646464;
+	font-size: 11px;
+	width: 100%;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 10px;
+
+}
+
+page {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.onereg {
+	position: absolute;
+	right: 20px;
+	margin-top: 45px;
+	color: #646464;
+	font-size: 14px;
+}
+
+.back-image {
+	width: 40rpx;
+	height: 40rpx;
+	margin-left: 20rpx;
+	float: left;
+	margin-top: 20rpx;
+}
+
+.small-btn {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 40px;
+	align-items: center;
+}
+
+/* 忘记密码 */
+.forget-pass {
+	font-size: 12px;
+	color: rgba(100, 100, 100, 1);
+	text-align: right;
+	position: absolute;
+	right: 20px;
+}
+
+.reg-btn {
+	margin-left: 20px;
+	left: 20px;
+	font-size: 12px;
+	color: #FF5725;
+}

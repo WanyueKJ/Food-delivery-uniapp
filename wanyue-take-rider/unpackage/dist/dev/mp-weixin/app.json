@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/BindMobile",
+    "pages/set/index",
+    "pages/Mypurse/Withdrawal/index",
+    "pages/Mypurse/index",
+    "pages/Mypurse/history/history",
+    "pages/Orderstatistics/index",
+    "pages/mycomment/index",
+    "pages/login/regist",
+    "pages/login/login",
+    "pages/login/country",
+    "pages/webview/index",
+    "pages/Missionmap/index",
+    "pages/uploadphoto/index",
+    "pages/detailmap/index"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "需要获取您的位置信息才能完整运行应用程序"
+    }
+  },
+  "requiredPrivateInfos": [
+    "chooseAddress",
+    "chooseLocation",
+    "choosePoi",
+    "getLocation",
+    "onLocationChange",
+    "startLocationUpdateBackground",
+    "startLocationUpdate"
+  ],
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
+  ],
+  "usingComponents": {
+    "nothing": "/components/nothing/index"
+  }
+}

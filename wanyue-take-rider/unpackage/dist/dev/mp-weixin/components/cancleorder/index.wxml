@@ -1,0 +1,1 @@
+<view class="uni-mask" style="{{('height:'+windowheight+'px;')}}"><view class="codeview"><view class="codetext">{{i18n.order.yigedingdanbeiquxiao+"}"}}</view><view class="inputrows row"><view data-event-opts="{{[['tap',[['sureok',['$event']]]]]}}" class="surebtn2" bindtap="__e">{{i18n.sure}}</view></view></view></view>

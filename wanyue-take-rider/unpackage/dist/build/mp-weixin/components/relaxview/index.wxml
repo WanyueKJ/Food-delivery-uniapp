@@ -1,0 +1,1 @@
+<view class="uni-mask"><view class="codeview"><view class="codetext">{{''+(i18n.order.danqiangshouzhong+nums+i18n.order.gedingdanxiuxi)+''}}</view><view class="inputrow row"><view data-event-opts="{{[['tap',[['sure',['$event']]]]]}}" class="surebtn" bindtap="__e">{{i18n.sure}}</view></view></view></view>

@@ -1,0 +1,6 @@
+安卓打包文件/
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+!.gitignore

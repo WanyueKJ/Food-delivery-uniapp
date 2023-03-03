@@ -1,0 +1,8 @@
+page {
+    background-color: #fff;
+}
+.main {
+    position: relative;
+    z-index: 2;
+    margin: 40rpx 80rpx;
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "phoneinput": "/components/phoneinput/indexn"
+  }
+}

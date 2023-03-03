@@ -1,0 +1,84 @@
+
+.yuan{
+	font-size: 14px;
+	margin-top: 2px;
+}
+.nin {
+	height: 20px;
+	line-height: 20px;
+	font-size: 24px;
+	font-weight: bolder;
+}
+.tit {
+	margin-top: 20px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.setmessage {
+	height: 120px;
+	width: calc(100% - 40px);
+	margin-left: 20px;
+	border-radius: 8px;
+	background: linear-gradient(to left, rgba(254, 131, 40, 1), rgba(255, 75, 33, 1));
+}
+.setlist {
+	margin-top: 20px;
+	width: calc(100% - 20px);
+	margin-left: 10px;
+}
+.setbtn {
+	position: absolute;
+	right: 0;
+	width: 56px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	color: #FF5725;
+	font-size: 14px;
+	border: 1px solid #FF5725;
+}
+.set1 {
+	position: relative;
+	height: 60px;
+	line-height: 60px;
+	color: #323232;
+	font-size: 16px;
+	font-weight: bold;
+	align-items: center;
+}
+.closeview {
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.settop {
+	height: 60px;
+	align-items: center;
+}
+.guanbiimage {
+	width: 16px;
+	height: 16px;
+}
+.settitle {
+	margin-left: 20px;
+	height: 60px;
+	line-height: 60px;
+	color: #323232;
+	text-align: left;
+	font-size: 16px;
+	font-weight: bold;
+}
+.setview {
+	width: 100%;
+	height: 219px;
+	border-radius: 16px 16px 0 0;
+	background-color: #FFFFFF;
+	position: fixed;
+	bottom: 0;
+}
+

@@ -1,0 +1,125 @@
+
+.des {
+	margin-top: 20px;
+	width: calc(100% - 60px);
+	margin-left: 45px;
+	margin-bottom: 20px;
+}
+.xingxings {
+	width: 13px;
+	height: 13px;
+	margin-right: 2px;
+}
+.time {
+	margin-top: 30px;
+	position: absolute;
+	right: 10px;
+	color: rgba(152, 152, 152, 1);
+	font-size: 12px;
+}
+.cellxingn {
+	position: absolute;
+	height: 20px;
+	margin-top: 40px;
+}
+.cellxings {
+	height: 20px;
+	margin-top: 5px;
+}
+.name {
+	margin-top: 20px;
+	height: 15px;
+	line-height: 15px;
+}
+.cellname {
+	margin-left: 10px;
+	position: relative;
+	height: 36px;
+}
+.avatar {
+	margin-top: 20px;
+	width: 36px;
+	height: 36px;
+	border-radius: 18px;
+	background-color: #DD524D;
+}
+.listcell {
+	width: calc(100% - 20px);
+	margin-left: 10px;
+	border-bottom: 1px solid rgba(240, 240, 240, 1);
+	min-height: 100px;
+}
+.cellok {
+	background-color: #FF5725;
+	color: #FFFFFF;
+}
+.cellno {
+	background-color: rgba(240, 239, 245, 1);
+	color: rgba(50, 50, 50, 1);
+}
+.tabcell {
+	margin-top: 10px;
+	line-height: 30px;
+	text-align: center;
+	width: calc((100% - 50px)/4);
+	margin-right: 10px;
+	height: 30px;
+	font-size: 14px;
+	border-radius: 15px;
+}
+.tabbar {
+	height: 60px;
+	width: 100%;
+}
+.zonghepingfen {
+	color: rgba(50, 50, 50, 1);
+	font-size: 16px;
+	font-weight: bold;
+	margin-left: 30px;
+}
+.nums {
+	width: 100%;
+	text-align: left;
+	margin-left: 0;
+	color: rgba(152, 152, 152, 1);
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+.xingxing {
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+}
+.topview {
+	position: relative;
+	margin-left: 20px;
+	height: 50px;
+	width: 150px;
+	align-items: center;
+	border-right: 1px solid #F5F5F5;
+}
+.starbgS {
+	position: absolute;
+	width: 100%;
+	height: 25px;
+}
+.starbg {
+	width: 100%;
+	height: 25px;
+}
+.source {
+	color: #FF5725;
+	font-size: 40px;
+	font-weight: bolder;
+	height: 60px;
+	line-height: 60px;
+	margin-left: 20px;
+}
+.top {
+	align-items: center;
+	width: 130%;
+	background-color: #FFFFFF;
+	height: 100px;
+	border-bottom: 10px solid #FAFAFA;
+}
+
