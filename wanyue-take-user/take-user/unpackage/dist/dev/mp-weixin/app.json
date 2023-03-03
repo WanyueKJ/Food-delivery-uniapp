@@ -1,0 +1,149 @@
+{
+  "pages": [
+    "package-meishi/pages/index/index",
+    "pages/order/order",
+    "pages/mine/mine",
+    "pages/webView/webView",
+    "pages/login/login",
+    "pages/login/regist",
+    "pages/login/login_type",
+    "pages/login/country",
+    "pages/TUI-Conversation/create-conversation/create",
+    "pages/rank/rank",
+    "pages/video/video"
+  ],
+  "subPackages": [
+    {
+      "root": "package-meishi",
+      "pages": [
+        "pages/index/index",
+        "pages/store/store",
+        "pages/tianqi/tianqi",
+        "pages/search/index",
+        "pages/class/class",
+        "pages/goodsDetails/index",
+        "pages/goodsDetails/allEva",
+        "pages/cart/index",
+        "pages/cart/next",
+        "pages/recomentStore/index"
+      ]
+    },
+    {
+      "root": "package-shansong",
+      "pages": [
+        "pages/index/index",
+        "pages/city",
+        "pages/cityHelp",
+        "pages/addOrder/addOrder",
+        "pages/addOrder/beizhu",
+        "pages/cityHelpAddOrder/cityHelpAddOrder"
+      ]
+    },
+    {
+      "root": "package-mine",
+      "pages": [
+        "pages/editAvatarAndName/index",
+        "pages/Consultingfeedback/index",
+        "pages/editAvatarAndName/editName",
+        "pages/editAvatarAndName/editPhone",
+        "pages/address/address",
+        "pages/address/handSelecedAds",
+        "pages/address/editAds",
+        "pages/order/orderdetail",
+        "pages/order/orderdetailss",
+        "pages/order/shansongEVA",
+        "pages/order/marketEVA",
+        "pages/order/fuwuEVA",
+        "pages/order/order-map-detaile",
+        "pages/order/ordermap-ss",
+        "pages/order/ordertracking",
+        "pages/order/orderEvaluate",
+        "pages/order/refundOrder/applyRefund",
+        "pages/order/refundOrder/refundDetails",
+        "pages/order/orderSearchVC",
+        "pages/order/daipingjia/daipingjia",
+        "pages/xihuan/xihuan",
+        "pages/setup/index",
+        "pages/zuji/zuji",
+        "pages/help/help",
+        "pages/apply/apply",
+        "pages/apply/applySuccess",
+        "pages/setup/bindV"
+      ]
+    },
+    {
+      "root": "package-other",
+      "pages": [
+        "pages/market/index/index",
+        "pages/service/index/index",
+        "pages/service/detaile/index",
+        "pages/service/detaile/indexMore",
+        "pages/service/fuwuxiangqing/index",
+        "pages/service/search/index",
+        "pages/service/class/class",
+        "pages/findShop/index/index",
+        "pages/findShop/zhuanti/index",
+        "pages/findShop/class/index",
+        "pages/findShop/detail/index",
+        "pages/findShop/wenluka/index",
+        "pages/findShop/detail/tuijiancai",
+        "pages/findShop/detail/chuanzhaopian",
+        "pages/findShop/detail/xiepingjia",
+        "pages/findShop/search/index",
+        "pages/market/class/class",
+        "pages/market/store/store",
+        "pages/market/store/storeMsg",
+        "pages/market/classGoods/classGoods",
+        "pages/market/search/store",
+        "pages/market/search/goods",
+        "pages/market/goodsDetaile/index"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF",
+    "titleNView": {
+      "type": "default",
+      "backgroundColor": "#FFFFFF"
+    },
+    "scrollIndicator": "none"
+  },
+  "tabBar": {
+    "color": "#323232",
+    "selectedColor": "#FF5725",
+    "borderStyle": "black",
+    "backgroundColor": "#f8f8f8",
+    "list": [
+      {
+        "pagePath": "package-meishi/pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tabbar/tab-home-n.png",
+        "selectedIconPath": "static/tabbar/tab-home-s.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "static/tabbar/tab-order-n.png",
+        "selectedIconPath": "static/tabbar/tab-order-s.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "static/tabbar/tab-mine-n.png",
+        "selectedIconPath": "static/tabbar/tab-mine-s.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于万岳外卖获取定位展示"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "usingComponents": {}
+}

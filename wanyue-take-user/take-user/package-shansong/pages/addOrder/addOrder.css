@@ -1,0 +1,251 @@
+	.content {
+		display: flex;
+		flex-direction: column;
+		/* align-items: center;
+		justify-content: center; */
+		background-color: #F8F8F8;
+		width: 750rpx;
+	}
+
+	.mapView {
+		width: 750rpx;
+		background-color: #1AAD19;
+		height: 364px;
+	}
+
+	.returnImage {
+		margin-left: 12px;
+		margin-top: 30px;
+		width: 60rpx;
+		height: 30px;
+	}
+
+	.scroll-backview {
+		position: absolute;
+		width: 700rpx;
+		/* height: 80%; */
+		top: 307px;
+		margin-left: 25rpx;
+		/* background-color: #007AFF; */
+	}
+
+	.order-adsView {
+		/* position: absolute; */
+		width: 700rpx;
+		/* height: 80%; */
+		/* top: 0; */
+		height: 200px;
+		border-radius: 10rpx;
+		background-color: #FFFFFF;
+	}
+
+	.order-ads-item {
+		width: 700rpx;
+		height: 75px;
+		display: flex;
+		flex-direction: row;
+		/* background-color: #007AFF; */
+		align-items: center;
+	}
+
+	.order-ads-item-cycle {
+		width: 40rpx;
+		height: 20px;
+		border-radius: 10px;
+		background-color: #FF5725;
+		margin-left: 12px;
+		text-align: center;
+		font-size: 12px;
+		color: #FFFFFF;
+		line-height: 20px;
+	}
+
+	.order-ads-item-middle {
+		margin-left: 8px;
+		height: 75px;
+		width: 480rpx;
+		// background-color: #007AFF;
+		display: flex;
+		flex-direction: column;
+		border-bottom: 1px solid #f0f0f0;
+		lines: 1;
+		text-overflow: ellipsis;
+	}
+
+	.order-ads-item-ads {
+		width: 480rpx;
+		margin-top: 15px;
+		height: 20px;
+		line-height: 20px;
+		font-size: 16px;
+		font-weight: bold;
+		color: #323232;
+
+	}
+
+	.order-ads-item-ads-tip {
+		width: 480rpx;
+		height: 30px;
+		line-height: 30px;
+		font-size: 13px;
+		color: #989898;
+		text-align: left;
+	}
+
+	.order-ads-right {
+		width: 140rpx;
+		height: 75px;
+		border-bottom: 1px solid #f0f0f0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.order-ads-right-line {
+		background-color: #DEDEDE;
+		width: 1px;
+		height: 15px;
+		left: 8px;
+	}
+
+	.order-ads-right-title {
+		margin-left: 16px;
+		color: #989898;
+		font-size: 14px;
+		line-height: 75px;
+		height: 75px;
+	}
+
+	.changeButton-p {
+		position: absolute;
+		left: 12px;
+		width: 20px;
+		height: 20px;
+		top: 65px;
+	}
+
+	.leftLabel-p {
+		margin-left: 12px;
+		height: 50px;
+		line-height: 50px;
+		color: #323232;
+		font-size: 15px;
+	}
+
+	.rightButton {
+		position: absolute;
+		right: 10px;
+		height: 50px;
+		width: 400rpx;
+	}
+
+	.rightButton-text {
+		position: absolute;
+		height: 50px;
+		line-height: 50px;
+		color: #FF5725;
+		font-size: 14px;
+		text-align: right;
+		right: 20px;
+		left: 0;
+		/* background-color: #007AFF; */
+	}
+
+	.rightButton-image {
+		position: absolute;
+		right: 0;
+		top: 18px;
+		width: 16px;
+		height: 16px;
+	}
+
+	.xieyiView {
+		width: 700rpx;
+		height: 80px;
+		display: flex;
+		flex-direction: row;
+	}
+	.xieyiButn-p{
+		margin-left: 10px;
+		height: 20px;
+		width: 20px;
+		margin-top: 14px;
+	}
+	.xieyiTitle {
+		margin-left: 10px;
+		height: 20px;
+		line-height: 20px;
+		margin-top: 14px;
+		font-size: 13px;
+		color: #323232;
+	}
+
+	.bottomView {
+		width: 750rpx;
+		background-color: #FFFFFF;
+		height: 76px;
+		bottom: 0;
+		position: fixed;
+		flex-direction: row;
+	}
+
+	.subBtnClass2222 {
+		position: absolute;
+		top: 9px;
+		right: 10px;
+		width: 220rpx;
+		height: 42px;
+		border-radius: 21px;
+		background-color: #FF5725;
+		line-height: 42px;
+		color: #FFFFFF;
+		font-size: 16px;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.priceLabel {
+		position: absolute;
+		margin-left: 10px;
+		top: 9px;
+		height: 42px;
+		line-height: 42px;
+		color: #323232;
+		font-size: 14px;
+		width: 430rpx;
+	}
+	.priceLeftView{
+		position: absolute;
+		margin-left: 10px;
+		top: 9px;
+		height: 42px;
+		width: 430rpx;
+	}
+	.priceLeftView_rmb{
+		font-size: 14px;
+		height: 100%;
+		font-weight: bold;
+		color: #ff0b00;
+		line-height: 46px;
+	}
+	.priceLeftView_priceL{
+		margin-left: 3px;
+		font-size: 24px;
+		height: 100%;
+		font-weight: bold;
+		color: #ff0b00;
+		line-height: 42px;
+	}
+	.priceLeftView_mingxi{
+		margin-left: 10px;
+		font-size: 13px;
+		height: 100%;
+		color: #989898;
+		line-height: 42px;
+	}
+	.priceLeftView_mingxiIMG{
+		margin-left: 3px;
+		width: 10px;
+		height: 10px;
+		margin-top: 16px;
+	}

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "wybar": "/components/wybar/wyBar",
+    "list-v": "/package-other/components/marketGoods/index"
+  }
+}

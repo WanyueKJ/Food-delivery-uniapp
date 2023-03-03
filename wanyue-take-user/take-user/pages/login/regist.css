@@ -1,0 +1,69 @@
+.login {
+	background: linear-gradient(to right, rgba(254, 131, 40, 1), rgba(255, 75, 33, 1));
+	color: #FFFFFF;
+	width: calc(100% - 40px);
+	margin-left: 20px;
+	height: 42px;
+	line-height: 42px;
+	text-align: center;
+	border-radius: 21px;
+	margin-top: 50px;
+}
+.opatity {
+	opacity: 0.5;
+}
+
+.getcode {
+	font-size: 16px;
+	position: absolute;
+	right: 0;
+	height: 40px;
+	line-height: 40px;
+}
+
+.phoneinput {
+	margin-left: 20px;
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+}
+	.section {
+		width: calc(100% - 30px);
+		margin-left: 15px;
+		height: 60px;
+		line-height: 60px;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+		align-items: center;
+		padding-top: 10px;
+		position: relative;
+	}
+
+	.sectiontitle {
+		color: rgba(50, 50, 50, 1);
+		font-size: 16px;
+		width: 100px;
+	}
+.codeinput {
+	margin-left: 20px;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+}
+
+.codeview {
+	position: relative;
+	width: 100%;
+	height: 80px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.warp {
+	width: calc(100% - 30px);
+	margin-left: 15px;
+	margin-top: 10px;
+	border-radius: 8px;
+}

@@ -1,0 +1,79 @@
+
+.whiteView {
+	width: 90%;
+	border-radius: 12px;
+	background-color: #FFF;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	position: relative;
+}
+.goodsName {
+	/* width: 100%; */
+	/* text-align: center; */
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 50px;
+	height: 50px;
+	/* align-items: center; */
+	margin-left: 15px;
+}
+.guige {
+	margin-left: 15px;
+	margin-top: 10px;
+	font-size: 12px;
+	color: #969696;
+}
+.priceText {
+	height: 30px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FF5623;
+	line-height: 30px;
+	padding-left: 10px;
+	border-left: 1px solid #FF5623;
+	margin-left: 5px;
+}
+.classItem {
+	margin-left: 15px;
+	margin-bottom: 10px;
+	height: 30px;
+	border-radius: 6px;
+	background-color: #FFF;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: #646464;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 1px solid #D3D3D3;
+}
+.classItem_sel {
+	margin-left: 15px;
+	margin-bottom: 10px;
+	height: 30px;
+	border-radius: 6px;
+	background-color: #FFF2EE;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FF5623;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 1px solid #FF5623;
+}
+.cartNunsBtn-gg {
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+}
+.numsLabel-gg {
+	color: #383838;
+	font-size: 13px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+

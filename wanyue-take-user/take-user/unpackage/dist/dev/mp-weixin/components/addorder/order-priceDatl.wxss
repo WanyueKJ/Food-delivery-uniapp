@@ -1,0 +1,75 @@
+
+.showView {
+	width: 750rpx;
+	min-height: 400rpx;
+	/* height: 620rpx; */
+	border-radius: 32rpx 32rpx 0 0;
+	background-color: #FFFFFF;
+	position: fixed;
+	bottom: 0;
+}
+.heaerView{
+	display: flex;
+	flex-direction: row;
+	height: 108rpx;
+	border-bottom: 2rpx solid #f0f0f0;
+}
+.cancleBtn{
+	position: absolute;
+	height: 40rpx;
+	margin-top: 34rpx;
+	margin-left: 20rpx;
+	line-height: 40rpx;
+	color: #FF5725;
+	font-size: 28rpx;
+	/* background-color: #007AFF; */
+}
+.titleText{
+	height: 108rpx;
+	line-height: 108rpx;
+	margin-left: 160rpx;
+	width: 430rpx;
+	color: #323232;
+	font-size: 18px;
+	font-weight: bold;
+	display:inline-block;
+	text-align: center;
+}
+.closeBtn{
+	position: absolute;
+	height: 40rpx;
+	width: 40rpx;
+	margin-top: 34rpx;
+	right: 20rpx;
+}
+.contentView{
+	display: flex;
+	flex-direction: column;
+	/* top: 54px; */
+	bottom: 0px;
+	width: 750rpx;
+	left: 0;
+}
+.prcieSingleItem{
+	width: 750rpx;
+	height: 60rpx;
+	display: flex;
+	flex-direction: row;
+}
+.leftNameLabel{
+	height: 60rpx;
+	font-size: 14px;
+	line-height: 60rpx;
+	color: #646464;
+	margin-left: 24rpx;
+	flex: 1;
+}
+.rightPriceLabel{
+	height: 60rpx;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 60rpx;
+	color: #323232;
+	margin-right: 24rpx;
+}
+

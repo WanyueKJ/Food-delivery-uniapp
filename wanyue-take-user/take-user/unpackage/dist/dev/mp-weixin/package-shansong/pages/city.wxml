@@ -1,0 +1,1 @@
+<view class="content"><view class="topLabel">已开通以下城市</view><block wx:for="{{cityArray}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view data-event-opts="{{[['tap',[['changeCity',['$0',index],[[['cityArray','',index]]]]]]]}}" class="cityCell" bindtap="__e">{{''+item.name+''}}</view></block></view>

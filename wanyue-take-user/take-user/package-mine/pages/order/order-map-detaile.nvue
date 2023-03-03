@@ -1,0 +1,1889 @@
+<template>
+	<view class="content page" :style="'height:' + windowHeight + 'px;'" v-if="orderMsg">
+		<view class="" style="width: 750rpx;" :style="'height:' + windowHeight + 'px;'" v-if="orderMsg.status == 3 && !(orderMsg.shipping_type != 1 || top_type_id == 3)">
+			<map id="orderMap" class="mapView row" :latitude="latitude" :longitude="longitude" scale="16" :markers="markers"
+				:polyline="polyline" :show-location="false" :style="'height:' + (windowHeight*0.675) + 'px;'">
+			
+				<!-- #ifdef APP-PLUS -->
+				<cover-image src="../../static/images/order/map-back.png" mode="" class="returnImage" @click="doBack">
+				</cover-image>
+				<cover-image src="../../static/images/order/order-map-shuaxin.png" mode=""
+					style="position:absolute; right: 12px; margin-top: 50px; width: 30px;height: 30px;"
+					@click="requestOrderMessage()">
+				</cover-image>
+				<!-- #endif -->
+				<!-- #ifdef MP-WEIXIN -->
+				<cover-image src="../../static/images/order/map-back.png"
+					:style="'margin-top:' + (statusBarHeight-48) + 'px;'" mode="" class="returnImage" @click="doBack">
+				</cover-image>
+				<cover-image src="../../static/images/order/order-map-shuaxin.png" mode=""
+					style="position:absolute; right: 12px; top: 50px; width: 30px;height: 30px;"
+					:style="'right:' + (12+menuButtonWidth) + 'px;top:' + (statusBarHeight-48) + 'px;'"
+					@click="requestOrderMessage()">
+				</cover-image>
+				<!-- #endif -->
+			
+			</map>
+			<view ref="detaileView" id="detaileView" class="detaileView column" :style="'top:' + viewTop + 'px;'"
+				@touchmove="touchmove" @touchstart="handletouchstart" v-if="orderMsg">
+			
+				
+				<!-- 骑手信息 -->
+				<view class="column" style="width: 702rpx;background-color: #FFFFFF;border-radius: 8px;margin-top: 10px;">
+					<view class="row"
+						style="width: 654rpx;margin-left: 24rpx;height: 80px;border-bottom: 1px solid #f0f0f0;">
+						<image :src="orderMsg.rider.avatar" mode=""
+							style="width: 45px;height: 45px;border-radius: 22.5px;margin-top: 17.5px;background-color: #F5f6f7;">
+						</image>
+						<view class="column" style="margin-top: 17.5px;margin-left: 10px;flex: 1;height: 45px;">
+							<text class="label-30H"
+								style="text-align: left;color: #323232;font-size: 16px;">{{orderMsg.rider.user_nickname}}</text>
+							<view class="row">
+								<starV size=30 @change="onChange" disabled=true :value="orderMsg.rider.star"
+									style="width: 200rpx;flex-direction: row;"></starV>
+								<text class="label-30H"
+									style="color: #FF5725;height: 17px;line-height: 17px;margin-left: 5px;margin-top: 0;">{{orderMsg.rider.star + i18n.toher.fen}}</text>
+							</view>
+						</view>
+						<image src="../../static/images/order/phoneCall.png"
+							style="margin-top: 29px;width: 22px;height: 22px;" mode="aspectFit" @click="call()"></image>
+						<text
+							style="margin-top: 29px;width: 30px;height: 22px;line-height: 22px;font-size: 14px;color: #323232;margin-right: 5px;"
+							@click="call()">{{i18n.yilou.lianxi}}</text>
+					</view>
+					<view class="row" style="width: 702rpx;height: 60px;" v-if="orderMsg.code.length == 4">
+						<view class="row" style="width: 351rpx;height: 60px;border-right: 1px solid #f0f0f0;">
+							<text class="label-30H"
+								style="color: #323232;flex: 1;margin-top: 16px;margin-left: 10px;text-align: left;">{{i18n.yilou.qujianzhao}}</text>
+							<image v-for="(item,index) in orderMsg.thumbs" :key="index" :src="item"
+								style="margin-right: 8px;width: 21px;height: 46px;margin-top: 7px;" mode="aspectFill"
+								@click="showBigImage(index)">
+			
+							</image>
+						</view>
+						<view class="row" style="width: 351rpx;height: 60px;align-items: center;">
+							<text class="label-30H"
+								style="color: #323232;flex: 1;margin-left: 10px;text-align: left;margin-top: 0;">{{i18n.yilou.wanchengma}}</text>
+							<text class="item-title-label"
+								style="margin-right: 10px;margin-top: 0px;text-align: right;width: 60px;font-size: 16px;font-weight: bold;color: black;">{{orderMsg.code}}</text>
+						</view>
+					</view>
+			
+				</view>
+				<view class="store_lianxi" v-if="top_type_id != 2">
+					<view v-for="(item,index) in lianxiList" :key="index" class="column" style="align-items: center;"
+						@click="lianxi(item.id)">
+						<image :src="item.image" mode="" style="width: 28px;height: 28px;"></image>
+						<view>
+							<text class="" style="color: #FF5725;font-size: 12px;">{{item.name}}</text>
+						</view>
+					</view>
+			
+				</view>
+				<view class="store_name">
+					<!-- @click="doStore()" -->
+					<text>{{orderMsg.store.use_name}}</text>
+					<image src="../../../static/ads-seld-right.png" mode=""
+						style="width: 20px;height: 20px;margin-left: 5px;" v-if="top_type_id != 2"></image>
+				</view>
+				<text class="orderxiangxixinxi">{{i18n.order.orderxiangxixinxi}}</text> 
+			
+				<view class="item_view">
+					<view>
+						<text class="item-title-label">{{i18n.order.orderbianhao}}</text>
+					</view>
+					<view>
+						<text class="item-des-label">{{orderMsg.order_id}}</text>
+					</view>
+				</view>
+			
+				<view class="item_view">
+					<view>
+						<text class="item-title-label">{{i18n.order.dinggoushangjia}}</text>
+					</view>
+					<view>
+						<text class="item-des-label oneline" style="color: #FF5725;">{{orderMsg.store.use_name}}</text>
+					</view>
+				</view>
+			
+				<view class="item_view" v-if="orderMsg.shipping_type == '1'">
+					<view>
+						<text class="item-title-label">{{i18n.mine.shouhuodizhi}}</text>
+					</view>
+					<view>
+						<text class="item-des-label"
+							style="height: auto;">{{orderMsg.address.place + orderMsg.address.addr}}</text>
+					</view>
+				</view>
+				<view class="item_view" v-if="orderMsg.shipping_type == 2">
+					<view>
+						<text class="item-title-label" style="width: auto;flex: 1;">{{i18n.order.tihuomendian}}</text>
+					</view>
+					<image src="../../../static/meishi/shangjia-ads.png" mode=""
+						style="width:15px;height:15px;margin-top:9px;margin-right: 3px;" @click="doSJMap()"></image>
+					<view>
+						<text @click="doSJMap()" class="item-des-label"
+							style="max-width: 60%;width: auto;">{{orderMsg.pickup.address + ' ' + orderMsg.pickup.doorplate}}</text>
+					</view>
+				</view>
+				<view class="item_view">
+					<view>
+						<text class="item-title-label">{{i18n.mine.xiadanshijian}}</text>
+					</view>
+					<view>
+						<text class="item-des-label">{{orderMsg.add_time}}</text>
+					</view>
+				</view>
+			
+				<view class="item_view">
+					<view>
+						<text class="item-title-label">{{i18n.order.zhifufangshi}}</text>
+					</view>
+					<view>
+						<text class="item-des-label">{{orderMsg.pay_type_txt}}</text>
+					</view>
+				</view>
+			
+				<view class="item_view">
+					<view>
+						<text class="item-title-label">{{i18n.order.peisongfuwu}}</text>
+					</view>
+					<view>
+						<text class="item-des-label">{{orderMsg.shipping_type_txt}}</text>
+					</view>
+				</view>
+			
+				<view class="item_view" v-if="orderMsg.shipping_type == '2'">
+					<view>
+						<text class="item-title-label">{{i18n.order.tihuoshijian}}</text>
+					</view>
+					<view>
+						<text class="item-des-label">{{orderMsg.pickup.pickup_date}}</text>
+					</view>
+				</view>
+			
+				<view class="item_view" v-if="orderMsg.shipping_type == '2'">
+					<view>
+						<text class="item-title-label">{{i18n.order.tihuoren}}</text>
+					</view>
+					<view>
+						<text class="item-des-label">{{userinfo.user_nickname}} {{orderMsg.pickup.pickup_phone}}</text>
+					</view>
+				</view>
+			
+				<view class=""
+					style="margin-left: 15px;width: calc(100% - 30px);height: 1px;background-color: #D6DADE;margin-top: 10px;">
+				</view>
+			
+				<view v-for="(item,index) in orderMsg.cart_info" :key="index" class="item_view"
+					style="height: 50px;margin-top: 18px;">
+					<image :src="item.product.image" mode="aspectFill"
+						style="width: 50px;height: 50px;border-radius: 4px;background-color: #F5f6f7;"></image>
+					<view class="column" style="height: 50px;flex:1;margin-left: 8px;">
+						<view>
+							<text class="" style="font-size: 14px;width: 100%;">{{item.product.use_name}}</text>
+						</view>
+						<text class="row" style="font-size: 12px;color:#6F6F6F;width: 100%;"
+							v-if="item.more_product_attr && item.more_product_attr.length > 0">
+							<text style="font-size: 12px;color: #646464;" v-for="(attr,a) in item.more_product_attr"
+								:key="a">{{attr.attr.use_attr_name + (a < item.more_product_attr.length -1 ? '、' : '')}}</text>
+						</text>
+						<view class="" v-if="item.product_attr_id > 0">
+							<text style="font-size: 12px;color:#6F6F6F;width: 100%;">{{item.attr.use_attr_name}}</text>
+						</view>
+						<view class="" style="font-size: 12px;color:#6F6F6F;width: 100%;" v-else>
+							<!-- <text>{{i18n.yilou.wuguige}}</text> -->
+						</view>
+						<view class="">
+							<text style="font-size: 12px;color: #FF5725;width: 100%;">x{{item.cart_num}}</text>
+						</view>
+					</view>
+					<view class="row" style="align-items: center;font-size: 10px;font-weight: bold;">
+						<text style="font-size: 10px;font-weight: bold;">¥</text><text
+							style="font-size: 14px;margin-left: 3px;">{{item.use_price}}</text>
+					</view>
+				</view>
+			
+				<view class=""
+					style="margin-left: 15px;width: calc(100% - 30px);height: 1px;background-color: #D6DADE;margin-top: 18px;">
+				</view>
+			
+				<view class="item_view">
+					<view>
+						<text class="item-title-label" style="color: #181818;">{{i18n.meishi.xiaoji}}</text>
+					</view>
+					<view>
+						<text class="item-des-label">¥{{xiaojiprice}}</text>
+					</view>
+				</view>
+			
+				<view class="item_view" v-if="orderMsg.shipping_type == '1'">
+					<view>
+						<text class="item-title-label" style="color: #181818;">{{i18n.meishi.waisongfei}}</text>
+					</view>
+					<view>
+						<text class="item-des-label">¥{{orderMsg.freight_price}}</text>
+					</view>
+				</view>
+				<view class="item_view" v-if="orderMsg.coupon_price > 0">
+					<view>
+						<text class="item-title-label" style="color: #181818;">{{i18n.order.youhuizhekou}}</text>
+					</view>
+					<view>
+						<text class="item-des-label" style="color: #FF5725;">-¥{{orderMsg.coupon_price}}</text>
+					</view>
+				</view>
+			
+			
+				<view class=""
+					style="margin-left: 15px;width: calc(100% - 30px);height: 1px;background-color: #D6DADE;margin-top: 18px;">
+				</view>
+			
+				<view class="item_view">
+					<view>
+						<text class="item-title-label"
+							style="color: #181818;font-weight: bold;">{{i18n.meishi.zongjine + '(' + i18n.meishi.hanshui + ')'}}</text>
+					</view>
+					<view>
+						<text class="item-des-label">¥{{orderMsg.pay_price}}</text>
+					</view>
+				</view>
+				<view class="" style="width: 100%;height: 150px;">
+			
+				</view>
+				
+			</view>
+			<view ref="topNaviView" style="width: 750rpx;background-color: #FF5725;position: absolute;top: 0;"
+				:style="'height:' + statusBarHeight + 'px;opacity:'+ opacity + ''" v-if="opacity > 0">
+			
+				<view class="row" style="width: 750rpx;height: 48px;position: absolute;bottom: 0;">
+					<image src="../../../static/back-white.png" mode="aspectFit"
+						style="margin-left: 24rpx;margin-top: 19rpx;width: 60rpx;height: 60rpx;" @click="doBack()"></image>
+					<text
+						style="margin-left: 166rpx;height: 48px;font-size: 18px;line-height: 48px;color: #FFFFFF;font-weight: bold;width: 250rpx;text-align: center;">订单详情</text>
+				</view>
+			
+			</view>
+			<view class="bottom_view" style="height: 150px;" v-if="orderMsg.show_reminder == 1">
+				<view class="bottom_contentView">
+					<view class="row" style="margin-left: 30rpx;width: 690rpx;min-height: 50px;">
+							<view class="">
+								<text style="font-size: 14px;width: 276rpx;margin-top: 15px;">{{orderMsg.des}}</text>
+							</view>
+							<view class="">
+								<text style="font-size: 14px;font-weight: bold;width: 414rpx;text-align: right;margin-top: 15px;">{{orderMsg.service_time}}</text>
+							</view>
+					</view>
+					<view @click="doCuidan()">
+						<text class="bottom_button" style="border:1px solid #FF5725;color: #FF5725;">{{i18n.order.cuidan}}</text>
+					</view>
+				</view>
+			</view>
+			<view class="bottom_view" style="height: 70px;" v-else>
+				<view class="bottom_contentView">
+					<!-- (1:已付款(待接单) 2:待配送 3:配送中 4:已完成 5:退款 6:已备货) -->
+			
+					<view class="row" style="margin-left: 15px;width: calc(100% - 30px);min-height: 50px;"
+						v-if="orderMsg.status == 4 || orderMsg.status == 5">
+						<view class="" style="font-size: 14px;flex: 1;">
+							<text style="margin-top: 15px;font-size: 14px;">{{orderMsg.des}}</text>
+						</view>
+						<view class="">
+							<text style="margin-top: 15px;font-size: 14px;font-weight: bold;margin-right: 15px;"
+								v-if="orderMsg.status == 4">{{orderMsg.service_time}}</text>
+						</view>
+					</view>
+					<view class="row"
+						style="margin-left: 15px;width: calc(100% - 30px);min-height: 50px;align-items: center;" v-else>
+						<view class="" style="font-size: 14px;flex: 1;">
+							<text style="font-size: 14px;">{{orderMsg.des}}</text>
+						</view>
+						<view class="">
+							<text style="font-size: 14px;font-weight: bold;margin-right: 15px;">{{orderMsg.service_time}}</text>
+						</view>
+					</view>
+					<!-- <view class="bottom_button" style="background-color: #FF5725;color: #FFF;" @click="orderAgain()"
+						v-if="orderMsg.status == 4 || orderMsg.status == 5">
+						{{i18n.mine.zailaiyidan}}
+					</view> -->
+				<!-- 	<view v-if="orderMsg.show_reminder == 1">
+						<text class="bottom_button" style="border:1px solid #FF5725;color: #FF5725;"
+							@click="doCuidan()">{{i18n.order.cuidan}}</text>
+					</view> -->
+				</view>
+			</view>
+		</view>
+		<!-- 非地图显示 -->
+		<view class="" style="width: 750rpx;" :style="'height:' + windowHeight + 'px;'" v-else>
+			<view class="topView" :style="'height:' + (statusBarHeight + 120) + 'px;'">
+				
+				<view class="" style="width: 750rpx;position: relative;" :style="'height:' + (statusBarHeight + 120) + 'px;'">
+					<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" style="width: 750rpx;" :style="'height:' + (statusBarHeight + 120) + 'px;'">
+						<swiper-item auto-play="true"  style="width: 750rpx;height: 100%;" v-for="(item, index) in orderMsg.store.environment"
+							:key="index">
+							<image style="width: 750rpx;height: 100%;" :src="item" mode="aspectFill"></image>
+						</swiper-item>
+					</swiper>
+					
+				</view>
+			<image src="../../../static/back-yuan.png" mode=""
+				style="left: 12px;bottom: 85px;width: 30px;height: 30px;position: absolute;" @click="doBack()">
+			</image>
+			</view>
+			<scroll-view scroll-y="true" class="Back-scroll" :style="'height:' + scrollHeight + 'px;'">
+				<!-- top:' + (statusBarHeight + 52) + 'px; -->
+				
+				<view class="store_name" @click="doStore()">
+					{{orderMsg.store.use_name}}
+					<image src="../../../static/ads-seld-right.png" mode=""
+						style="width: 20px;height: 20px;margin-left: 5px;" v-if="top_type_id != 2"></image>
+				</view>
+				<view >
+					<text class="orderxiangxixinxi">{{i18n.order.orderxiangxixinxi}}</text>
+				</view>
+			
+				<view class="item_view_vue">
+					<view >
+						<text class="item-title-label">{{i18n.order.orderbianhao}}</text>
+					</view>
+					<view >
+						<text class="item-des-label-vue">{{orderMsg.order_id}}</text>
+					</view>
+				</view>
+			
+				<view class="item_view_vue">
+					<view>
+						<text class="item-title-label">{{i18n.order.dinggoushangjia}}</text>
+					</view>
+					<view>
+						<text class="item-des-label-vue" style="color: #FF5725;">{{orderMsg.store.use_name}}</text>
+					</view>
+				</view>
+			
+				<view class="item_view_vue" v-if="orderMsg.shipping_type == '1'">
+					<view>
+						<text class="item-title-label">{{i18n.mine.shouhuodizhi}}</text>
+					</view>
+					<view>
+						<text class="item-des-label-vue" style="height: auto;">{{orderMsg.address.place + orderMsg.address.addr}}</text>
+					</view>
+				</view>
+				<view class="item_view_vue" v-if="orderMsg.shipping_type == 2">
+					<view>
+						<text class="item-title-label" style="width: auto;flex: 1;">{{i18n.order.tihuomendian}}</text>
+					</view>
+					<image src="../../../static/meishi/shangjia-ads.png" mode=""
+						style="width:15px;height:15px;margin-top:9px;margin-right: 3px;" @click="doSJMap()"></image>
+					<view>
+						<text class="item-des-label-vue" style="max-width: 60%;height: auto;width: auto;" @click="doSJMap()">{{orderMsg.pickup.address + ' ' + orderMsg.pickup.doorplate}}</text>
+					</view>
+				</view>
+				<view class="item_view_vue">
+					<view>
+						<text class="item-title-label">{{i18n.mine.xiadanshijian}}</text>
+					</view>
+					<view>
+						<text class="item-des-label-vue">{{orderMsg.add_time}}</text>
+					</view>
+				</view>
+			
+				<view class="item_view_vue">
+					<view>
+						<text class="item-title-label">{{i18n.order.zhifufangshi}}</text>
+					</view>
+					<view>
+						<text class="item-des-label-vue">{{orderMsg.pay_type_txt}}</text>
+					</view>
+				</view>
+			
+				<view class="item_view_vue">
+					<view>
+						<text class="item-title-label">{{i18n.order.peisongfuwu}}</text>
+					</view>
+					<view>
+						<text class="item-des-label-vue">{{orderMsg.shipping_type_txt}}</text>
+					</view>
+				</view>
+			
+				<view class="item_view_vue" v-if="orderMsg.shipping_type == '2'">
+					<view>
+						<text class="item-title-label">{{i18n.order.tihuoshijian}}</text>
+					</view>
+					<view>
+						<text class="item-des-label-vue">{{orderMsg.pickup.pickup_date}}</text>
+					</view>
+				</view>
+			
+				<view class="item_view_vue" v-if="orderMsg.shipping_type == '2'">
+					<view>
+						<text class="item-title-label">{{i18n.order.tihuoren}}</text>
+					</view>
+					<view>
+						<text class="item-des-label-vue">{{userinfo.user_nickname + ' ' + orderMsg.pickup.pickup_phone}}</text>
+					</view>
+				</view>
+			
+				<view class=""
+					style="margin-left: 30rpx;width: 690rpx;height: 1px;background-color: #D6DADE;margin-top: 10px;">
+				</view>
+			
+				<view v-for="(item,index) in orderMsg.cart_info" :key="index" class="item_view_vue"
+					style="height: 50px;margin-top: 18px;">
+					<image :src="item.product.image" mode="aspectFill"
+						style="width: 50px;height: 50px;border-radius: 4px;background-color: #F5f6f7;"></image>
+					<view class="column" style="height: 50px;flex:1;margin-left: 8px;">
+						<view class="" >
+							<text style="font-size: 14px;width: 100%;">{{item.product.use_name}}</text>
+						</view>
+						<view class="row" style="font-size: 12px;color:#6F6F6F;width: 100%;"
+							v-if="item.more_product_attr && item.more_product_attr.length > 0">
+							<text style="font-size: 12px;color: #646464;" v-for="(attr,a) in item.more_product_attr"
+								:key="a">{{attr.attr.use_attr_name + (a < item.more_product_attr.length -1 ? '、' : '')}}</text>
+						</view>
+						<view class="" v-if="item.product_attr_id > 0">
+							<text style="font-size: 12px;color:#6F6F6F;width: 100%;">{{item.attr.use_attr_name}}</text>
+						</view>
+						<view class="" style="font-size: 12px;color:#6F6F6F;width: 100%;" v-else>
+							<!-- {{i18n.yilou.wuguige}} -->
+						</view>
+						<view class="" >
+							<text style="font-size: 12px;color: #FF5725;width: 100%;">x{{item.cart_num}}</text>
+						</view>
+					</view>
+					<view class="row" style="align-items: center;">
+						<text style="font-size: 10px;font-weight: bold;">¥</text>
+						<text style="font-size: 14px;margin-left: 3px;">{{item.use_price}}</text>
+					</view>
+				</view>
+			
+				<view class=""
+					style="margin-left: 30rpx;width: 690rpx;height: 1px;background-color: #D6DADE;margin-top: 18px;">
+				</view>
+			
+				<view class="item_view_vue">
+					<view >
+						<text class="item-title-label" style="color: #181818;">{{i18n.meishi.xiaoji}}</text>
+					</view>
+					<view>
+						<text class="item-des-label-vue">¥{{xiaojiprice}}</text>
+					</view>
+				</view>
+			
+				<view class="item_view_vue" v-if="orderMsg.shipping_type == '1'">
+					<view>
+						<text class="item-title-label" style="color: #181818;">{{i18n.meishi.waisongfei}}</text>
+					</view>
+					<view>
+						<text class="item-des-label-vue">¥{{orderMsg.freight_price}}</text>
+					</view>
+				</view>
+				<view class="item_view_vue" v-if="orderMsg.coupon_price > 0">
+					<view>
+						<text class="item-title-label" style="color: #181818;">{{i18n.order.youhuizhekou}}</text>
+					</view>
+					<view>
+						<text class="item-des-label-vue" style="color: #FF5725;">-¥{{orderMsg.coupon_price}}</text>
+					</view>
+				</view>
+			
+			
+				<view class=""
+					style="margin-left: 30rpx;width: 690rpx;height: 1px;background-color: #D6DADE;margin-top: 18px;">
+				</view>
+			
+				<view class="item_view_vue">
+					<view>
+						<text class="item-title-label" style="color: #181818;font-weight: bold;">{{i18n.meishi.zongjine + '(' + i18n.meishi.hanshui + ')'}}</text>
+					</view>
+					<view>
+						<text class="item-des-label-vue">¥{{orderMsg.pay_price}}</text>
+					</view>
+				</view>
+				<view class="" style="width: 100%;height: 150px;">
+			
+				</view>
+			
+			
+			
+			</scroll-view>
+			
+			<!-- <view class="status_text" :style="'top:' + (statusBarHeight + 110) + 'px;'"> -->
+				<text class="status_text" :style="'top:' + (statusBarHeight + 110) + 'px;'">{{orderMsg.status_txt}}</text>
+			<!-- </view> -->
+			<view class="bottom_view" style="height: 150px;" v-if="orderMsg.show_reminder == 1">
+				<view class="bottom_contentView">
+					<view class="row" style="margin-left: 30rpx;width: 690rpx;min-height: 50px;">
+						<view class="">
+							<text style="font-size: 14px;width: 276rpx;margin-top: 15px;">{{orderMsg.des}}</text>
+						</view>
+						<view class="">
+							<text style="font-size: 14px;font-weight: bold;width: 414rpx;text-align: right;margin-top: 15px;">{{orderMsg.service_time}}</text>
+						</view>
+					</view>
+					<view @click="doCuidan()">
+						<text class="bottom_button" style="border:1px solid #FF5725;color: #FF5725;">{{i18n.order.cuidan}}</text>
+					</view>
+				</view>
+			</view>
+			<view class="bottom_view"
+				:style="((orderMsg.status == 1 || orderMsg.status == 2) && orderMsg.show_reminder != 1) || orderMsg.status == 7 ? 'height: 70px;' : 'height: 150px;'" v-else>
+				<view class="bottom_contentView">
+					<!-- (1:已付款(待接单) 2:待配送 3:配送中 4:已完成 5:退款 6:已备货) -->
+			
+					<view class="row" style="margin-left: 30rpx;width: 690rpx;min-height: 50px;"
+						v-if="orderMsg.status == 4 || orderMsg.status == 5 || orderMsg.status == 7">
+						<view class="">
+							<text style="margin-top: 15px;font-size: 14px;width: 276rpx;">{{orderMsg.des}}</text>
+						</view>
+						<view class="" 
+							v-if="orderMsg.status == 4">
+							<text style="margin-top: 15px;font-size: 14px;font-weight: bold;width: 414rpx;text-align: right;">{{orderMsg.service_time}}</text>
+						</view>
+					</view>
+					<view class="row"
+						style="margin-left: 30rpx;width: 690rpx;min-height: 50px;align-items: center;" v-else>
+						<view class="row" style="width: 276rpx;flex-wrap: wrap;" v-if="orderMsg.status == 0">
+							<text style="font-size: 14px;" >等待支付，剩余</text>
+							<text style="font-size: 14px;color: #FF5623;">{{count_downStr}}</text>
+							<text style="font-size: 14px;" >超时订单将自动取消</text>
+						</view>
+						<view class="" v-else>
+							<text  style="font-size: 14px;width: 276rpx;">{{orderMsg.des}}</text>
+						</view>
+						<view class="" 
+							v-if="orderMsg.shipping_type == '2'">
+							<text style="font-size: 14px;font-weight: bold;width: 414rpx;text-align: right;">{{i18n.order.tihuoshijian + orderMsg.pickup.pickup_date}}</text>
+						</view>
+						<view class="" v-else>
+							<text style="font-size: 14px;font-weight: bold;width: 414rpx;text-align: right;">{{orderMsg.service_time}}</text>
+						</view>
+			
+					</view>
+					<view class="row" style="width: 750rpx;margin-top: 10px;" v-if="orderMsg.status == 0">
+						<view
+							@click="doCancleOrder()">
+							<text class="bottom_button"
+							style="border:1px solid #FF5725;color: #FF5725;width: 330rpx;margin-left: 30rpx;">取消订单</text>
+						</view>
+						<view
+							@click="doPayOrder()">
+							<text class="bottom_button" style="background-color: #FF5725;color: #FFF;width: 330rpx;margin-left: 30rpx;">立即付款</text>
+						</view>
+			
+			
+					</view>
+					<view class="" style="width: 750rpx;margin-top: 10px;" v-if="top_type_id != 3">
+						<view @click="orderAgain()"
+							v-if="orderMsg.status == 4 || orderMsg.status == 5">
+							<text class="bottom_button" style="background-color: #FF5725;color: #FFF;" >{{i18n.mine.zailaiyidan}}</text>
+						</view>
+						<view @click="doCuidan()"
+							v-if="orderMsg.show_reminder == 1">
+							<text class="bottom_button" style="border:1px solid #FF5725;color: #FF5725;">{{i18n.order.cuidan}}</text>
+						</view>
+						<view  @click="doTihuoma()"
+							v-if="orderMsg.show_verify == 1">
+							<text class="bottom_button" style="border:1px solid #FF5725;color: #FF5725;">{{i18n.yilou.tihuoma}}</text>
+						</view>
+					</view>
+					<view class="row" style="justify-content: space-around;" v-else>
+						<view @click="orderAgain()"
+							v-if="orderMsg.status == 4 || orderMsg.status == 5">
+							<text class="bottom_button" style="background-color: #FF5725;color: #FFF;">{{i18n.mine.zailaiyidan}}</text>
+						</view>
+						<view @click="doCuidan()"
+							v-if="orderMsg.show_reminder == 1 && orderMsg.status < 4">
+							<text class="bottom_button" style="border:1px solid #FF5725;color: #FF5725;">{{i18n.order.cuidan}}</text>
+						</view>
+						<view
+							@click="dofuwuwancheng()" v-if="orderMsg.status == 3">
+							<text  class="bottom_button" style="background-color:#FF5725;color: #FFF;margin-right: 15px;">{{i18n.shansong.wancheng}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<cuidanV v-if="showCuidan" @cuidanle="cuidanle"></cuidanV>
+		<tihuoma v-if="showTihuoma" @cuidanle="cuidanle" :orderMsg="orderMsg"></tihuoma>
+		
+		<payView v-if="showpay" :money="payMoney" type="3" @closePayView="closePayView"></payView>
+	</view>
+</template>
+
+<script>
+	var amapFile = require('../../../libs/amap-wx.130.js'); //如：..­/..­/libs/amap-wx.js
+	var myAmapFun = new amapFile.AMapWX({
+		key: getApp().globalData.amapKey
+	});
+	// #ifdef APP-PLUS
+	const Binding = uni.requireNativePlugin('bindingx');
+	let obj = null
+	// #endif
+
+	import starV from '@/components/banxing/banStar.vue'
+	import http from '@/toolClass/WYToolClass.js'
+	import cuidanV from "@/package-mine/components/cuidan.vue"
+	import payView from '@/components/payview/payview.vue'
+	import tihuoma from "@/package-mine/components/tihuoma.vue"
+
+	export default {
+		components: {
+			starV,
+			cuidanV,
+			tihuoma,
+			payView
+		},
+		computed: {
+			i18n() {
+				return getApp().globalData.$t('index')
+			},
+		},
+		data() {
+			return {
+				windowHeight: 0,
+				screenHeight:0,
+				windowWidth: 0,
+				statusBarHeight: 0,
+				menuButtonWidth: 0,
+				markers: [],
+				latitude: 0,
+				longitude: 0,
+				polyline: [],
+				orderType: 0,
+				orderID: '',
+				orderMsg: null,
+				initTop: 0,
+				viewTop: 0,
+				detaileHeight: 0,
+				lastY: 0,
+				lastTY: 0,
+				isShowPrice: 0,
+				opacity: 0,
+				position: { // 记录小球当前位置
+					y: 0
+				},
+				top_type_id: '',
+				lianxiList: [],
+				showCuidan: false,
+				xiaojiprice: 0.00,
+				userinfo: null,
+				
+				showpay: false,
+				payMoney: 0,
+				showTihuoma: false,
+				count_down: 0,
+				count_downStr: '',
+				timer: null,
+				scrollHeight:0
+			}
+		},
+		onLoad(option) {
+			var res = uni.getSystemInfoSync()
+			var that = this
+			that.windowHeight = res.windowHeight
+			that.windowWidth = res.windowWidth
+			that.statusBarHeight = getApp().globalData.top
+			that.menuButtonWidth = getApp().globalData.menuButtonWidth
+			that.initTop = res.windowHeight * 0.675 - 80
+			that.viewTop = that.initTop
+			that.top_type_id = option.top_type_id
+
+			that.orderID = option.order
+			
+			that.userinfo = uni.getStorageSync('userinfo');
+
+			that.requestOrderDeatiles()
+
+		},
+
+		methods: {
+			requestOrderDeatiles(){
+				var that = this
+				http.sendRequest('MerchantStoreOrder.Read', {
+					'id': that.orderID
+				}).then(function(res) {
+					if (res.code == 0) {
+						that.orderMsg = res.info[0]
+						// that.orderMsg.store.environment = [
+						// 	'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2018-06-27%2F5b3345789ca2c.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1672800109&t=2f38f886858b12d1239e890bf4132984',
+						// 	'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Ff%2F57a42b9002e19.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1672800109&t=a5e8ba4ffdcbcefc1ab1ce042fb6c99c'
+						// ]
+						if (that.orderMsg.status == 0) {
+							if (that.orderMsg.count_down > 0) {
+								that.count_down = that.orderMsg.count_down
+								that.timer = setInterval(() => {
+									that.count_down--
+									that.showtime()
+								}, 1000)
+						
+							} else {
+								that.orderMsg.status = 7
+							}
+						}
+						
+						var xjp = 0
+						for (let i = 0; i < that.orderMsg.cart_info.length; i++) {
+							const p = that.orderMsg.cart_info[i]
+							xjp = xjp + parseFloat(p.use_price)
+						}
+						that.xiaojiprice = xjp.toFixed(2)
+						if (that.orderMsg.status == 4) {
+							if (that.orderMsg.shipping_type == 1) {
+								if(that.orderMsg.is_evaluate == 0){
+									that.lianxiList = [{
+											'name': that.i18n.meishi.pingjia,
+											'image': '../../static/images/order/pingjia.png',
+											'id': 0
+										},
+										
+										{
+											'name': that.i18n.order.zhidianshangjia,
+											'image': '../../static/images/order/zhidian.png',
+											'id': 3
+										}
+									]
+								}else{
+									that.lianxiList = [
+										
+										{
+											'name': that.i18n.order.zhidianshangjia,
+											'image': '../../static/images/order/zhidian.png',
+											'id': 3
+										}
+									]
+								}
+								
+								
+							} else {
+								if(that.orderMsg.is_evaluate == 0){
+									that.lianxiList = [{
+											'name': that.i18n.meishi.pingjia,
+											'image': '../../static/images/order/pingjia.png',
+											'id': 0
+										},
+										
+										{
+											'name': that.i18n.order.zhidianshangjia,
+											'image': '../../static/images/order/zhidian.png',
+											'id': 3
+										}
+									]
+								}else{
+									that.lianxiList = [
+										
+										{
+											'name': that.i18n.order.zhidianshangjia,
+											'image': '../../static/images/order/zhidian.png',
+											'id': 3
+										}
+									]
+								}
+								
+							}
+						
+						} else {
+							if (that.orderMsg.status == 3) {
+								that.statusBarHeight = getApp().globalData.top + 48
+								that.lianxiList = [
+									{
+										'name': that.i18n.order.zhidianshangjia,
+										'image': '../../static/images/order/zhidian.png',
+										'id': 3
+									}
+								]
+								that.latitude = uni.getStorageSync('latitude')
+								that.longitude = uni.getStorageSync('longitude')
+								var iconPath = ''
+								// if (that.orderType == 5) {
+								// 	iconPath = '../../static/images/order/order-map-ban.png'
+								// } else if (that.orderType == 4) {
+								// 	iconPath = '../../static/images/order/order-map-pai.png'
+								// } else {
+								iconPath = '../../static/images/order/order-map-shou.png'
+								// }
+								that.markers = [{
+									"id": 12312232,
+									"width": 45,
+									"height": 45,
+									"latitude": that.orderMsg.address.lat,
+									"longitude": that.orderMsg.address.lng,
+									"iconPath": iconPath,
+									'coordType': 'wgs84'
+								}]
+								that.requestOrderMessage()
+							}else{
+								that.lianxiList = [
+									{
+										'name': that.i18n.order.zhidianshangjia,
+										'image': '../../static/images/order/zhidian.png',
+										'id': 3
+									}
+								]
+							}
+							
+						}
+						console.log(that.orderMsg)
+						//(1:已付款(待接单) 2:待配送 3:配送中 4:已完成 5:退款 6:已备货)
+						if(that.orderMsg.show_reminder == 1){
+							that.scrollHeight = that.windowHeight - that.statusBarHeight - 120 - 150
+							
+						}else{
+							if(that.orderMsg.status == 3){
+								
+							}else {
+								if ((that.orderMsg.status == 1 && that.orderMsg.show_reminder != 1) || that.orderMsg
+									.status == 7 || that.orderMsg.status == 2) {
+									that.scrollHeight = that.windowHeight - that.statusBarHeight - 120 - 70
+								} else {
+									that.scrollHeight = that.windowHeight - that.statusBarHeight - 120 - 150
+								}
+							}
+						}
+						
+						
+						 
+						// that.orderType = that.orderMsg.type
+						console.log(that.orderMsg)
+						
+					}
+				})
+			},
+			doBack() {
+				uni.navigateBack({
+					success: res => {
+						console.log(res)
+					},
+					fail: (error) => {
+						console.log('fail', error)
+						uni.reLaunch({
+							url: '/pages/index/index'
+						})
+					}
+				})
+			},
+			requestOrderMessage() {
+				var that = this
+				http.sendRequest('Orders.GetLocation', {
+					'orderid': that.orderID,
+					'type': '1'
+				}).then(function(res) {
+					if (res.code == 0) {
+
+						// var dic = {
+						// 	"id": 12312234,
+						// 	"width": 45,
+						// 	"height": 45,
+						// 	"latitude": res.info[0].lat,
+						// 	"longitude": res.info[0].lng,
+						// 	"iconPath": '../../../static/qishi-header.png',
+						// 	'coordType': 'wgs84',
+						// 	"callout": {
+						// 		"content": '',
+						// 		"padding": '5',
+						// 		"borderRadius": '12.5',
+						// 		"textAlign": 'center',
+						// 		"display": 'ALWAYS',
+						// 		"color": '#323232',
+						// 		"bgColor": '#FFFFFF',
+						// 		"fontSize": '14',
+						// 	}
+						// }
+
+						that.getRidingRoute(res.info[0])
+					}
+				})
+			},
+			getRidingRoute(dic) {
+				var that = this
+				// if (that.orderMsg.status == 3 && that.orderMsg.extra.type != 2) {
+				console.log(parseFloat(dic.lng).toFixed(6) + ',' + parseFloat(dic.lat).toFixed(6))
+				myAmapFun.getRidingRoute({
+					origin: that.orderMsg.address.lng + ',' + that.orderMsg.address.lat, //'117.135215,36.192833',
+					destination: parseFloat(dic.lng).toFixed(6) + ',' + parseFloat(dic.lat).toFixed(
+						6), //'117.135215,36.292833',
+					success: function(data) {
+						console.log(data)
+						var distance = data.paths[0].distance
+						var ssss = that.i18n.yilou.jushoujiandi
+						// if (that.orderType == 1 || that.orderType == 2) {
+						// 	ssss = '距取件地'
+						// } else if (that.orderType == 3) {
+						// 	ssss = '距购买地'
+						// } else {
+						// 	ssss = '距服务地'
+						// }
+						var showDis = ''
+						if (distance > 999) {
+							showDis = ssss + parseFloat(distance / 1000).toFixed(1) + 'km'
+						} else {
+							showDis = ssss + distance + 'm'
+						}
+						// dic.callout.content = showDis
+						var iconPath = ''
+						if (that.orderType == 5) {
+							iconPath = '../../static/images/order/order-map-ban.png'
+						} else if (that.orderType == 4) {
+							iconPath = '../../static/images/order/order-map-pai.png'
+						} else {
+							iconPath = '../../static/images/order/order-map-shou.png'
+						}
+						// var mmmm = [{
+						// 		"id": 12312232,
+						// 		"width": 45,
+						// 		"height": 45,
+						// 		"latitude": that.orderMsg.address.lat,
+						// 		"longitude": that.orderMsg.address.lng,
+						// 		"iconPath": iconPath,
+						// 		'coordType': 'wgs84'
+						// 	},
+						// 	{
+						// 		"id": 12312234,
+						// 		"width": 45,
+						// 		"height": 45,
+						// 		"latitude": dic.lat,
+						// 		"longitude": dic.lng,
+						// 		"iconPath": '../../../static/qishi-header.png',
+						// 		'coordType': 'wgs84',
+						// 		"callout": {
+						// 			"content": showDis,
+						// 			"padding": '5',
+						// 			"borderRadius": '12.5',
+						// 			"textAlign": 'center',
+						// 			"display": 'ALWAYS',
+						// 			"color": '#323232',
+						// 			"bgColor": '#FFFFFF',
+						// 			"fontSize": '14',
+						// 		}
+						// 	}
+						// ]
+						// if (that.orderType < 4) {
+
+						var iconPathF = '../../static/images/order/order-map-qu.png'
+						// if (that.orderType == 3) {
+						// 	iconPathF = '../../static/images/order/order-map-mai.png'
+						// }
+						var mmmm = [{
+								"id": 12312232,
+								"width": 45,
+								"height": 45,
+								"latitude": that.orderMsg.address.lat,
+								"longitude": that.orderMsg.address.lng,
+								"iconPath": iconPath,
+								'coordType': 'wgs84'
+							},
+							{
+								"id": 12312233,
+								"width": 45,
+								"height": 45,
+								"latitude": that.orderMsg.store.lat,
+								"longitude": that.orderMsg.store.lng,
+								"iconPath": iconPathF,
+								'coordType': 'wgs84'
+							},
+							{
+								"id": 12312234,
+								"width": 45,
+								"height": 45,
+								"latitude": dic.lat,
+								"longitude": dic.lng,
+								"iconPath": '../../../static/qishi-header.png',
+								'coordType': 'wgs84',
+								"callout": {
+									"content": showDis,
+									"padding": '5',
+									"borderRadius": '12.5',
+									"textAlign": 'center',
+									"display": 'ALWAYS',
+									"color": '#323232',
+									"bgColor": '#FFFFFF',
+									"fontSize": '14',
+								}
+							}
+						]
+						// }
+						that.markers = mmmm
+						// if (that.markers.count == 2) {
+						// 	that.markers.pop()
+						// }
+						// that.markers.push(dic)
+						console.log(that.markers)
+						that.$forceUpdate()
+
+					},
+					fail: function(info) {
+						console.log(info)
+					}
+				})
+				// } else {
+				// 	myAmapFun.getRidingRoute({
+				// 		origin: that.orderMsg.t_lng + ',' + that.orderMsg.t_lat, //'117.135215,36.192833',
+				// 		destination: dic.lng + ',' + dic.lat, //'117.135215,36.292833',
+				// 		success: function(data) {
+				// 			console.log(data)
+				// 			var distance = data.paths[0].distance
+				// 			var showDis = ''
+				// 			var ssss = that.i18n.yilou.jushoujiandi
+				// 			// if (that.orderType == 1 || that.orderType == 2 || that.orderType == 3) {
+				// 			// 	ssss = '距收件地'
+				// 			// } else {
+				// 			// 	ssss = '距服务地'
+				// 			// }
+				// 			if (distance > 999) {
+				// 				showDis = ssss + parseFloat(distance / 1000).toFixed(1) + 'km'
+				// 			} else {
+				// 				showDis = ssss + distance + 'm'
+				// 			}
+				// 			// dic.callout.content = showDis
+				// 			var iconPath = ''
+				// 			if (that.orderType == 5) {
+				// 				iconPath = '../../static/images/order/order-map-ban.png'
+				// 			} else if (that.orderType == 4) {
+				// 				iconPath = '../../static/images/order/order-map-pai.png'
+				// 			} else {
+				// 				iconPath = '../../static/images/order/order-map-shou.png'
+				// 			}
+				// 			var mmmm = [{
+				// 					"id": 12312232,
+				// 					"width": 45,
+				// 					"height": 45,
+				// 					"latitude": that.orderMsg.t_lat,
+				// 					"longitude": that.orderMsg.t_lng,
+				// 					"iconPath": iconPath,
+				// 					'coordType': 'wgs84'
+				// 				},
+				// 				{
+				// 					"id": 12312234,
+				// 					"width": 45,
+				// 					"height": 45,
+				// 					"latitude": dic.lat,
+				// 					"longitude": dic.lng,
+				// 					"iconPath": '../../../static/qishi-header.png',
+				// 					'coordType': 'wgs84',
+				// 					"callout": {
+				// 						"content": showDis,
+				// 						"padding": '5',
+				// 						"borderRadius": '12.5',
+				// 						"textAlign": 'center',
+				// 						"display": 'ALWAYS',
+				// 						"color": '#323232',
+				// 						"bgColor": '#FFFFFF',
+				// 						"fontSize": '14',
+				// 					}
+				// 				}
+				// 			]
+				// 			if (that.orderType < 4 && that.orderMsg.extra.type != 2) {
+
+				// 				var iconPathF = '../../static/images/order/order-map-qu.png'
+				// 				if (that.orderType == 3) {
+				// 					iconPathF = '../../static/images/order/order-map-mai.png'
+				// 				}
+				// 				mmmm = [{
+				// 						"id": 12312232,
+				// 						"width": 45,
+				// 						"height": 45,
+				// 						"latitude": that.orderMsg.t_lat,
+				// 						"longitude": that.orderMsg.t_lng,
+				// 						"iconPath": iconPath,
+				// 						'coordType': 'wgs84'
+				// 					},
+				// 					{
+				// 						"id": 12312233,
+				// 						"width": 45,
+				// 						"height": 45,
+				// 						"latitude": that.orderMsg.f_lat,
+				// 						"longitude": that.orderMsg.f_lng,
+				// 						"iconPath": iconPathF,
+				// 						'coordType': 'wgs84'
+				// 					},
+				// 					{
+				// 						"id": 12312234,
+				// 						"width": 45,
+				// 						"height": 45,
+				// 						"latitude": dic.lat,
+				// 						"longitude": dic.lng,
+				// 						"iconPath": '../../../static/qishi-header.png',
+				// 						'coordType': 'wgs84',
+				// 						"callout": {
+				// 							"content": showDis,
+				// 							"padding": '5',
+				// 							"borderRadius": '12.5',
+				// 							"textAlign": 'center',
+				// 							"display": 'ALWAYS',
+				// 							"color": '#323232',
+				// 							"bgColor": '#FFFFFF',
+				// 							"fontSize": '14',
+				// 						}
+				// 					}
+				// 				]
+				// 			}
+				// 			// if (that.markers.count == 2) {
+				// 			// 	that.markers.pop()
+				// 			// }
+				// 			// that.markers.push(dic)
+
+				// 			that.markers = mmmm
+				// 			console.log(that.markers)
+				// 			that.$forceUpdate()
+
+				// 		},
+				// 		fail: function(info) {
+				// 			console.log(info)
+				// 		}
+				// 	})
+				// }
+
+			},
+			//订单追踪
+			doOrderStateDetail() {
+				uni.navigateTo({
+					url: './ordertracking?orderID=' + this.orderID
+				})
+			},
+			//退款进度
+			tuikuanjindu() {
+				uni.navigateTo({
+					url: 'refundOrder/refundDetails?orderID=' + this.orderID
+				})
+			},
+			onChange(e) {
+
+			},
+			doApplyReturnMoney() {
+				uni.navigateTo({
+					url: './refundOrder/applyRefund?orderID=' + this.orderID + '&orderno=' + this.orderMsg
+						.orderno + '&money=' + this.orderMsg.money
+				})
+
+			},
+			call() {
+				var that = this
+				uni.makePhoneCall({
+					phoneNumber: that.orderMsg.rider.mobile
+				})
+			},
+			showBigImage(index) {
+				var that = this
+				uni.previewImage({
+					current: index,
+					urls: that.orderMsg.thumbs,
+				})
+			},
+			priceMessage() {
+				this.isShowPrice = !this.isShowPrice
+			},
+			copyWord() {
+				var that = this
+				uni.setClipboardData({
+					data: that.orderMsg.orderno
+				})
+				uni.showToast({
+					title: '复制成功',
+					icon: 'none'
+				})
+			},
+			touchmove: function(event) {
+				// #ifdef APP-PLUS
+				return;
+				// #endif
+
+				let currentY = event.changedTouches[0].pageY;
+				let ty = currentY - this.lastY;
+				// console.log(currentY,ty,this.lastY)
+				let text = ''
+				// #ifdef APP-PLUS
+
+				// #endif
+				if (ty < 0) {
+					if (this.lastTY > 0 && this.lastTY < 5) {
+						return
+					}
+					text = '向上滑动';
+
+				} else if (ty > 0) {
+					text = '向下滑动';
+					if (this.lastTY < 0 && this.lastTY > -5) {
+						return
+					}
+				}
+				this.lastTY = ty
+				// this.opacity = 0.5
+				const query = uni.createSelectorQuery().in(this);
+				query.select('#detaileView').boundingClientRect(data => {
+
+					let aaaa = this.windowHeight - data.bottom
+					// console.log(aaaa ,this.windowHeight ,data.bottom)
+					//将当前坐标进行保存以进行下一次计算
+					if (aaaa < 40) {
+						this.viewTop = this.viewTop + ty
+						if (this.viewTop > this.initTop) {
+							this.viewTop = this.initTop
+						}
+						this.onchangeOpacity()
+					} else {
+						if (ty > 0) {
+							this.viewTop = this.viewTop + ty
+							this.onchangeOpacity()
+						}
+					}
+
+					this.lastY = currentY;
+				}).exec();
+
+
+			},
+			handletouchstart: function(event) {
+				this.lastY = event.changedTouches[0].pageY;
+				// #ifdef APP-PLUS
+				this.moveAppPlus()
+				// #endif
+
+
+			},
+			moveAppPlus() {
+				const drapview = this.getEl(this.$refs.detaileView)
+				obj = Binding.bind({
+					anchor: drapview,
+					eventType: 'pan',
+					props: [{
+						element: drapview,
+						property: 'transform.translateY',
+						expression: `y+${this.position.y}`,
+					}]
+				}, (e) => {
+					if (e.state === 'end') {
+						// Binding.unbind({
+						// 	token: obj.token,
+						// 	eventType: 'pan'
+						// })
+						console.log(e.deltaY)
+						this.position.y += e.deltaY
+						console.log(this.position.y)
+						this.onchangeOpacity()
+					}
+				})
+			},
+			getEl(el) {
+				if (typeof el === 'string' || typeof el === 'number') return el;
+				if (WXEnvironment) {
+					return el.ref;
+				} else {
+					return el instanceof HTMLElement ? el : el.$el;
+				}
+			},
+			onchangeOpacity() {
+				// console.log(this.viewTop)
+				const query = uni.createSelectorQuery().in(this);
+				query.select('#detaileView').boundingClientRect(data => {
+					// #ifdef APP-PLUS
+					const drapview = this.getEl(this.$refs.detaileView)
+					let moveY = 0
+					let time = 500
+					if (this.position.y < 0) {
+						if (data.bottom < this.windowHeight) {
+							moveY = -(this.position.y + data.height - this.windowHeight / 3)
+						}
+					} else {
+						if (this.position.y > 0) {
+							moveY = 0 - this.position.y
+						}
+					}
+					const expression_y =
+						`easeInOutCubic(t,${this.position.y},${moveY},${time})`
+					let result = Binding.bind({
+						eventType: 'timing',
+						exitExpression: `t>=${time}`,
+						props: [{
+							element: drapview,
+							property: 'transform.translateY',
+							expression: expression_y
+						}]
+					}, (e) => {
+						if (e.state === 'end' || e.state === 'exit') {
+							this.position.y += moveY
+							// Binding.unbind({
+							// 	eventType: 'timing',
+							// 	token: result.gesToken
+							// })
+						}
+					});
+					// if (data.bottom < (data.height - (this.windowHeight - this.viewTop) + 40)) {
+					// 	this.position.y = -(data.height - (this.windowHeight - this.viewTop) + 40)
+					// 	this.moveAppPlus()
+					// }
+					// if (data.top >= this.viewTop) {
+					// 	this.position.y = 0
+					// 	this.moveAppPlus()
+					// }
+					// #endif
+
+					console.log(data.top, data.bottom)
+					//将当前坐标进行保存以进行下一次计算
+					if (data.top <= this.statusBarHeight) {
+						this.opacity = (this.statusBarHeight - data.top) / this.statusBarHeight > 1 ? 1 : (this
+							.statusBarHeight - data.top) / this.statusBarHeight
+					} else {
+						this.opacity = 0
+					}
+				}).exec();
+
+			},
+			doCuidan() {
+				console.log(21211212)
+				this.showCuidan = true
+			},
+			cuidanle(str) {
+				this.showCuidan = false
+				if (str.length > 0) {
+					var that = this
+					http.sendRequest('MerchantStoreOrder.Reminder', {
+						'id': that.orderID,
+						'content': str
+					}).then(function(res) {
+						// console.log(res)
+						uni.showToast({
+							title:res.msg,
+							icon:'none',
+							duration:2000
+						})
+					})
+				}
+			},
+			lianxi(id) {
+				if (id == 0) {
+					if (this.top_type_id == 1) {
+						uni.navigateTo({
+							url: './orderEvaluate?orderID=' + this.orderID
+						})
+					} else if (this.top_type_id == 3) {
+						uni.navigateTo({
+							url: './fuwuEVA?orderID=' + this.orderID
+						})
+					} else if (this.top_type_id == 2) {
+					
+					} else if (this.top_type_id == 4) {
+					
+					} else {
+						uni.navigateTo({
+							url: './marketEVA?orderID=' + this.orderID
+						})
+					}
+				} else if (id == 1) {
+					var that = this
+					http.sendRequest('MerchantStoreOrder.SubmitOrder', {
+						'rider_id': that.orderMsg.rider.id,
+						'orderid': that.orderMsg.order_id,
+						'order_type': 1
+					}).then(function(res) {
+						var dic = {
+							ordernum: that.orderMsg.order_id,
+							id: that.orderMsg.id,
+							ads: that.orderMsg.address.place + that.orderMsg.address.addr,
+							type: 0
+						}
+						const dicstr = JSON.stringify(dic)
+						console.log(dicstr)
+						uni.navigateTo({
+							url: `/pages/TUI-Chat/chat?conversationID=C2C${that.orderMsg.rider_im.uid}&order=${dicstr}`
+						})
+					})
+					// uni.navigateTo({
+					// 	url: `/pages/TUI-Chat/chat?conversationID=C2C${this.orderMsg.rider_im.uid}`
+					// })
+
+				} else if (id == 2) {
+					uni.navigateTo({
+						url: `/pages/TUI-Chat/chat?conversationID=C2C${this.orderMsg.im.uid}`
+					})
+
+				} else {
+					uni.makePhoneCall({
+						phoneNumber: this.orderMsg.store.phone
+					})
+				}
+			},
+			closePayView(e) {
+				console.log(e)
+				var that = this
+			
+				that.showpay = false
+				if (e == 0) {
+			
+				} else {
+					var url = ''
+					var dic = {
+						// #ifdef APP-PLUS
+						'pay_type': e.id,
+						// #endif
+						'id': that.orderMsg.id,
+						// #ifdef MP-WEIXIN
+						'openid': uni.getStorageSync('openid'),
+						'pay_type': e.id == 2 ? '3' : e.id,
+						// #endif
+			
+					}
+			
+					url = 'MerchantStoreOrder.Pay'
+			
+					http.sendRequest(url, dic).then(function(res) {
+						if (res.code == 0) {
+							if (e.id == 1) {
+								uni.requestPayment({
+									provider: 'alipay',
+									orderInfo: res.info[0].ali
+										.orderinfo, //微信、支付宝订单数据 【注意微信的订单信息，键值应该全部是小写，不能采用驼峰命名】
+									success: function(res) {
+										uni.showToast({
+											title: '支付成功',
+											duration: 2000
+										})
+										console.log('success:' + JSON.stringify(res));
+			
+										that.requestOrderDeatiles()
+			
+									},
+									fail: function(err) {
+										console.log('fail:' + JSON.stringify(err));
+										uni.showToast({
+											title: '支付失败',
+											duration: 2000
+										})
+									}
+								});
+							} else if (e.id == 2) {
+								uni.requestPayment({
+									"provider": "wxpay",
+									// #ifdef APP-PLUS
+									"orderInfo": res.info[0].wx,
+									// #endif
+									// #ifdef MP-WEIXIN
+									'timeStamp': res.info[0].small.timeStamp,
+									'nonceStr': res.info[0].small.nonceStr,
+									'package': res.info[0].small.package,
+									'signType': res.info[0].small.signType,
+									'paySign': res.info[0].small.sign,
+									// #endif
+			
+			
+									// {
+									//     "appid": "wx499********7c70e",  // 微信开放平台 - 应用 - AppId，注意和微信小程序、公众号 AppId 可能不一致
+									//     "noncestr": "c5sEwbaNPiXAF3iv", // 随机字符串
+									//     "package": "Sign=WXPay",        // 固定值
+									//     "partnerid": "148*****52",      // 微信支付商户号
+									//     "prepayid": "wx202254********************fbe90000", // 统一下单订单号 
+									//     "timestamp": 1597935292,        // 时间戳（单位：秒）
+									//     "sign": "A842B45937F6EFF60DEC7A2EAA52D5A0" // 签名，这里用的 MD5 签名
+									// }
+									success(res) {
+										uni.showToast({
+											title: '支付成功',
+											duration: 2000
+										})
+										console.log(res)
+			
+										// that.doBack()
+										that.requestOrderDeatiles()
+			
+									},
+									fail(e) {
+										console.log(e)
+										uni.showToast({
+											title: '支付失败',
+											duration: 2000
+										})
+									}
+								})
+							} else {
+								uni.showToast({
+									title: '支付成功',
+									duration: 2000
+								})
+								// if (url == 'Orders.Fee') {
+								// 	that.orderMsg.fee = that.orderMsg.fee * 1 + that.addTipMoney * 1
+								// 	that.orderMsg.money = that.orderMsg.money * 1 + that.addTipMoney * 1
+								// } else {
+								// that.doBack()
+								that.requestOrderDeatiles()
+								// }
+			
+							}
+						} else {
+							uni.showToast({
+								title: '支付失败',
+								duration: 2000
+							})
+						}
+			
+					})
+			
+				}
+			
+			},
+			doTihuoma() {
+				this.showTihuoma = true
+			},
+			dofuwuwancheng() {
+				uni.showLoading({
+					title: '  '
+				})
+				var that = this
+				http.sendRequest('Serve.ServiceComplete', {
+					'id': that.orderID,
+				}).then(function(res) {
+					uni.hideLoading()
+					if (res.code == 0) {
+						that.requestOrderDeatiles()
+					}
+			
+				})
+				setTimeout(function() {
+					uni.hideLoading()
+				}, 2000);
+			},
+			doCancleOrder() {
+				var that = this
+				uni.showModal({
+					title: '',
+					content: '是否确定取消订单',
+					showCancel: true,
+					cancelText: '取消',
+					confirmText: '确定',
+					success: res => {
+						if (res.confirm) {
+							that.requestCancle('MerchantStoreOrder.Cancel')
+						}
+					},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			requestCancle(e) {
+				var that = this
+				http.sendRequest(e, {
+					'id': that.orderID
+				}).then(function(res) {
+					if (res.code == 0) {
+						uni.navigateBack({
+			
+						})
+					}
+				})
+			},
+			
+			
+			doPayOrder() {
+				this.addTipMoney = 0
+				this.payMoney = this.orderMsg.pay_price
+				this.showpay = true
+			},
+			showtime() {
+				if (this.count_down < 0) {
+					clearInterval(this.timer)
+					this.requestOrderDeatiles()
+				} else {
+					var min = Math.floor(this.count_down / 60)
+					var seconds = Math.floor(this.count_down % 60)
+					if (min < 10) {
+						min = '0' + min
+					}
+					if (seconds < 10) {
+						seconds = '0' + seconds
+					}
+					this.count_downStr = min + ':' + seconds
+				}
+			
+			
+			},
+			orderAgain() {
+				
+				var that = this
+				console.log(that.orderID,that.top_type_id)
+				http.sendRequest('MerchantStoreOrder.Again', {
+					'id': that.orderID,
+				}).then(function(res) {
+					console.log(res)
+					// that.listArray = res.info
+					//1:美食 2:闪送 3:服务 4:找店 5:超市 6:生鲜 7:送药 8:家政
+					if (res.code == 0) {
+						if (that.top_type_id == 1) {
+							uni.navigateTo({
+								url: '/package-meishi/pages/store/store?id=' + that.orderMsg.store.id
+							})
+						} else if (that.top_type_id == 3) {
+							uni.navigateTo({
+								url: '/package-other/pages/service/detaile/index?id=' + that.orderMsg
+									.store.id
+							})
+						} else if (that.top_type_id == 2) {
+			
+						} else if (that.top_type_id == 4) {
+			
+						} else {
+							uni.navigateTo({
+								url: '/package-other/pages/market/store/store?id=' + that.orderMsg.store
+									.id + '&type=' + that.top_type_id
+							})
+						}
+					}
+			
+				})
+			},
+		}
+	}
+</script>
+
+<style>
+	.page {
+		height: 100%;
+		overflow: hidden;
+		background-color: #F8F8F8;
+		width: 750rpx;
+	}
+
+	.content {
+		flex-direction: column;
+		/* align-items: center;
+		justify-content: center; */
+		background-color: #F8F8F8;
+		width: 750rpx;
+		overflow: hidden;
+	}
+
+	.row {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.column {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.mapView {
+		width: 750rpx;
+		background-color: #1AAD19;
+	}
+
+	.returnImage {
+		margin-left: 12px;
+		margin-top: 50px;
+		width: 60rpx;
+		height: 60rpx;
+	}
+
+	.detaileView {
+		position: absolute;
+		margin-left: 24rpx;
+		width: 702rpx;
+		background-color: white;
+		border-radius: 10px 10px 0px 0px;
+	}
+
+	.orderStateLabel {
+		width: 140rpx;
+		margin-left: 281rpx;
+		text-align: center;
+		height: 30px;
+		line-height: 30px;
+		font-size: 20px;
+		font-weight: bold;
+		color: #323232;
+	}
+
+	.label-30H {
+		line-height: 28px;
+		height: 28px;
+		font-size: 14px;
+		color: #989898;
+		margin-top: 1px;
+		text-align: center;
+	}
+
+	.item_view {
+
+		margin-left: 30rpx;
+		width: 642rpx;
+		display: flex;
+		min-height: 32px;
+
+		flex-direction: row;
+	}
+	.item_view_vue {
+	
+		margin-left: 30rpx;
+		width: 690rpx;
+		display: flex;
+		min-height: 32px;
+	
+		flex-direction: row;
+	}
+	.item-title-label {
+		/* background-color: #1AAD19; */
+		margin-top: 6px;
+		color: #6F6F6F;
+		height: 20px;
+		line-height: 20px;
+		width: 300rpx;
+		font-size: 14px;
+	}
+
+	.item-des-label {
+		margin-top: 6px;
+		color: #181818;
+		font-weight: bold;
+		height: 20px;
+		line-height: 20px;
+		text-align: right;
+		width: 342rpx;
+		margin-bottom: 6px;
+		font-size: 14px;
+	}
+	.item-des-label-vue {
+		margin-top: 6px;
+		color: #181818;
+		font-weight: bold;
+		height: 20px;
+		line-height: 20px;
+		text-align: right;
+		width: 390rpx;
+		margin-bottom: 6px;
+		font-size: 14px;
+	}
+	.orderCell-dtal-header-typeLabel {
+		margin-top: 16px;
+		width: 56px;
+		height: 20px;
+		border-radius: 2px;
+		font-size: 12px;
+		line-height: 20px;
+		text-align: center;
+	}
+
+	.order-ads-item-cycle {
+		width: 8px;
+		height: 8px;
+		border-radius: 4px;
+		border: 2px solid #FF5725;
+		margin-left: 9px;
+		margin-top: 28.5px;
+		/* flex-shrink: 0; */
+		/* background-color: #007AFF; */
+	}
+
+	.order-ads-item-middle {
+		margin-left: 10px;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		margin-right: 8px;
+		/* background-color: #007AFF; */
+		/* flex-shrink: 1; */
+		flex: 1;
+	}
+
+	.order-ads-item-ads {
+		margin-top: 15px;
+		height: 18px;
+		line-height: 18px;
+		font-size: 16px;
+		font-weight: bold;
+		color: #323232;
+		overflow: hidden;
+	}
+
+	.order-ads-item-ads-tip {
+		height: 20px;
+		line-height: 20px;
+		font-size: 13px;
+		color: #989898;
+		overflow: hidden;
+	}
+	
+	.status_text {
+		position: absolute;
+		left: 32px;
+		height: 20px;
+		line-height: 20px;
+		border-radius: 2px;
+		padding-left: 5px;
+		padding-right: 5px;
+		font-size: 11px;
+		font-weight: bold;
+		color: #FFF;
+		background-color: #FF5725;
+	}
+
+	.store_lianxi {
+		margin-top: 28px;
+		margin-left: 30rpx;
+		width: 642rpx;
+		height: 64px;
+		display: flex;
+		flex-direction: row;
+		border: 1px solid #FF5725;
+		border-radius: 8px;
+		/* border-width: 1px;
+		border-color: #FF5725; */
+		align-items: center;
+		justify-content: space-around;
+	}
+
+	.store_name {
+		margin-left: 15px;
+		width: calc(100% - 30px);
+		height: 64px;
+		line-height: 64px;
+		font-size: 18px;
+		font-weight: bold;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.orderxiangxixinxi {
+		margin-left: 15px;
+		width: calc(100% - 30px);
+		height: 40px;
+		line-height: 40px;
+		font-size: 14px;
+		font-weight: bold;
+	}
+
+	.bottom_view {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 750rpx;
+		height: 150px;
+		background-color: rgba(0, 0, 0, 0);
+	}
+
+	.bottom_contentView {
+		box-shadow: 0px 0px 10px 10px rgba(50, 50, 59, 0.1);
+		background-color: #FFF;
+		margin-top: 10px;
+		width: 750rpx;
+		height: 140px;
+	}
+
+	.bottom_button {
+		margin-left: 30rpx;
+		width: 690rpx;
+		height: 49px;
+		border-radius: 8px;
+		line-height: 49px;
+		font-size: 14px;
+		font-weight: bold;
+		text-align: center;
+	}
+	.topView {
+		width: 750rpx;
+		background-color: #FF5725;
+		/* background: linear-gradient(to right, #FE8328, #FF4B21); */
+	}
+	.Back-scroll {
+		/* position: absolute; */
+		/* margin-left: 12px; */
+		width: 750rpx;
+		background-color: #FFF;
+	}
+</style>

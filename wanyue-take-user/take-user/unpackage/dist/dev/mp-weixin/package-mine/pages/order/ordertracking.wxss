@@ -1,0 +1,12 @@
+
+page {
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF;
+	/* overflow: hidden; */
+}
+.teacking-cell{
+	width: 100%;
+	height: 76px;
+}
+

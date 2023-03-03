@@ -1,0 +1,232 @@
+{
+    "name" : "万岳外卖",
+    "appid" : "__UNI__638379D",
+    "description" : "",
+    "versionName" : "1.2.0",
+    "versionCode" : "100",
+    "transformPx" : false,
+    /* 5+App特有相关 */
+    "app-plus" : {
+        "compatible" : {
+            "ignoreVersion" : true //true表示忽略版本检查提示框，HBuilderX1.9.0及以上版本支持  
+        },
+        "usingComponents" : true,
+        "nvueStyleCompiler" : "uni-app",
+        "compilerVersion" : 3,
+        "splashscreen" : {
+            "alwaysShowBeforeRender" : true,
+            "waiting" : true,
+            "autoclose" : true,
+            "delay" : 0
+        },
+        "safearea" : {
+            "bottom" : {
+                "offset" : "none"
+            }
+        },
+        /* 模块配置 */
+        "modules" : {
+            "Maps" : {},
+            "Payment" : {},
+            "OAuth" : {},
+            "Geolocation" : {},
+            "Share" : {},
+            "VideoPlayer" : {},
+            "Camera" : {}
+        },
+        /* 应用发布信息 */
+        "distribute" : {
+            /* android打包配置 */
+            "android" : {
+                "permissions" : [
+                    "<uses-feature android:name=\"android.hardware.camera\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\"/>",
+                    "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+                    "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+                    "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.INTERNET\"/>",
+                    "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\"/>",
+                    "<uses-permission android:name=\"com.huawei.android.launcher.permission.CHANGE_BADGE\" />"
+                ],
+                "abiFilters" : [ "armeabi-v7a", "arm64-v8a", "x86" ]
+            },
+            /* ios打包配置 */
+            "ios" : {
+                "dSYMs" : false,
+                "idfa" : false
+            },
+            /* SDK配置 */
+            "sdkConfigs" : {
+                "maps" : {
+                    "amap" : {
+                        "appkey_ios" : "67466b2cf30b856beab770476132014f",
+                        "appkey_android" : "791d622c5eb4d6865e829eca8d050d6e"
+                    }
+                },
+                "ad" : {},
+                "payment" : {
+                    "alipay" : {
+                        "__platform__" : [ "ios", "android" ]
+                    },
+                    "weixin" : {
+                        "__platform__" : [ "ios", "android" ],
+                        "appid" : "wxcaca1fd4f5dea470",
+                        "UniversalLinks" : "https://zasf0.share2dlink.com/"
+                    }
+                },
+                "share" : {
+                    "weixin" : {
+                        "appid" : "wxcaca1fd4f5dea470",
+                        "UniversalLinks" : "https://zasf0.share2dlink.com/"
+                    },
+                    "qq" : {
+                        "appid" : "101864645",
+                        "UniversalLinks" : "https://take.sdwanyue.com/"
+                    }
+                },
+                "oauth" : {
+                    "qq" : {
+                        "appid" : "101864645",
+                        "UniversalLinks" : "https://take.sdwanyue.com/"
+                    },
+                    "weixin" : {
+                        "appid" : "wxcaca1fd4f5dea470",
+                        "appsecret" : "9bb0021aa25ee179b3aca1f676ff6dbb",
+                        "UniversalLinks" : "https://zasf0.share2dlink.com/"
+                    }
+                },
+                "geolocation" : {
+                    "amap" : {
+                        "__platform__" : [ "ios", "android" ],
+                        "appkey_ios" : "67466b2cf30b856beab770476132014f",
+                        "appkey_android" : "791d622c5eb4d6865e829eca8d050d6e"
+                    }
+                }
+            },
+            "icons" : {
+                "android" : {
+                    "hdpi" : "unpackage/res/icons/72x72.png",
+                    "xhdpi" : "unpackage/res/icons/96x96.png",
+                    "xxhdpi" : "unpackage/res/icons/144x144.png",
+                    "xxxhdpi" : "unpackage/res/icons/192x192.png"
+                },
+                "ios" : {
+                    "appstore" : "unpackage/res/icons/1024x1024.png",
+                    "ipad" : {
+                        "app" : "unpackage/res/icons/76x76.png",
+                        "app@2x" : "unpackage/res/icons/152x152.png",
+                        "notification" : "unpackage/res/icons/20x20.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "proapp@2x" : "unpackage/res/icons/167x167.png",
+                        "settings" : "unpackage/res/icons/29x29.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "spotlight" : "unpackage/res/icons/40x40.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png"
+                    },
+                    "iphone" : {
+                        "app@2x" : "unpackage/res/icons/120x120.png",
+                        "app@3x" : "unpackage/res/icons/180x180.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "notification@3x" : "unpackage/res/icons/60x60.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "settings@3x" : "unpackage/res/icons/87x87.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png",
+                        "spotlight@3x" : "unpackage/res/icons/120x120.png"
+                    }
+                }
+            },
+            "splashscreen" : {
+                "iosStyle" : "storyboard",
+                "ios" : {
+                    "storyboard" : "D:/wanyue/waimai-uni/wanyue-take-user/IOSLaunch.zip"
+                },
+                "androidStyle" : "default",
+                "android" : {
+                    "hdpi" : "D:/wanyue/waimai-uni/wanyue-take-user/AndroidLaunch/hdpi/loading.png",
+                    "xhdpi" : "D:/wanyue/waimai-uni/wanyue-take-user/AndroidLaunch/xhdpi/loading.png",
+                    "xxhdpi" : "D:/wanyue/waimai-uni/wanyue-take-user/AndroidLaunch/xxhdpi/loading.png"
+                },
+                "useOriginalMsgbox" : true
+            }
+        },
+        "nativePlugins" : {}
+    },
+    /* 快应用特有相关 */
+    "quickapp" : {},
+    /* 小程序特有相关 */
+    "mp-weixin" : {
+        "appid" : "wx88ce0419d182313c",
+        "setting" : {
+            "urlCheck" : false,
+            "minified" : true
+        },
+        "usingComponents" : true,
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "你的位置信息将用于万岳外卖获取定位展示"
+            }
+        },
+        "requiredPrivateInfos" : [ "getLocation" ]
+    },
+    "mp-alipay" : {
+        "usingComponents" : true
+    },
+    "mp-baidu" : {
+        "usingComponents" : true
+    },
+    "mp-toutiao" : {
+        "usingComponents" : true
+    },
+    "uniStatistics" : {
+        "enable" : false
+    },
+    "fallbackLocale" : "zh-Hans",
+    "h5" : {
+        "title" : "万岳外卖",
+        "router" : {
+            "base" : "/UNIAPP/",
+            "mode" : "hash"
+        },
+        "domain" : "https://take.sdwanyue.com/UNIAPP/",
+        "devServer" : {
+            "https" : false,
+            "port" : 8000,
+            "disableHostCheck" : true,
+            "proxy" : {
+                "api" : {
+                    // "target" : "https://taketest2.sdwanyue.com",
+                    "target" : "https://take.sdwanyue.com/",
+                    "changeOrigin" : true,
+                    "secure" : false
+                }
+            }
+        },
+        "optimization" : {
+            "subPackages" : true
+        },
+        "runmode" : "liberate",
+        "template" : "",
+        "uniStatistics" : {
+            "enable" : false
+        }
+    }
+}

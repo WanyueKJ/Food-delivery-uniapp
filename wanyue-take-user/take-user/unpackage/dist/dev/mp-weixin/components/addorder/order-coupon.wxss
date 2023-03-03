@@ -1,0 +1,199 @@
+
+.showView {
+	width: 750rpx;
+	height: 800rpx;
+	border-radius: 32rpx 32rpx 0 0;
+	background-color: #FFFFFF;
+	position: fixed;
+	bottom: 0;
+}
+.heaerView{
+	display: flex;
+	flex-direction: row;
+	height: 108rpx;
+	/* border-bottom: 1px solid #f0f0f0; */
+}
+.titleText{
+	height: 108rpx;
+	line-height: 108rpx;
+	margin-left: 160rpx;
+	width: 430rpx;
+	color: #323232;
+	font-size: 36rpx;
+	font-weight: bold;
+	display:inline-block;
+	text-align: center;
+}
+.closeBtn{
+	position: absolute;
+	width: 40rpx;
+	height: 40rpx;
+	margin-top: 32rpx;
+	right: 20rpx;
+	/* background-color: #007AFF; */
+}
+.contentView{
+	display: flex;
+	flex-direction: column;
+	/* top: 54px; */
+	bottom: 0px;
+	width: 750rpx;
+	left: 0;
+}
+.typeView{
+	width: 750rpx;
+	height: 40rpx;
+	display: flex;
+	flex-direction: row;
+}
+.typeLabel{
+	width: 375rpx;
+	text-align: center;
+	height: 40rpx;
+	line-height: 40rpx;
+	font-size: 28rpx;
+	color: #989898;
+	margin-left: 0;
+}
+.leftLabel {
+	margin-left: 20rpx;
+	height: 32rpx;
+	line-height: 32rpx;
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #323232;
+}
+.scroll {
+	margin-left: 20rpx;
+	width: 710rpx;
+	height: 480rpx;
+	margin-top: 10rpx;
+	/* position: absolute; */
+	/* background-color: #FF5625; */
+	/* flex-wrap: wrap; */
+	/* white-space: nowrap;
+	display: flex;
+	justify-content: flex-start; */
+}
+.couponCell {
+	width: 710rpx;
+	height: 160rpx;
+	margin-bottom: 20rpx;
+	border-radius: 10rpx;
+	background-color: #FEF4F2;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+}
+.zhanweiWhite {
+	position: absolute;
+	left:-10rpx;
+	top: 70rpx;
+	height: 20rpx;
+	width: 20rpx;
+	border-radius: 10rpx;
+	background-color: #FFFFFF;
+}
+.coupon-leftView{
+	width: 160rpx;
+	height: 160rpx;
+	/* background-color: #007AFF; */
+}
+.coupon-leftView-typeL{
+	display: flex;
+	width: 104rpx;
+	height: 32rpx;
+	line-height: 32rpx;
+	font-size: 20rpx;
+	text-align: center;
+	color: #FF5725;
+	border-radius: 8rpx 0 8rpx 0;
+	background-color: #FFDAD3;
+	left: 0;
+}
+.coupon-leftView-priceView{
+	width: 160rpx;
+	height: 96rpx;
+	display: flex;
+	flex-direction: row;
+	/* align-items: flex-end; */
+	justify-content: center;
+}
+.coupon-leftView-priceL{
+	height: 96rpx;
+	line-height: 96rpx;
+	font-size: 64rpx;
+	font-weight: bold;
+	text-align: center;
+	color: #FF5725;
+}
+.lineImageView{
+	margin-left: 0;
+	margin-top: 0px;
+	height: 160rpx;
+	width: 2rpx;
+	background-color: #FF5725;
+}
+.coupon-MiddelView{
+	margin-left: 0;
+	margin-top: 0px;
+	height: 160rpx;
+	width: 300rpx;
+	/* background-color: #007AFF; */
+	display: flex;
+	flex-direction: column;
+}
+.coupon-MiddelView-nameL{
+	margin-left: 20rpx;
+	margin-top: 20rpx;
+	height: 40rpx;
+	line-height: 40rpx;
+	color: #FF5725;
+	/* width: 240rpx; */
+	font-size: 28rpx;
+	font-weight: bold;
+}
+.coupon-select_image{
+	position: absolute;
+	right: 24rpx;
+	width: 32rpx;
+	height: 32rpx;
+	margin-top: 64rpx;
+}
+.coupon-MiddelView-msgL{
+	margin-left: 20rpx;
+	margin-top: 0px;
+	height: 40rpx;
+	line-height: 40rpx;
+	color: #FF5725;
+	font-size: 24rpx;
+}
+.tipimage{
+	margin-left: 20rpx;
+	width: 28rpx;
+	height: 28rpx;
+	margin-top: 26rpx;
+}
+.tipText{
+	margin-left: 10rpx;
+	margin-top: 20rpx;
+	height: 40rpx;
+	line-height: 40rpx;
+	font-size: 24rpx;
+	color: #FF5725;
+}
+.subBtnClass{
+	margin-top: 20rpx;
+	margin-left: 20rpx;
+	width: 710rpx;
+	height: 96rpx;
+	border-radius: 48rpx;
+	background-color: #FF5725;
+	line-height: 96rpx;
+	color: #FFFFFF;
+	font-size: 32rpx;
+	font-weight: bold;
+	text-align: center;
+}
+
+

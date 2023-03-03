@@ -1,0 +1,58 @@
+
+page {
+	width: 100%;
+	height: 100%;
+	background-color: #f5f6f7;
+}
+.topImg {
+	width: 100%;
+}
+.swiper-item {
+	width: 100%;
+	height: 100%;
+}
+.swiper-item-image {
+	width: 100%;
+	height: 100%;
+}
+.msgView {
+	margin-left: 12px;
+	width: calc(100% - 24px);
+	background-color: #FFF;
+	border-radius: 0 0 8px 8px;
+	height: 190px;
+}
+.cell {
+	width: 100%;
+	height: 47px;
+	font-size: 14px;
+	line-height: 47px;
+	border-bottom: 1px solid #f5f6f7;
+}
+.inputView {
+	min-width: 35%;
+	height: 100%;
+	line-height: 47px;
+	flex: 1;
+}
+.codetext {
+	color: #A8A8A8;
+	font-size: 13px;
+	margin-right: 12px;
+	height: 100%;
+}
+.sub {
+	position: absolute;
+	left: 15px;
+	right: 15px;
+	bottom: 10px;
+	height: 49px;
+	border-radius: 8px;
+	background-color: #FF5725;
+	font-size: 14px;
+	color: #FFF;
+	font-weight: bold;
+	text-align: center;
+	line-height: 49px;
+}
+

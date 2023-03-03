@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "bot-ads": "/components/homeAds/bottom",
+    "top-ads": "/components/homeAds/top"
+  }
+}

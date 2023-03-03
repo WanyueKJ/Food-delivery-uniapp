@@ -1,0 +1,32 @@
+
+page{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.header {
+	width: 100%;
+	height: 40px;
+	background-color: #F7F7F7;
+	font-size: 15px;
+	color: #6F6F6F;
+	line-height: 40px;
+	padding-left: 15px;
+}
+.cell {
+	margin-left: 15px;
+	width: calc(100% - 30px);
+	font-size: 15px;
+	color: #323232;
+	line-height: 40px;
+	position: relative;
+}
+.line {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 1px;
+	background-color: #D6DADE;
+}
+

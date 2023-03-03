@@ -1,0 +1,37 @@
+
+.white_view {
+	width: 600rpx;
+	height: 230px;
+	background-color: #FFF;
+	border-radius: 16px;
+}
+.text_back_view {
+	margin-left: 30rpx;
+	width: 540rpx;
+	height: 110px;
+	background-color: #F5F6F7;
+	border-radius: 8px;
+}
+.text_view {
+	margin-left: 10rpx;
+	margin-top: 5px;
+	width: 520rpx;
+	height: 100px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.bottom_button_cuidan {
+	margin-left: 120rpx;
+	width: 360rpx;
+	height: 40px;
+	border-radius: 8px;
+	line-height: 40px;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	background-color: #FF5725;
+	color: #FFF;
+	margin-top: 15px;
+	display: inline-block;
+}
+

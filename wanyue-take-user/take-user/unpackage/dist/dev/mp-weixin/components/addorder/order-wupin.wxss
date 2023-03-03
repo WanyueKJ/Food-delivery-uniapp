@@ -1,0 +1,123 @@
+
+.showView {
+	width: 750rpx;
+	height: 800rpx;
+	border-radius: 32rpx 32rpx 0 0;
+	background-color: #FFFFFF;
+	position: fixed;
+	bottom: 0;
+}
+.heaerView {
+	display: flex;
+	flex-direction: row;
+	height: 108rpx;
+	/* border-bottom: 1px solid #f0f0f0; */
+}
+.titleText {
+	height: 108rpx;
+	line-height: 108rpx;
+	/* left: 160rpx; */
+	width: 750rpx;
+	color: #323232;
+	font-size: 36rpx;
+	font-weight: bold;
+	display: inline-block;
+	text-align: center;
+}
+.closeBtn {
+	position: absolute;
+	width: 40rpx;
+	height: 40rpx;
+	top: 34rpx;
+	right: 20rpx;
+	/* background-color: #007AFF; */
+}
+.contentView {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	/* top: 54px; */
+	bottom: 0px;
+	width: 750rpx;
+	left: 0;
+	height: 692rpx;
+	/* background-color: #18BC37; */
+}
+.leftLabel {
+	margin-left: 20rpx;
+	height: 32rpx;
+	line-height: 32rpx;
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #323232;
+}
+.scroll {
+	margin-left: 20rpx;
+	width: 710rpx;
+	height: 180rpx;
+	margin-top: 10rpx;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.scrol-item {
+	display: inline-block;
+	width: 160rpx;
+	height: 60rpx;
+	border-radius: 6rpx;
+	border-color: #D9D9D9;
+	border-width: 2rpx;
+	background-color: #FFFFFF;
+	margin-right: 10rpx;
+	margin-top: 16rpx;
+	color: #646464;
+	line-height: 60rpx;
+	font-size: 24rpx;
+	text-align: center;
+}
+.sliderBacKView {
+	display: flex;
+	flex-direction: row;
+	margin-left: 20rpx;
+	margin-top: 5rpx;
+	width: 710rpx;
+	height: 80rpx;
+	/* background-color: #007AFF; */
+}
+.sliderL {
+	width: 80rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	font-size: 28rpx;
+	color: #989898;
+}
+.tipimage {
+	margin-left: 20rpx;
+	width: 28rpx;
+	height: 28rpx;
+	margin-top: 26rpx;
+}
+.tipText {
+	margin-left: 10rpx;
+	margin-top: 20rpx;
+	height: 40rpx;
+	line-height: 40rpx;
+	font-size: 24rpx;
+	color: #FF5725;
+}
+.subBtnClass {
+	/* position: absolute; */
+	margin-top: 80rpx;
+	bottom: 40rpx;
+	margin-left: 20rpx;
+	width: 710rpx;
+	height: 96rpx;
+	border-radius: 48rpx;
+	background-color: #FF5725;
+	line-height: 96rpx;
+	color: #FFFFFF;
+	font-size: 32rpx;
+	font-weight: bold;
+	text-align: center;
+}
+

@@ -1,0 +1,40 @@
+<scroll-view class="container" scroll-y="true" style="display: {{!preview ? 'block' : 'none'}};">
+    <view class="upload-tips">上传图片到 COS 共享给他人查看，长按图片可删除</view>
+    <view class="album-container">
+        <view class="item-group" wx:for="{{layoutList}}" wx:for-item="group" wx:for-index="rowIndex" wx:key="group">
+            <block wx:for="{{group}}" wx:for-item="item" wx:for-index="cellIndex" wx:key="item">
+                <block wx:if="{{item.type==='add'}}">
+                    <view class="upload-add-outer">
+                        <view class="upload-add" bindtap="chooseImage">
+                            <image src="/images/camera.png" mode="aspectFit"></image>
+                            <text>上传图片</text>
+                        </view>
+                    </view>
+                </block>
+                <block wx:elif="{{item}}">
+                    <image bindtap="enterPreviewMode" bindlongtap="showActions" data-src="{{item}}" class="album-item" src="{{item}}" mode="aspectFill"></image>
+                </block>
+                <block wx:else>
+                    <view class="album-item empty"></view>
+                </block>
+            </block>
+        </view>
+    </view>
+</scroll-view>
+
+<swiper class="swiper-container" duration="{{slideDuration}}" current="{{previewIndex}}" bindtap="leavePreviewMode" style="display: {{previewMode ? 'block' : 'none'}};">
+  <block wx:for="{{albumList}}" wx:for-item="item" wx:key="item">
+    <swiper-item>
+      <image src="{{item}}" mode="aspectFit"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<action-sheet hidden="{{!showActionsSheet}}" bindchange="hideActionSheet">
+    <action-sheet-item bindtap="downloadImage">保存到本地</action-sheet-item>
+    <action-sheet-item class="warn" bindtap="deleteImage">删除图片</action-sheet-item>
+    <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+</action-sheet>
+
+<loading hidden="{{!showLoading}}" bindchange="hideLoading">{{loadingMessage}}</loading>
+<toast hidden="{{!showToast}}" duration="1000" bindchange="hideToast">{{toastMessage}}</toast>

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "star-v": "/components/banxing/banStar",
+    "cuidan": "/package-mine/components/cuidan",
+    "tihuoma": "/package-mine/components/tihuoma",
+    "pay-view": "/components/payview/payview"
+  }
+}

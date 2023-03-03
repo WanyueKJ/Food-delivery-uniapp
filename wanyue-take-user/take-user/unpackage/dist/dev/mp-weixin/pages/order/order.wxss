@@ -1,0 +1,61 @@
+
+page {
+	width: 100%;
+	height: 100%;
+	background-color: #F7F8F9;
+	overflow: hidden;
+}
+.content {
+	width: 100%;
+	height: 100%;
+}
+.returnImage {
+	margin-left: 15px;
+	height: 20px;
+	width: 20px;
+}
+.weixin-rightBtn {
+	margin-top: 13px;
+	height: 20px;
+	width: 20px;
+	right: 12px;
+	position: absolute;
+}
+.typeButton-odr {
+	display: inline-block;
+	/* width: 70px; */
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #646464;
+	font-size: 14px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.typeButton-odr-sel {
+	display: inline-block;
+	/* width: 70px; */
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #FF5725;
+	font-size: 14px;
+	font-weight: bolder;
+	position: relative;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.typeButton-odr-sel::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 2px;
+	width: 28px;
+	height: 9rpx;
+	margin: 0 auto;
+	background-color: #FF5725;
+	border-radius: 4.5rpx;
+}
+
+

@@ -1,0 +1,27 @@
+
+.leftimg {
+	margin-left: 15px;
+	margin-top: 15px;
+	width: 20px;
+	height: 20px;
+}
+.word {
+	margin-left: 5px;
+	margin-top: 15px;
+	font-size: 14px;
+	color: #383838;
+	line-height: 20px;
+}
+.msgView {
+	margin-left: 15px;
+	width: calc(100% - 30px);
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+.item {
+	margin-top: 10px;
+	width: calc(30%);
+	margin-right: 3%;
+}
+

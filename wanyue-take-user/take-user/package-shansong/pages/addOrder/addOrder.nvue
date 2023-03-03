@@ -1,0 +1,732 @@
+<template>
+	<view class="content" :style="'height:' +windowHeight + 'px;'">
+		<map id="wyhomeMap" class="mapView" :latitude="latitude" :longitude="longitude" scale="16"  :markers="markers"
+			:polyline="polyline" :show-location="false">
+			<cover-image src="../../../static/back-yuan.png" mode="" class="returnImage" @click="doBack">
+			</cover-image>
+		</map>
+		<scroll-view scroll-y class="scroll-backview" :style="'height:' + (windowHeight-384) + 'px;'"
+			:show-scrollbar="false">
+			<view class="order-adsView">
+				<view class="order-ads-item">
+					<text class="order-ads-item-cycle" v-if="type == 1">{{i18n.shansong.fa}}</text>
+					<text class="order-ads-item-cycle" v-else>{{i18n.shansong.qu}}</text>
+					<view class="order-ads-item-middle">
+						<text class="order-ads-item-ads oneline">{{foAds.place + foAds.addr}}</text>
+						<text class="order-ads-item-ads-tip oneline">{{foAds.name + ' ' + foAds.mobile}}</text>
+					</view>
+					<view class="order-ads-right" @click="dosddress(2)">
+						<view class="order-ads-right-line">
+
+						</view>
+						<text class="order-ads-right-title">{{i18n.shansong.dizhibu}}</text>
+					</view>
+
+				</view>
+				<view class="order-ads-item">
+					<text class="order-ads-item-cycle" style="background-color: #26CC91;">{{i18n.shansong.shou}}</text>
+					<view class="order-ads-item-middle">
+						<text class="order-ads-item-ads oneline">{{toAds.place + toAds.addr}}</text>
+						<text class="order-ads-item-ads-tip oneline">{{toAds.name + ' ' + toAds.mobile}}</text>
+					</view>
+					<view class="order-ads-right" @click="dosddress(3)">
+						<view class="order-ads-right-line">
+
+						</view>
+						<text class="order-ads-right-title">{{i18n.shansong.dizhibu}}</text>
+					</view>
+				</view>
+				<view class="order-ads-item" style="height: 50px;" @click="doselectTime">
+					<text class="leftLabel-p">{{i18n.shansong.qujianshijian}}</text>
+					<view class="rightButton">
+						<text class="rightButton-text">{{timeValue.tian + ' ' + timeValue.time}}</text>
+						<image src="../../../static/ads-seld-right.png" mode="" class="rightButton-image"></image>
+					</view>
+				</view>
+				<!-- #ifndef H5 -->
+				<image src="../../../static/order/qiehuan.png" mode="" class="changeButton-p" @click="doExchangeAds()">
+				</image>
+				<!-- #endif -->
+			</view>
+
+			<view class="order-adsView" style="height: 100px;margin-top: 10px;">
+				<view class="order-ads-item" style="height: 50px;" @click="doselectWupinxinxi">
+					<text class="leftLabel-p">{{i18n.shansong.wupinxinxi}}</text>
+					<view class="rightButton"> 
+						<!-- <input type="text" :value="wyMsg.type ? `${wyMsg.type.name} ${wyMsg.weight}KG` :''"
+							:placeholder="i18n.shansong.wupinplacehold" class="rightButton-text" disabled="true" style="color: #323232;" /> -->
+						<!-- <text class="rightButton-text" >立即取件</text> -->
+						<text class="rightButton-text" style="color: #323232;" v-if="wyMsg.type">{{wyMsg.type.name}} {{wyMsg.weight}}KG</text>
+						<text class="rightButton-text" style="color: #969696;" v-else>{{i18n.shansong.wupinplacehold}}</text>
+						
+						<image src="../../static/images/ads-seld-right.png" mode="" class="rightButton-image"></image>
+						
+					</view>
+				</view>
+				<view class="order-ads-item" style="height: 50px;" @click="doAddBeizhu">
+					<text class="leftLabel-p">{{i18n.shansong.beizhu}}</text>
+					<view class="rightButton">
+						<!-- <input type="text" :value="beizhuStr" :placeholder="i18n.shansong.beizhutip" class="rightButton-text"
+							disabled="true" style="color: #323232;" /> -->
+							<text class="rightButton-text" style="color: #323232;" v-if="beizhuStr.length > 0">{{beizhuStr}}</text>
+							<text class="rightButton-text" style="color: #969696;" v-else>{{i18n.shansong.beizhutip}}</text>
+						<image src="../../static/images/ads-seld-right.png" mode="" class="rightButton-image"></image>
+					</view>
+				</view>
+			</view>
+
+			<!-- <view class="order-adsView" style="height: 50px; margin-top: 10px;">
+				<view class="order-ads-item" style="height: 50px;" @click="doselectCoupon">
+					<text class="leftLabel-p">{{i18n.meishi.youhuiquan}}</text>
+					<view class="rightButton">
+						<input type="text" :value="goupon.name" :placeholder="i18n.shansong.xuanzeyouhiquan" class="rightButton-text"
+							disabled="true" style="color: #323232;" />
+						<image src="../../../static/ads-seld-right.png" mode="" class="rightButton-image"></image>
+					</view>
+				</view>
+			</view> -->
+			<view class="order-adsView" style="height: 50px; margin-top: 10px;">
+				<view class="order-ads-item" style="height: 50px;" @click="doselectSmallMoney">
+					<text class="leftLabel-p">{{i18n.shansong.xiaofei}}</text>
+					<view class="rightButton">
+						<!-- <input type="text" :value="tipMoney.length > 0 ? tipMoney + '¥' : ''" :placeholder="i18n.shansong.jijianjiasu"
+							class="rightButton-text" disabled="true" style="color: #323232;" /> -->
+							<text class="rightButton-text" style="color: #323232;" v-if="tipMoney.length > 0">{{tipMoney + '¥'}}</text>
+							<text class="rightButton-text" style="color: #969696;" v-else>{{i18n.shansong.jijianjiasu}}</text>
+						<image src="../../static/images/ads-seld-right.png" mode="" class="rightButton-image"></image>
+					</view>
+				</view>
+			</view>
+			<view class="xieyiView">
+				<image :src="isAgree ? '/static/item-sel.png' : '/static/item-nor.png'" mode="" class="xieyiButn-p"
+					@click="doAgreeXieyi"></image>
+				<text class="xieyiTitle">{{i18n.shansong.yudubingtongyi}}</text>
+				<text class="xieyiTitle" style="color: #FF5725; margin-left: 0px;"
+					@click="doXieyiWebview">{{i18n.shansong.tongchengxieyi}}</text>
+			</view>
+		</scroll-view>
+		<view class="bottomView">
+			<view class="priceLeftView row" v-if="priceDic.money_basic">
+				<text class="priceLeftView_rmb">¥</text>
+				<text class="priceLeftView_priceL">{{price}}</text>
+				<text class="priceLeftView_mingxi" @click="showPriceDetailes()">{{i18n.shansong.jiagemingxi}}</text>
+				<!-- #ifndef H5 -->
+				<image src="../../../static/order/price-up.png" mode="" class="priceLeftView_mingxiIMG"
+					@click="showPriceDetailes()"></image>
+				<!-- #endif -->
+			</view>
+			<text class="priceLabel" v-else>{{i18n.shansong.wanzhengdizhihuode}}</text>
+			<text :style="isPayOrderClick ? 'opacity: 0.5;' : 'opacity: 1;'" class="subBtnClass2222"
+				@click="doAddOrder()">{{i18n.shansong.lijixiadan}}</text>
+		</view>
+		<timev :type="type" v-if="isShowTime"></timev>
+		<wupinMsgV v-if="isShowWPMsg"></wupinMsgV>
+		<couponMsgV :type="type" :money="priceToGoupon" v-if="isShowGoupon"></couponMsgV>
+		<tipMoneyV v-if="isShowTip"></tipMoneyV>
+		<priceDatl :priceDic="priceDic" :priceNum="price" v-if="isShowPrceDatl"></priceDatl>
+		<payView v-if="showpay" :money="price" type="2" @closePayView="closePayView"></payView>
+	</view>
+	<!-- <image src="../../../static/order/mao-shou-pic.png" mode=""></image> -->
+</template>
+
+<script>
+	import http from '../../../toolClass/WYToolClass.js'
+	import timev from '../../../components/addorder/order-time.vue'
+	import wupinMsgV from '../../../components/addorder/order-wupin.vue'
+	import couponMsgV from '../../../components/addorder/order-coupon.vue'
+	import tipMoneyV from '../../../components/addorder/order-tip.vue'
+	import priceDatl from '../../../components/addorder/order-priceDatl.vue'
+	import payView from '../../../components/payview/payview.vue'
+	
+	import NB from "number-precision"
+	var amapFile = require('../../../libs/amap-wx.130.js'); //如：..­/..­/libs/amap-wx.js
+	var myAmapFun = new amapFile.AMapWX({
+		key: getApp().globalData.amapKey
+	});
+	export default {
+		components: {
+			timev,
+			wupinMsgV,
+			couponMsgV,
+			tipMoneyV,
+			priceDatl,
+			payView
+		},
+		computed: {
+			i18n() {
+				// return this.$t('index')
+				return getApp().globalData.$t('index') //当然页面中就是按Vue页面里那样使用了  
+			},
+		},
+		data() {
+			return {
+				windowHeight: 0,
+				windowWidth: 0,
+				markers: [],
+				latitude: 0,
+				longitude: 0,
+				polyline: [],
+				isAgree: 0,
+				isShowTime: 0,
+				timeValue: {
+					'time': '请选择',
+					'servetime': 0,
+					'tian': ''
+				},
+				isShowWPMsg: 0,
+				wyMsg: {},
+				foAds: {},
+				toAds: {},
+				beizhuStr: '',
+				isShowGoupon: 0,
+				goupon: {
+					'name': '',
+					'id': '0',
+					'limit': 0
+				},
+				isShowTip: 0,
+				tipMoney: '',
+				price: '',
+				priceToGoupon:'0',
+				type: '',
+				distance: '',
+				distanceTime: 0,
+				timemoney: 0, //服务时间加价
+				priceDic: {
+					'money_basic':0,
+					'money_distance':0,
+					'money_weight':0,
+					'money_time':0
+				},
+				isShowPrceDatl: 0,
+				showpay: 0,
+				isPayOrderClick: 1,
+				order_id: null
+			}
+		},
+		onReady() {
+			this.timeValue = {
+					'time': this.i18n.shansong.qingxuanze,
+					'servetime': 0,
+					'tian':''
+				}
+		},
+		onUnload() {
+			// 移除监听事件  
+			uni.$off('timeSelcted');
+			uni.$off('wupinMsgSelcted');
+			uni.$off('beizhuChange');
+			uni.$off('couponSelcted');
+			uni.$off('tipMoneyAdd');
+			uni.$off('chooseAddressSucess2');
+			uni.$off('priceDatlHide');
+
+		},
+		onLoad(option) {
+			var res = uni.getSystemInfoSync()
+			var that = this
+
+			that.foAds = JSON.parse(option.fromads)
+			that.toAds = JSON.parse(option.toads)
+			console.log(that.foAds, that.toAds)
+			that.type = option.type
+			that.windowHeight = res.windowHeight
+			that.windowWidth = res.windowWidth
+			that.latitude = uni.getStorageSync('latitude')
+			that.longitude = uni.getStorageSync('longitude')
+			that.getRidingRouteDistance()
+			uni.$on('timeSelcted', (e) => {
+				console.log(e)
+				that.isShowTime = 0
+				if (e != 0) {
+					that.timeValue = e
+					that.helpsendCheckTime()
+				}
+			})
+			uni.$on('wupinMsgSelcted', (e) => {
+				that.isShowWPMsg = 0
+				if (e != 0) {
+					that.wyMsg = e
+					that.helpsendComputed()
+				}
+			})
+			uni.$on('beizhuChange', (e) => {
+				that.beizhuStr = e
+			})
+			uni.$on('couponSelcted', (e) => {
+				that.isShowGoupon = 0
+				if (e != 'close') {
+					if (e == 0) {
+						that.goupon = {
+							'name': '',
+							'id': '0',
+							'limit': 0
+						}
+						that.priceDic.money_coupon = 0
+					} else {
+						that.goupon = e
+						that.goupon.name = '- ¥ ' + that.goupon.limit
+						that.priceDic.money_coupon = that.goupon.limit
+					}
+					that.dojisuanjiage()
+				}
+			})
+			uni.$on('tipMoneyAdd', (e) => {
+				that.isShowTip = 0
+				console.log(e)
+				if (e == 0) {
+					that.tipMoney = ''
+					that.priceDic.money_small = 0
+				} else {
+					that.tipMoney = e
+					that.priceDic.money_small = that.tipMoney
+				}
+				that.dojisuanjiage()
+			})
+			uni.$on('chooseAddressSucess2', (msg) => {
+				if (msg.type == 0) {
+					that.foAds = msg
+				} else {
+					that.toAds = msg
+				}
+				this.getRidingRouteDistance()
+
+			})
+			uni.$on('priceDatlHide', (e) => {
+				that.isShowPrceDatl = 0
+			})
+		},
+		onShow() {
+			var that = this
+			if (that.order_id && that.order_id.length > 0) {
+				that.getOrderStatus()
+			}
+		},
+		methods: {
+			getOrderStatus() {
+				var that = this
+				that.http.sendRequest('Orders.GetDetail', {
+					'orderid': that.order_id,
+				}).then(function(res) {
+					if (res.code == 0) {
+						var info = res.info[0]
+						console.log(info)
+						if (info.status == 2) {
+							that.doOrderList()
+						}
+					}
+				})
+			},
+			doBack() {
+				uni.navigateBack({
+
+				})
+			},
+			dosddress(e) {
+				uni.navigateTo({
+					url: '/package-mine/pages/address/address?fromW=order&adsType=' + e
+				})
+			},
+			doAgreeXieyi() {
+				this.isAgree = !this.isAgree
+			},
+			doXieyiWebview() {
+				var url = getApp().globalData.weburl + 'appapi/page/detail?id=22&lang=' + getApp().globalData.language
+				uni.setStorage({
+					key: 'weburl',
+					data: url,
+					success() {
+						uni.navigateTo({
+							url: '/pages/webView/webView',
+						});
+					}
+				})
+			},
+			doselectTime() {
+				console.log(1111111111)
+				this.isShowTime = true
+			},
+			doselectWupinxinxi() {
+				this.isShowWPMsg = true
+			},
+			doAddBeizhu() {
+				uni.navigateTo({
+					url: './beizhu?beizhu=' + this.beizhuStr
+				})
+			},
+			doselectCoupon() {
+				if (this.price > 0) {
+					this.isShowGoupon = true
+				} else {
+					// uni.showToast({
+					// 	title: '请选择物品信息',
+					// 	duration: 2000,
+					// })
+				}
+
+			},
+			doselectSmallMoney() {
+				this.isShowTip = true
+			},
+			getRidingRouteDistance() {
+				var that = this
+				setTimeout(function() {
+					myAmapFun.getRidingRoute({
+						origin: that.foAds.lng + ',' + that.foAds.lat, //'117.135215,36.192833',
+						destination: that.toAds.lng + ',' + that.toAds.lat, //'117.135215,36.292833',
+						success: function(data) {
+							var points = [];
+							console.log(data)
+							if (data.paths && data.paths[0] && data.paths[0].rides) {
+								var rides = data.paths[0].rides;
+								for (var i = 0; i < rides.length; i++) {
+									var poLen = rides[i].polyline.split(';');
+									for (var j = 0; j < poLen.length; j++) {
+										points.push({
+											longitude: parseFloat(poLen[j].split(',')[0]),
+											latitude: parseFloat(poLen[j].split(',')[1])
+										})
+									}
+								}
+							}
+							console.log(points)
+							that.polyline = [{
+								points: points,
+								color: "#FF5725",
+								width: 6
+							}]
+							that.distance = data.paths[0].distance
+
+
+							that.helpsendGetLengthWithDistance()
+
+						},
+						fail: function(info) {
+							console.log(JSON.stringify(info))
+						}
+					})
+				}, 500)
+
+
+
+			},
+			helpsendGetLengthWithDistance() {
+				var that = this
+
+				http.sendRequest('Helpsend.GetLength', {
+					'distance': that.distance
+				}).then(function(res) {
+					if (res.code == 0) {
+						that.distanceTime = res.info[0].length
+						that.setMarkersCallout()
+					}
+				})
+			},
+			helpsendCheckTime() {
+				var that = this
+				http.sendRequest('Helpsend.CheckTime', {
+					'servicetime': that.timeValue.servetime
+				}).then(function(res) {
+					if (res.code == 0) {
+						that.timemoney = res.info[0].timemoney
+						that.priceDic.money_time = that.timemoney
+						console.log(1111111111111111, that.priceDic)
+						that.setMarkersCallout()
+					}
+				})
+			},
+			setMarkersCallout() {
+				var that = this
+				that.markers = []
+				var time = that.distanceTime
+				console.log(time)
+				var curDate = new Date()
+				if (that.timeValue.servetime != 0) {
+					curDate.setTime(that.timeValue.servetime * 1000);
+				}
+				console.log(curDate)
+				
+				// curDate.setMinutes(curDate.getMinutes() + time);
+				var minutesss = NB.plus(curDate.getMinutes(),time)
+				console.log(minutesss)
+				if(minutesss > 59){
+					minutesss = minutesss%60
+				}
+				if(minutesss < 10){
+					minutesss = '0' + minutesss
+				}
+				
+				var hour = curDate.getHours()
+				if(NB.plus(curDate.getMinutes(),time) > 59){
+					hour += 1
+				}
+				if(hour > 23){
+					hour = hour - 24
+				}
+				time = hour + ':' + minutesss
+				
+				console.log(time)
+				var showDis = ''
+				if (that.distance > 999) {
+					showDis = parseFloat(that.distance / 1000).toFixed(1) + 'km'
+				} else {
+					showDis = that.distance + 'm'
+				}
+				that.markers = [{
+						"id": 12312232,
+						"width": 45,
+						"height": 45,
+						"latitude": that.foAds.lat,
+						"longitude": that.foAds.lng,
+						"iconPath": that.type == 1 ? "../../../static/order/map-fa.png" :
+							"../../../static/order/map-qu.png",
+						'coordType': 'wgs84',
+						"callout": {
+							"content": showDis + ',' + that.i18n.meishi.yuji + time + that.i18n.meishi.songda,
+							"padding": '5',
+							"borderRadius": '12',
+							"textAlign": 'center',
+							"display": 'ALWAYS',
+							"color": '#323232',
+							"bgColor": '#FFFFFF',
+							"fontSize": '14',
+						}
+					},
+					{
+						"id": 12312231,
+						"width": 45,
+						"height": 45,
+						"latitude": that.toAds.lat,
+						"longitude": that.toAds.lng,
+						'coordType': 'wgs84',
+						"iconPath": "../../../static/order/mao-shou-pic.png",
+						"callout": null
+					}
+
+				];
+				console.log(that.markers)
+			},
+			doExchangeAds() {
+				var linshi = this.foAds
+				this.foAds = this.toAds
+				this.toAds = linshi
+				this.setMarkersCallout()
+			},
+			helpsendComputed() {
+				console.log(121312123132123)
+				var that = this
+				http.sendRequest('Helpsend.Computed', {
+					'start_lng': that.foAds.lng,
+					'start_lat': that.foAds.lat,
+					'end_lng': that.toAds.lng,
+					'end_lat': that.toAds.lat,
+					'distance': that.distance, //parseFloat(that.distance / 1000).toFixed(1),
+					'weight': that.wyMsg.weight,
+					'type': that.type
+				}).then(function(res) {
+					if (res.code == 0) {
+						that.priceDic.money_basic = res.info[0].money_basic
+						that.priceDic.money_basic_txt = res.info[0].money_basic_txt
+						that.priceDic.money_distance = res.info[0].money_distance
+						that.priceDic.money_distance_txt = res.info[0].money_distance_txt
+						that.priceDic.money_weight = res.info[0].money_weight
+						that.priceDic.money_weight_txt = res.info[0].money_weight_txt
+						that.isPayOrderClick = 0
+						that.dojisuanjiage()
+					}
+				})
+			},
+			dojisuanjiage() {
+				var that = this
+				console.log('111111that111111that',that.priceDic)
+			
+				that.price = that.priceDic.money_basic * 1 + that.priceDic.money_distance * 1 + that.priceDic
+					.money_weight * 1 - that
+					.goupon.limit * 1 + that.tipMoney * 1 + that.priceDic.money_time * 1
+				that.priceToGoupon = that.priceDic.money_basic * 1 + that.priceDic.money_distance * 1 + that.priceDic
+					.money_weight * 1 + that.tipMoney * 1 + that.priceDic.money_time * 1
+				if (that.price < 0) {
+					that.price = 0
+				}else {
+					that.price = NB.strip(that.price)
+				}
+			},
+			showPriceDetailes() {
+				this.isShowPrceDatl = 1
+			},
+			closePayView(e) {
+				console.log(e)
+				this.showpay = 0
+				if (e == 0) {
+
+				} else {
+					var that = this
+					that.order_id = ''
+					var dic = {};
+					dic.type = that.type
+					dic.start_name = that.foAds.place
+					dic.start_addr = that.foAds.addr
+					dic.pick_name = that.foAds.name
+					dic.pick_phone = that.foAds.mobile
+					dic.end_name = that.toAds.place
+					dic.end_addr = that.toAds.addr
+					dic.start_lng = that.foAds.lng
+					dic.start_lat = that.foAds.lat
+					dic.end_lng = that.toAds.lng
+					dic.end_lat = that.toAds.lat
+					dic.recip_name = that.toAds.name
+					dic.recip_phone = that.toAds.mobile
+					dic.distance = that.distance
+					dic.weight = that.wyMsg.weight
+					dic.servicetime = that.timeValue.servetime
+					dic.cateid = that.wyMsg.type.id
+					dic.des = that.beizhuStr
+					dic.usercouponid = that.goupon.id
+					dic.fee = that.tipMoney
+					// dic.payid = e.id
+					// #ifdef APP-PLUS
+					dic.payid = e.id
+					// #endif
+					// #ifdef MP-WEIXIN
+					dic.openid = uni.getStorageSync('openid'),
+						dic.payid = (e.id == 2 ? '3' : e.id),
+						// #endif
+						http.sendRequest('Helpsend.Create', dic).then(function(res) {
+							if (res.code == 0) {
+								that.order_id = res.info[0].order_id
+								console.log(res.info[0])
+								if (e.id == 0) {
+									uni.showToast({
+										title: '',
+										duration: 2000
+									})
+									that.doOrderList()
+								} else {
+
+									if (e.id == 1) {
+
+										uni.requestPayment({
+											provider: 'alipay',
+											orderInfo: res.info[0].ali
+												.orderinfo, //微信、支付宝订单数据 【注意微信的订单信息，键值应该全部是小写，不能采用驼峰命名】
+											success: function(res) {
+												uni.showToast({
+													title: '',
+													duration: 2000
+												})
+												console.log('success:' + JSON.stringify(res));
+												that.doOrderList()
+											},
+											fail: function(err) {
+												console.log('fail:' + JSON.stringify(err));
+												that.doOrderList()
+											}
+										});
+									} else if (e.id == 2) {
+										uni.requestPayment({
+											"provider": "wxpay",
+											// #ifdef APP-PLUS
+											"orderInfo": res.info[0].wx,
+											// #endif
+											// #ifdef MP-WEIXIN
+											'timeStamp': res.info[0].small.timeStamp,
+											'nonceStr': res.info[0].small.nonceStr,
+											'package': res.info[0].small.package,
+											'signType': res.info[0].small.signType,
+											'paySign': res.info[0].small.sign,
+											// #endif
+
+											success(res) {
+												uni.showToast({
+													title: '',
+													duration: 2000
+												})
+												console.log(res)
+												that.doOrderList()
+											},
+											fail(e) {
+												console.log(e)
+												that.doOrderList()
+											}
+										})
+									}
+								}
+
+							} else if (res.code == 981) {
+								if (e.id == 0) {
+									that.doOrderList()
+								}
+							}
+						})
+				}
+
+			},
+			doAddOrder() {
+				if (!this.isPayOrderClick) {
+					if (!this.isAgree) {
+						uni.showToast({
+							title: this.i18n.yilou.qingtyqsxy,
+							duration: 2000,
+							icon: 'none'
+						})
+					} else if (this.timeValue.servetime == 0) {
+						uni.showToast({
+							title: this.i18n.yilou.qxzqjsj,
+							duration: 2000,
+							icon: 'none'
+						})
+					} else {
+						this.showpay = 1
+					}
+
+				}
+
+			},
+			doOrderList() {
+				console.log(123123312123123)
+				uni.$emit('xiadanchongleazhidaole', this.type)
+				
+				// #ifdef MP-WEIXIN
+				this.getWechatTemplate()
+				// #endif
+				// #ifndef MP-WEIXIN
+				uni.$emit('buysucess',2)
+				uni.switchTab({
+					url: '/pages/order/order'
+				})
+				// #endif
+				
+
+			},
+			getWechatTemplate(){
+				var that = this
+				that.http.sendRequest('Home.GetWechatTemplate', {'type':0},true).then(function(res) {
+					if(res.code == 0){
+						const list = res.info[0]
+						console.log(list)
+						if(list && list.length > 0){
+							uni.requestSubscribeMessage({
+								tmplIds: list,
+								success(res) {
+									console.log(res)
+								},
+								fail(err) {
+									console.log(err)
+								}
+							})
+						}
+					}
+					uni.$emit('buysucess',2)
+					uni.switchTab({
+						url: '/pages/order/order'
+					})
+				})
+			},
+		}
+
+	}
+</script>
+
+<style>
+	@import url("./addOrder.css");
+</style>

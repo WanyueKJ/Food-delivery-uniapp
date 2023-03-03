@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "diancai": "/package-meishi/components/diancai/index",
+    "eva-view": "/package-meishi/components/pingjia/index",
+    "sj-msg": "/package-meishi/components/shangjiaMsg/index",
+    "guige-v": "/package-meishi/components/guige/index"
+  }
+}

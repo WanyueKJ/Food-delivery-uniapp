@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "time-v": "/package-meishi/components/cart/time",
+    "coupon-v": "/package-meishi/components/cart/coupon"
+  }
+}

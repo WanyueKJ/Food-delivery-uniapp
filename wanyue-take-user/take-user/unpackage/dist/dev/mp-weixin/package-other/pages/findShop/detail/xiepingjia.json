@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "wybar": "/components/wybar/wyBar",
+    "starv": "/components/banxing/banStar"
+  }
+}

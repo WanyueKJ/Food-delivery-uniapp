@@ -1,0 +1,165 @@
+
+.cellContentView {
+		width: 100%;
+		background-color: #FFFFFF;
+		margin-bottom: 1px;
+}
+.iconImage {
+		margin-left: 15px;
+		margin-top: 20px;
+		width: 40px;
+		height: 40px;
+		border-radius: 20px;
+		/* background-color: #007AFF; */
+}
+.nameTimeView {
+		margin-left: 8px;
+		margin-top: 20px;
+		height: 40px;
+		flex: 1;
+}
+.userNickeName {
+		height: 20px;
+		line-height: 20px;
+		font-size: 15px;
+		color: #343434;
+}
+.textContent{
+		margin-left: 15px;
+		width: calc(100% - 30px);
+		line-height: 20px;
+		font-size: 14px;
+		color: #181818;
+}
+.middle-Content{
+		margin-left: 15px;
+		width: calc(100% - 30px);
+		display: flex;
+		flex-wrap: wrap;
+		position: relative;
+		margin-top: 10px;
+}
+	/* .middle-Content::after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		height: 1px;
+		background-color: #F0F0F0;
+	} */
+.picBackView {
+		width: calc(33.3% - 3px); 
+		border-radius: 8px;
+		margin-bottom: 5px; 
+		overflow: hidden;
+		position: relative;
+		/* height: 0;
+		padding-bottom: calc(33.3% - 3px);
+		background-color: #007AFF;
+		background-size: calc(100%) calc(100%); */
+}
+.pic-image {
+		
+		width: 100%;
+		height: 100%;
+		padding-bottom: calc(100%);
+}
+.bottomView {
+		margin-left: 15px;
+		width: calc(100% - 30px);
+		height: 20px;
+		align-items: center;
+		border-bottom: 1px solid #D6DADE;
+}
+	/* .image:last-child {
+	    margin-right: auto;
+	} */
+.picBackView:not(:nth-child(3n)) {
+	    margin-right: 4.5px;
+}
+.tabbar_sel {
+		height: 29px;
+		border-radius: 4px;
+		font-size: 12px;
+		color: #FFF;
+		padding-left: 10px;
+		padding-right: 10px;
+		background-color: #FF5725;
+		margin-right: 8px;
+		line-height: 29px;
+		margin-top: 10.5px;
+		align-items: center;
+}
+.tabbar_nor {
+		height: 29px;
+		border-radius: 4px;
+		font-size: 12px;
+		color: #646464;
+		padding-left: 10px;
+		padding-right: 10px;
+		background-color: #FEF0E5;
+		margin-right: 8px;
+		line-height: 29px;
+		margin-top: 10.5px;
+		align-items: center;
+}
+.tabbar_sel_cai {
+		height: 29px;
+		border-radius: 4px;
+		font-size: 12px;
+		font-weight: bold;
+		color: #646464;
+		padding-left: 10px;
+		padding-right: 10px;
+		background-color: #E7E7E7;
+		margin-right: 8px;
+		line-height: 29px;
+		margin-top: 10.5px;
+		align-items: center;
+}
+.tabbar_nor_cai {
+		height: 29px;
+		border-radius: 4px;
+		font-size: 12px;
+		color: #646464;
+		padding-left: 10px;
+		padding-right: 10px;
+		background-color: #f5f5f5;
+		margin-right: 8px;
+		line-height: 29px;
+		margin-top: 10.5px;
+		align-items: center;
+}
+.mainGuige {
+		background-color: #F6F6F6;
+		border: 4px;
+		height: 16px;
+		font-size: 11px;
+		padding-left: 5px;
+		padding-right: 5px;
+		line-height: 16px;
+		color: #323232;
+		margin-top: 5px;
+		margin-left: 15px;
+		display: flex;
+}
+.yuexiao {
+		margin-top: 5px;
+		margin-left: 15px;
+		color: #969696;
+		font-size: 12px;
+}
+.price {
+		font-size: 24px;
+		margin-top: 5px;
+		margin-left: 15px;
+		margin-bottom: 15px;
+		color: #FF5725;
+		font-weight: bold;
+}
+page {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+

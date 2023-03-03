@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "starv": "/components/banxing/banStar",
+    "wybar": "/components/wybar/wyBar",
+    "hot-v": "/package-other/pages/service/components/hot"
+  }
+}
