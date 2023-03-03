@@ -1,0 +1,169 @@
+.navtion {
+	width: 100%;
+	height: 44px;
+}
+
+.navbar {
+	height: 32px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	position: relative;
+	
+}
+.shareview{
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	right: 15px;
+	background-color: rgba(0,0,0,0.3);
+	border-radius: 15px;
+	align-items: center;
+	justify-content: center;
+}
+.backimage {
+	width: 20px;
+	height: 20px;
+	margin-left: 15px;
+	margin-top: 3px;
+}
+
+.backimagewhite{
+	width: 30px;
+	height: 30px;
+	background-color: rgba(0,0,0,0.3);
+	border-radius: 15px;
+	align-items: center;
+	justify-content: center;
+	margin-left: 15px;
+}
+
+.backimagewhiteimage{
+	width: 20px;
+	height: 20px;
+}
+
+.searchbar_back {
+	background-color: #F5F5F5;
+	height: 32px;
+	margin-left: 15px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-radius: 16px;
+	position: absolute;
+	right: 15px;
+	left: 30px;
+}
+
+.searchbar_back_shop {
+	background-color: #F5F5F5;
+	height: 32px;
+	margin-left: 15px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-radius: 16px;
+	position: absolute;
+	/* #ifdef H5 */
+	right: 45px;
+	/* #endif */
+	/* #ifndef H5 */
+	right: 35px;
+	/* #endif */
+	left: 30px;
+}
+
+.searchnomessage {
+	background-color: #FFFFFF;
+	height: 32px;
+	margin-left: 15px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-radius: 16px;
+	position: absolute;
+	right: 15px;
+	left: 85px;
+}
+
+.searchbar {
+	background-color: #FFFFFF;
+	height: 32px;
+	margin-left: 15px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-radius: 16px;
+	position: absolute;
+	/* #ifdef H5 */
+	right: 55px;
+	/* #endif */
+	/* #ifndef H5 */
+	right: 35px;
+	/* #endif */
+	left: 85px;
+}
+
+.search_icon {
+	width: 20px;
+	height: 20px;
+	margin-left: 10px;
+}
+
+.search_input {
+	margin-left: 5px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 14px;
+}
+
+.searchbar image {
+	width: 16px;
+	height: 16px;
+	flex-shrink: 0;
+}
+
+.pagetop-address {
+	height: 32px;
+	align-items: center;
+	max-width: 80px;
+	margin-left: 15px;
+}
+
+.pagetop-address text {
+	height: 32px;
+	line-height: 32px;
+	color: #FFFFFF;
+	font-size: 16px;
+}
+
+.pagetop-address image {
+	margin-left: 3px;
+	width: 12px;
+	height: 7px;
+	flex-shrink: 0;
+}
+
+.statuscolor {
+	background: linear-gradient(to right, #FE6E21, #FF5625);
+}
+.clearcolor{
+	background-color: rgba(0,0,0,0);
+}
+.statusbar {
+	width: 100%;
+
+}
+
+.xiaoxi {
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	/* #ifdef H5 */
+	right: 15px;
+	/* #endif */
+	/* #ifndef H5 */
+	right: 5px;
+	/* #endif */
+}

@@ -1,0 +1,14 @@
+<view class="wave"></view>
+<view class="main">
+    <view class="page-title">简单上传</view>
+    <view class="page-tips1">文件 3 天后删除</view>
+    <view class="page-btn-wrap">
+        <button class="page-btn" bindtap="uploadImage">上传图片</button>
+        <button class="page-btn" bindtap="uploadVideo">上传视频</button>
+    </view>
+    <view class="page-title">共享相册</view>
+    <view class="page-btn-wrap">
+        <button class="page-btn" bindtap="gotoAlbum">云+ 共享相册</button>
+    </view>
+    <view class="page-tips2">● 上传对象到 COS 并获取下载地址</view>
+</view>

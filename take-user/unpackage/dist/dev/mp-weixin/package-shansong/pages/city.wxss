@@ -1,0 +1,21 @@
+
+.cityCell {
+	width: 750rpx;
+	height: 54px;
+	margin-left: 20px;
+	font-size: 15px;
+	color: #323232;
+	line-height: 54px;
+}
+.topLabel{
+	width: 750rpx;
+	height: 38px;
+	margin-left: 0px;
+	padding-left: 20px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #989898;
+	line-height: 38px;
+	background-color: #f7f7f7;
+}
+

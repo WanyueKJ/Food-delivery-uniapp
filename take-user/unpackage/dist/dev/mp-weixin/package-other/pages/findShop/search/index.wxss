@@ -1,0 +1,134 @@
+
+.topSearch {
+	margin-left: 15px;
+	margin-top: 10px;
+	width: calc(100% - 30px);
+	height: 36px;
+	border-radius: 8px;
+	background-color: #F5F6F7;
+	align-items: center;
+}
+.sousuokuang {
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 100%;
+	flex: 1;
+	font-size: 14px;
+	color: #181818;
+}
+.tab_sel {
+	font-size: 14px;
+	color: #FF5725;
+	height: 40px;
+	line-height: 40px;
+	position: relative;
+}
+
+/* .tab_sel::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 25%;
+
+	height: 2px;
+	border-radius: 1px;
+	width: 50%;
+	background-color: #FF5725;
+} */
+.tab_nor {
+	font-size: 14px;
+	/* font-weight: bold; */
+	color: #181818;
+	height: 40px;
+	line-height: 40px;
+	position: relative;
+}
+.cellBack {
+	margin-left: 15px;
+	width: calc(100% - 30px);
+	height: 134px;
+	background-color: #fff;
+	margin-top: 10px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+.cell {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.cell_thumb {
+	background-color: #06f;
+	margin-left: 12px;
+	width: 110px;
+	height: 83px;
+	border-radius: 4px;
+	margin-top: 12px;
+}
+.nameLbale {
+	/* margin-left: 8px; */
+	height: 20px;
+	color: #181818;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 20px;
+}
+.goods_label {
+	/* margin-left: 8px; */
+	height: 20px;
+	border-radius: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: #FFF;
+	background-color: #FEF0E5;
+	color: #FF5725;
+	font-size: 10px;
+	font-weight: bold;
+	line-height: 20px;
+	margin-top: 4px;
+	margin-right: 10px;
+	width: auto;
+}
+.store_label {
+	margin-left: 8px;
+	margin-top: 4px;
+	line-height: 15px;
+	font-size: 11px;
+	color: #6F6F6F;
+	height: 15px;
+	width: calc(100% - 15px);
+	align-items: center;
+	flex-direction: wrap;
+}
+.store_label image {
+	width: 10px;
+	height: 10px;
+	margin-right: 2px;
+}
+.item_content {
+	text-overflow: ellipsis;
+
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+
+	display: -moz-box;
+	-moz-line-clamp: 3;
+
+	overflow-wrap: break-word;
+	word-break: break-all;
+	white-space: normal;
+	overflow: hidden;
+}
+.item_content_word {
+	width: auto;
+	height: 20px;
+	border-radius: 2px;
+	background-color: #FEF0E5;
+	color: #FF5725;
+	font-size: 10px;
+	line-height: 20px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+

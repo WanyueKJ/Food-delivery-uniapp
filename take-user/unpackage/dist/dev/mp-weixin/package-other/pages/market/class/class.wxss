@@ -1,0 +1,71 @@
+
+page {
+	width: 100%;
+	height: 100%;
+	background-color: #FFF;
+	overflow: hidden;
+}
+.topSearch {
+	margin-left: 15px;
+	margin-top: 10px;
+	width: calc(100% - 30px);
+	height: 36px;
+	border-radius: 8px;
+	background-color: #F5F6F7;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.sousuokuang {
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 100%;
+	flex: 1;
+	font-size: 14px;
+	color: #181818;
+}
+.shopBack {
+	margin-left: 15px;
+	width: calc(100% - 30px);
+	height: 96px;
+	margin-top: 10px;
+	background-color: #FFF;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.shopThumb {
+	margin-left: 12px;
+	width: 96px;
+	height: 72px;
+	border-radius: 4px;
+	background-color: #FF5725;
+}
+.shopRightView {
+	margin-left: 6px;
+	height: 72px;
+	display: flex;
+	flex-direction: column;
+	margin-right: 10px;
+	flex: 1;
+}
+.shopName {
+	height: 22px;
+	width: 100%;
+	line-height: 22px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #181818;
+}
+.shopClassName {
+	margin-top: 1px;
+	height: 18px;
+	line-height: 18px;
+	border: 0.5px solid #D6DADE;
+	border-radius: 2px;
+	font-size: 10px;
+	color: #6f6f6f;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+

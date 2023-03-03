@@ -1,0 +1,1 @@
+<view><view class="bottom"><view class="word1">{{''+tt+''}}</view><view class="word2">{{''+dd+''}}</view><view data-event-opts="{{[['tap',[['domeishi']]]]}}" class="zhidaole" bindtap="__e">{{''+i18n.meishi.zhidaole+''}}</view></view></view>

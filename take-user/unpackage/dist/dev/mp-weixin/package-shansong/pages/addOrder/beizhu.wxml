@@ -1,0 +1,1 @@
+<view class="content"><textarea class="inputClass" type="text" placeholder="{{i18n.shansong.beizhutip}}" data-event-opts="{{[['input',[['input',['$event']]]]]}}" value="{{beizhuStr}}" bindinput="__e"></textarea><view data-event-opts="{{[['tap',[['doAddBeizhu']]]]}}" class="wanchengBtn" bindtap="__e">{{i18n.shansong.wancheng}}</view></view>

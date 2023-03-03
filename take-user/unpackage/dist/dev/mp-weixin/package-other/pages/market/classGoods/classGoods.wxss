@@ -1,0 +1,72 @@
+
+page {
+	width: 100%;
+	height: 100%;
+	background-color: #FFF;
+	overflow: hidden;
+}
+.tab_sel {
+	font-size: 16px;
+	font-weight: bold;
+	color: #181818;
+	margin-left: 15px;
+	margin-right: 4px;
+	position: relative;
+	height: 30px;
+	justify-content: center;
+}
+.tab_sel::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 25%;
+
+	height: 2px;
+	border-radius: 1px;
+	width: 50%;
+	background-color: #FF5725;
+}
+.tab_nor {
+	font-size: 14px;
+	/* font-weight: bold; */
+	color: #383838;
+	margin-left: 15px;
+	margin-right: 4px;
+	position: relative;
+	height: 30px;
+}
+.cart {
+	margin-top: 15px;
+	margin-left: 15px;
+	width: calc(100% - 30px);
+	background-color: #FF5725;
+	border-radius: 8px;
+	font-weight: bold;
+	line-height: 50px;
+	height: 50px;
+	align-items: center;
+	color: #FFF;
+}
+.xiuxila {
+	margin-top: 15px;
+	margin-left: 15px;
+	width: calc(100% - 30px);
+	background-color: #CCCCCC;
+	border-radius: 8px;
+	font-weight: bold;
+	line-height: 40px;
+	height: 40px;
+	text-align: center;
+	color: #FFF;
+}
+.numsLabel2 {
+	margin-left: 18px;
+	font-size: 16px;
+	width: 25px;
+	height: 25px;
+	border-radius: 12.5px;
+	border: 1px solid #FFF;
+	line-height: 25px;
+	text-align: center;
+}
+

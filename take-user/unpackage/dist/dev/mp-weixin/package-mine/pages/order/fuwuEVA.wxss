@@ -1,0 +1,91 @@
+
+page {
+	width: 100%;
+	height: 100%;
+	background-color: #F5f6f7;
+	overflow: hidden;
+}
+.content {
+	width: 100%;
+	height: 100%;
+}
+.textView-eva-back {
+	margin-left: 12px;
+	/* margin-top: 10px; */
+	width: calc(100% - 24px);
+	height: 122px;
+	border-radius: 4px;
+	background-color: #F9F9F9;
+}
+.textarea-eva {
+	/* padding: 10px 10px; */
+	margin-top: 10px;
+	margin-left: 10px;
+	width: calc(100% - 20px);
+	font-size: 15px;
+	line-height: 15px;
+	height: 122px;
+	color: #323232;
+}
+.submit {
+	width: calc(100% - 50px);
+	margin-left: 25px;
+	height: 42px;
+	line-height: 42px;
+	border-radius: 21px;
+	font-size: 18px;
+	color: #FFFFFF;
+	background-color: #FF5725;
+	text-align: center;
+	margin-top: 40px;
+	/* position: absolute;
+	bottom: 60px; */
+}
+.goodsBack {
+	background-color: #F9F9F9;
+	border-radius: 2px;
+	margin-left: 12px;
+	align-items: center;
+}
+.lable_view {
+	left: 0;
+	width: 100%;
+	height: 55px;
+	background-color: rgba(0, 0, 0, 0);
+	position: absolute;
+}
+.lable_view_content {
+	margin-top: 5px;
+	width: 100%;
+	height: 50px;
+	background-color: #FFF;
+	display: flex;
+	flex-direction: row;
+	box-shadow: 0px 0px 5px 5px rgba(50, 50, 59, 0.1);
+	align-items: center;
+}
+.productName {
+	height: 100%;
+	margin-right: 10px;
+	padding-left: 12px;
+	padding-right: 12px;
+	border-radius: 6px;
+	border: 1px solid #FF5725;
+	line-height: 100%;
+	font-size: 13px;
+	color: #FF5725;
+}
+.videoDuration {
+	position: absolute;
+	padding-left: 5px;
+	padding-right: 5px;
+	left: 10px;
+	bottom: 10px;
+	height: 16px;
+	line-height: 16px;
+	border-radius: 8px;
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #FFF;
+	font-size: 10px;
+}
+

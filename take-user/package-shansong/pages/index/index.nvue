@@ -1,0 +1,803 @@
+<template>
+	<view class="content" :style="'height:' +windowHeight + 'px;'" v-if="isOpenCity">
+		<view style="width: 750rpx;background-color: #FFFFFF;position: relative;margin-top: 0;"
+			:style="'height:' + (statusBarHeight + 48) + 'px;'">
+			<view class="row" style="width: 750rpx;height: 96rpx;position: absolute;bottom: 0;">
+				<image src="../../../static/back-left.png" mode="aspectFit"
+					style="margin-left: 15px;margin-top: 8px;width: 32px;height: 32px;" @click="doBack()"></image>
+				<text
+					style="margin-left: 24rpx;height: 96rpx;font-size: 32rpx;line-height: 96rpx;color: #323232;">{{cityname}}</text>
+				<!-- @click="showCitySelctedView()" -->
+				<!-- <image src="../../../static/home-down.png" mode="aspectFit"
+					style="margin-left: 2rpx;height: 28rpx;width: 28rpx;margin-top: 34rpx;"
+					@click="showCitySelctedView()"></image> -->
+				<!-- <text
+					style="position: absolute;left: 250rpx;height: 96rpx;font-size: 36rpx;line-height: 96rpx;color: #323232;font-weight: bold;width: 250rpx;text-align: center;">闪送</text> -->
+			</view>
+		</view>
+		<map id="wyhomeMap" class="mapView" :style="'height:' + (windowHeight*0.8) + 'px;'" :latitude="latitude"
+			:longitude="longitude" scale="16" :markers="markers" :polyline="polyline" :circles="circles"
+			:show-location="false">
+			<!-- @regionchange="regionchange" -->
+			<!-- <image src="../../static/datouzhen.png" mode="" class="datouzhen"
+				:style="'top:' + (windowHeight*0.4 - 20) + 'px;'"></image> -->
+		</map>
+		<view class="bottom-backview">
+			<scroll-view scroll-x="true" class="bottom-pageview" style="white-space: nowrap;" :show-scrollbar="false">
+				<view class="page-btn column" v-for="(item,index) in itemArray" @click="pageBtnClick(item,item.id)">
+					<text style="margin-left: 10px;margin-right: 10px;"
+						:style="(selectIndex == item.id && item.id < 3) ? 'font-weight: bold;font-size: 16px;color:#323232;' : 'font-size: 14px;color:#646464;'">{{item.name}}</text>
+					<view class="page-line" v-if="selectIndex == item.id && selectIndex == (index + 1)">
+
+					</view>
+				</view>
+			</scroll-view>
+			<!-- <view class="bottom-pageview">
+				<view :class="(selectIndex == item.id && item.id < 3)?'page-btn':'page-btn2'"
+					v-for="(item,index) in itemArray" :key="index" @click="pageBtnClick(item,item.id)">{{item.name}}
+				</view> -->
+
+			<!-- <view class="page-line" v-if="1 == selectIndex">
+
+				</view>
+				<view class="page-line2" v-if="2 == selectIndex">
+
+				</view> -->
+			<!-- </view> -->
+			<view class="bangwosong" v-if="selectIndex == 1">
+				<view class="bangwosong-item">
+					<view class="bangwosong-item-cycle" style="border-color: #FF5725;">
+
+					</view>
+					<view class="bangwosong-item-middle" @click="dosddress(0)">
+						<text class="bangwosong-item-ads">{{myAds.place}}</text>
+						<text class="bangwosong-item-ads-tip" style="color: #989898;"
+							v-if="myAds.name">{{myAds.name + myAds.mobile}}</text>
+						<text class="bangwosong-item-ads-tip" style="color: #FF5725;"
+							v-else>{{i18n.shansong.wanshanqujiandizhi}}</text>
+					</view>
+					<view class="bangwosong-right" @click="dosddress(2)">
+						<view class="bangwosong-right-line">
+
+						</view>
+						<text class="bangwosong-right-title">{{i18n.shansong.dizhibu}}</text>
+					</view>
+				</view>
+				<view class="bangwosong-item">
+					<view class="bangwosong-item-cycle" style="border-color: #26CC91;">
+
+					</view>
+					<view class="bangwosong-item-middle" @click="dosddress(1)">
+						<text class="bangwosong-item-ads" v-if="toAds.place">{{toAds.place}}</text>
+						<text class="bangwosong-item-ads" v-else>{{i18n.shansong.songdaonaqu}}</text>
+						<text class="bangwosong-item-ads-tip" style="color: #989898;"
+							v-if="toAds.name">{{toAds.name + toAds.mobile}}</text>
+						<text class="bangwosong-item-ads-tip" style="color: #26CC91;"
+							v-else>{{i18n.shansong.wanshanshoujiandizhi}}</text>
+					</view>
+					<view class="bangwosong-right" @click="dosddress(3)">
+						<view class="bangwosong-right-line">
+
+						</view>
+						<text class="bangwosong-right-title">{{i18n.shansong.dizhibu}}</text>
+					</view>
+				</view>
+			</view>
+
+			<view class="bangwosong" v-if="selectIndex == 2">
+				<view class="bangwosong-item">
+					<view class="bangwosong-item-cycle" style="border-color: #26CC91;">
+
+					</view>
+					<view class="bangwosong-item-middle" @click="dosddress(0)">
+						<text class="bangwosong-item-ads" v-if="quMyads.place">{{quMyads.place}}</text>
+						<text class="bangwosong-item-ads" v-else>{{i18n.shansong.congnaqujian}}</text>
+						<text class="bangwosong-item-ads-tip" style="color: #989898;"
+							v-if="quMyads.name">{{quMyads.name + quMyads.mobile}}</text>
+						<text class="bangwosong-item-ads-tip" style="color: #26CC91;"
+							v-else>{{i18n.shansong.wanshanqujiandizhi}}</text>
+					</view>
+					<view class="bangwosong-right">
+						<view class="bangwosong-right-line">
+
+						</view>
+						<text class="bangwosong-right-title" @click="dosddress(2)">{{i18n.shansong.dizhibu}}</text>
+					</view>
+				</view>
+				<view class="bangwosong-item">
+					<view class="bangwosong-item-cycle" style="border-color: #FF5725;">
+
+					</view>
+					<view class="bangwosong-item-middle" @click="dosddress(1)">
+						<text class="bangwosong-item-ads">{{quToAds.place}}</text>
+						<text class="bangwosong-item-ads-tip" style="color: #989898;"
+							v-if="quToAds.name">{{quToAds.name + quToAds.mobile}}</text>
+						<text class="bangwosong-item-ads-tip" style="color: #FF5725;"
+							v-else>{{i18n.shansong.wanshanshoujiandizhi}}</text>
+					</view>
+					<view class="bangwosong-right">
+						<view class="bangwosong-right-line">
+
+						</view>
+						<text class="bangwosong-right-title" @click="dosddress(3)">{{i18n.shansong.dizhibu}}</text>
+					</view>
+				</view>
+
+			</view>
+		</view>
+
+		<!-- <scroll-view @touchstart="touchStart" @touchend="touchEnd" scroll-y="true" class="scroll"
+			:style="a_top?'top:20px':'top:' +windowHeight*0.4 + 'px;'">
+			
+		</scroll-view> -->
+		<invaltionV v-if="isShowCode" @hideInputCode="hideInputCode"></invaltionV>
+	</view>
+	<view class="content" style="background-color: #F7F7F7;" :style="'height:' +windowHeight + 'px;'" v-else>
+		<!-- #ifndef H5 -->
+		<image src="../../../static/noOpenCity.png" mode="" class="noOpenView"></image>
+
+		<!-- #endif -->
+		<text class="noChangeBtn" @click="showCitySelctedView()">{{Infinityn.shansong.qiehuanchengshi}}</text>
+		<!-- <invaltionV v-if="isShowCode" @hideInputCode="hideInputCode"></invaltionV> -->
+	</view>
+
+</template>
+
+<script>
+	import http from '@/toolClass/WYToolClass.js'
+
+	// import uniBar from '../../components/uni-ui/uni-nav-bar/unibar.vue'
+	// import invaltionV from '../../components/invaltionCode/invaltionCodeInputView.vue'
+
+	var amapFile = require('@/libs/amap-wx.130.js'); //如：..­/..­/libs/amap-wx.js
+	var myAmapFun = new amapFile.AMapWX({
+		key: getApp().globalData.amapKey
+	});
+	export default {
+		components: {
+			// invaltionV
+		},
+		computed: {
+			i18n() {
+				// return this.$t('index')
+				return getApp().globalData.$t('index') //当然页面中就是按Vue页面里那样使用了  
+			},
+		},
+		onNavigationBarButtonTap(e) {
+			console.log(1211212121212121212)
+			this.showCitySelctedView()
+		},
+		data() {
+			return {
+				windowHeight: 0,
+				statusBarHeight: 24,
+				mapsrc: '',
+				markers: [],
+				poisdatas: [],
+				latitude: 0,
+				longitude: 0,
+				cityname: '',
+				itemArray: [],
+				polyline: [],
+				selectIndex: 0,
+				myAds: {},
+				toAds: {},
+				isOpenCity: 1,
+				isShowCode: 0,
+				quMyads: {},
+				quToAds: {},
+			}
+
+		},
+		onUnload() {
+			// uni.$off('citychange');
+			// uni.$off('chooseAddressSucess');
+			console.log('onUnloadonUnloadonUnloadonUnloadonUnloadonUnload')
+		},
+		onLoad() {
+			var that = this;
+			var res = uni.getSystemInfoSync()
+
+			that.statusBarHeight = getApp().globalData.statusBarHeight > 24 ? getApp().globalData.statusBarHeight : 24
+			console.log(that.i18n)
+			that.windowHeight = res.windowHeight
+			uni.$on('citychange', function(city) {
+				console.log(city)
+				that.cityname = city.name;
+				that.checkCityOpen(city.area_code)
+			})
+			uni.$on('xiadanchongleazhidaole', function(type) {
+				console.log(type)
+				if (type == 1) {
+					that.toAds = {}
+				} else {
+					that.quMyads = {}
+				}
+				that.getLocationsss()
+			})
+
+			uni.$on('chooseAddressSucess', function(msg) {
+				console.log(msg)
+				if (that.selectIndex == 1) {
+					if (msg.type == 0) {
+						that.myAds = msg
+						that.latitude = msg.lat
+						that.longitude = msg.lng
+						that.getNeary()
+					} else {
+						that.toAds = msg
+					}
+					if (that.myAds.mobile && that.myAds.mobile.length > 0 && that.toAds.mobile && that.toAds.mobile
+						.length > 0) {
+						console.log(that.myAds.mobile)
+						setTimeout(() => {
+							uni.navigateTo({
+								url: '../addOrder/addOrder?fromads=' + JSON.stringify(that.myAds) +
+									'&toads=' + JSON
+									.stringify(that.toAds) + '&type=' + that.selectIndex
+							})
+						}, 500)
+
+					}
+				} else {
+					if (msg.type == 0) {
+						that.quMyads = msg
+						that.latitude = msg.lat
+						that.longitude = msg.lng
+						that.getNeary()
+					} else {
+						that.quToAds = msg
+					}
+					if (that.quMyads.mobile && that.quMyads.mobile.length > 0 && that.quToAds.mobile && that
+						.quToAds.mobile.length > 0) {
+						console.log(that.quToAds.mobile)
+						setTimeout(() => {
+							uni.navigateTo({
+								url: '../addOrder/addOrder?fromads=' + JSON.stringify(that
+										.quMyads) + '&toads=' + JSON
+									.stringify(that.quToAds) + '&type=' + that.selectIndex
+							})
+						}, 500)
+
+					}
+				}
+
+
+			})
+
+			myAmapFun.getRegeo({
+				iconPath: "../../../static/logo.png",
+				width: 10,
+				height: 10,
+				success: function(data) {
+					that.latitude = data[0].latitude
+					that.longitude = data[0].longitude
+					that.cityname = data[0].regeocodeData.addressComponent.city
+					that.checkCityOpen(data[0].regeocodeData.addressComponent.adcode)
+					uni.setStorageSync('cityname', that.cityname)
+					uni.setStorageSync('latitude', that.latitude)
+					uni.setStorageSync('longitude', that.longitude)
+					that.myAds = {
+						"place": data[0].name,
+						'lat': data[0].latitude,
+						'lng': data[0].longitude
+					};
+					that.quToAds = {
+						"place": data[0].name,
+						'lat': data[0].latitude,
+						'lng': data[0].longitude
+					};
+
+					that.markers = [{
+						"id": 1234,
+						"width": 30,
+						"height": 30,
+						"latitude": that.latitude,
+						"longitude": that.longitude,
+						"iconPath": "../../../static/user-location.png",
+						'coordType': 'wgs84',
+						"callout": {
+							"content": that.i18n.shansong.fujinwupeisongyuan,
+							"padding": '5',
+							"borderRadius": '12',
+							"textAlign": 'center',
+							"display": 'ALWAYS',
+							"color": '#ffffff',
+							"bgColor": '#FF5725',
+							"fontSize": '12',
+						}
+
+					}];
+					that.getNeary()
+					console.log(data[0]);
+					console.log('成功回掉' + that.longitude);
+				},
+				fail: function(info) {
+					//失败回调
+					console.log('失败回调' + JSON.stringify(info))
+				}
+			})
+
+			var value = uni.getStorageSync('userinfo');
+			if (value.isreg == 1) {
+				that.isShowCode = 1
+				value.isreg = 0
+				uni.setStorage({
+					key: 'userinfo',
+					data: value,
+					success: function() {}
+				});
+			}
+			uni.onNetworkStatusChange(function(res) {
+				console.log(res.isConnected);
+				console.log(res.networkType);
+				if (res.isConnected) {
+					that.getLocationsss()
+				}
+			});
+
+		},
+		onShow() {
+			var that = this
+			if (that.myAds.length == 0) {
+				uni.getLocation({
+					type: 'gcj02',
+					success: function(res) {
+						console.log('单次定位成功')
+						that.getLocationsss()
+					},
+					fail(err) {
+						console.log(err)
+					}
+				})
+			}
+
+
+		},
+		methods: {
+			getLocationsss() {
+				var that = this
+				myAmapFun.getRegeo({
+					iconPath: "../../../static/logo.png",
+					width: 10,
+					height: 10,
+					success: function(data) {
+						that.latitude = data[0].latitude
+						that.longitude = data[0].longitude
+						that.cityname = data[0].regeocodeData.addressComponent.city
+						that.checkCityOpen(data[0].regeocodeData.addressComponent.adcode)
+						uni.setStorageSync('cityname', that.cityname)
+						uni.setStorageSync('latitude', that.latitude)
+						uni.setStorageSync('longitude', that.longitude)
+						that.myAds = {
+							"place": data[0].name,
+							'lat': data[0].latitude,
+							'lng': data[0].longitude
+						};
+						that.quToAds = {
+							"place": data[0].name,
+							'lat': data[0].latitude,
+							'lng': data[0].longitude
+						};
+
+						that.markers = [{
+							"id": 1234,
+							"width": 30,
+							"height": 30,
+							"latitude": that.latitude,
+							"longitude": that.longitude,
+							"iconPath": "../../../static/user-location.png",
+							'coordType': 'wgs84',
+							"callout": {
+								"content": that.i18n.shansong.fujinwupeisongyuan,
+								"padding": '5',
+								"borderRadius": '12',
+								"textAlign": 'center',
+								"display": 'ALWAYS',
+								"color": '#ffffff',
+								"bgColor": '#FF5725',
+								"fontSize": '12',
+							}
+
+						}];
+						that.getNeary()
+						console.log(data[0]);
+						console.log('成功回掉' + that.longitude);
+					},
+					fail: function(info) {
+						//失败回调
+						console.log('失败回调' + info)
+					}
+				})
+			},
+			dosddress(e) {
+				if (!http.user().id || http.user().id == 0) {
+					uni.navigateTo({
+						url: '../../../pages/login/login'
+					})
+					return
+				}
+				if (e == 0) {
+					if (this.selectIndex == 1) {
+						uni.navigateTo({
+							url: '/package-mine/pages/address/address?adsType=' + e + '&foads=' + JSON.stringify(
+								this
+								.myAds)
+						})
+					} else {
+						uni.navigateTo({
+							url: '/package-mine/pages/address/address?adsType=' + e + '&foads=' + JSON.stringify(
+								this
+								.quMyads)
+						})
+					}
+
+				} else if (e == 1) {
+					if (this.selectIndex == 1) {
+						uni.navigateTo({
+							url: '/package-mine/pages/address/address?adsType=' + e + '&foads=' + JSON.stringify(
+								this
+								.toAds)
+						})
+					} else {
+						uni.navigateTo({
+							url: '/package-mine/pages/address/address?adsType=' + e + '&foads=' + JSON.stringify(
+								this
+								.quToAds)
+						})
+					}
+				} else {
+					uni.navigateTo({
+						url: '/package-mine/pages/address/address?adsType=' + e
+					})
+				}
+
+
+			},
+			showCitySelctedView(e) {
+				console.log(11111111)
+				uni.navigateTo({
+					url: '../city',
+				})
+			},
+
+			pageBtnClick(item, index) {
+				if (index < 3) {
+					this.selectIndex = index
+				} else {
+					if (!http.user().id || http.user().id == 0) {
+						uni.navigateTo({
+							url: '../../../pages/login/login'
+						})
+						return
+					}
+					console.log(index)
+					uni.navigateTo({
+						url: '../cityHelp?helpType=' + (index - 1)
+					})
+				}
+			},
+			checkCityOpen(cityCode) {
+				console.log('cityCode', cityCode)
+				var that = this
+				http.sendRequest('City.Match', {
+					adcode: '1'
+				}).then(function(res) {
+					console.log(res)
+					var info = res.info[0]
+					if (info.cityid == 0) {
+						that.isOpenCity = 0
+						that.itemArray = []
+						uni.setStorageSync('cityid', '')
+					} else {
+						that.isOpenCity = 1
+						that.itemArray = []
+
+						// info.type = ['1','2','3','4','5']
+						if (info.type.length > 0) {
+							that.selectIndex = info.type[0]
+							var arr = [that.i18n.shansong.bangwosong, that.i18n.shansong.bangwoqu, that.i18n
+								.shansong.tongchengbangmai, that.i18n.shansong.bangwopaidui, that.i18n.shansong
+								.bangwoban
+							]
+
+							for (var i = 0; i < info.type.length; i++) {
+								that.itemArray.push({
+									'id': info.type[i],
+									'name': arr[info.type[i] - 1]
+								})
+							}
+							console.log(that.itemArray)
+							// that.itemArray = info.type
+							uni.setStorageSync('cityid', info.cityid)
+						} else {
+							that.selectIndex = 0
+						}
+
+					}
+				})
+
+			},
+			getNeary() {
+				var that = this
+				http.sendRequest('Rider.GetNearby', {
+					'lat': that.latitude,
+					'lng': that.longitude
+				}).then(function(res) {
+					if (res.code == 0) {
+						var infoArray = res.info[0].list
+						var content = that.i18n.shansong.fujinwupeisongyuan;
+						if (infoArray.length > 0) {
+							that.markers = []
+							content = that.i18n.shansong.fujinyou + infoArray.length + that.i18n.shansong
+								.weiqishouyuji + res.info[0].time + that.i18n.shansong.fenzhongneijiedan;
+						}
+						var array = [{
+							"id": 1234,
+							"width": 30,
+							"height": 30,
+							"latitude": that.latitude,
+							"longitude": that.longitude,
+							"iconPath": "../../../static/user-location.png",
+							'coordType': 'wgs84',
+							"callout": {
+								"content": content,
+								"padding": '5',
+								"borderRadius": '12',
+								"textAlign": 'center',
+								"display": 'ALWAYS',
+								"color": '#ffffff',
+								"bgColor": '#FF5725',
+								"fontSize": '12',
+							}
+						}]
+						for (let i = 0; i < infoArray.length; i++) {
+							var dic = infoArray[i]
+							var markDic = {
+								"id": 2345 + i,
+								"width": 40,
+								"height": 40,
+								"latitude": dic.lat,
+								"longitude": dic.lng,
+								"iconPath": "../../../static/qishi-header.png",
+								'coordType': 'wgs84',
+							}
+							array.push(markDic)
+						}
+						console.log(array)
+						that.markers = array
+					}
+				})
+			},
+			hideInputCode() {
+				this.isShowCode = 0
+			},
+			doBack() {
+				uni.navigateBack({
+
+				})
+			}
+		}
+
+	}
+</script>
+
+<style>
+	.content {
+		display: flex;
+		flex-direction: column;
+		/* align-items: center;
+		justify-content: center; */
+		background-color: #F8F8F8;
+		width: 750rpx;
+
+	}
+
+	.navi-leftbutton {
+		width: 160rpx;
+		height: 64px;
+		line-height: 64px;
+		color: #323232;
+		margin-left: 10px;
+		font-size: 16px;
+		/* background-color: #007AFF; */
+	}
+
+	.navi-dowmimage {
+		/* margin-left: 3px; */
+		width: 20px;
+		height: 10px;
+	}
+
+
+	.mapView {
+		width: 750rpx;
+		height: 400rpx;
+		background-color: #FAD;
+	}
+
+	.datouzhen {
+		width: 40rpx;
+		height: 40rpx;
+		left: 355rpx;
+	}
+
+	.bottom-backview {
+		position: fixed;
+		width: 700rpx;
+		/* height: 80%; */
+		bottom: 0;
+		margin-left: 25rpx;
+		height: 200px;
+		border-radius: 10rpx;
+		background-color: #FFFFFF;
+	}
+
+	.bottom-pageview {
+		width: 700rpx;
+		height: 45px;
+		display: flex;
+		flex-direction: row;
+	}
+
+	.page-btn2 {
+		margin-left: 15px;
+		/* margin-right: 15px; */
+		margin-top: 10px;
+		height: 30px;
+		/* width: 140rpx; */
+		/* text-align: center;
+			color: #646464;
+			font-size: 14px; */
+		lines: 1;
+
+	}
+
+	.page-btn {
+		display: inline-block;
+		/* margin-left: 15px; */
+		/* margin-right: 15px; */
+		margin-top: 10px;
+		height: 30px;
+		/* width: 140rpx; */
+		/* text-align: center;
+			color: #323232;
+			font-size: 16px;
+			lines: 1; */
+		position: relative;
+		/* // background-color: #007AFF; */
+
+	}
+
+	.page-line {
+		position: absolute;
+		left: 25%;
+		bottom: 0;
+		right: 25%;
+		height: 6rpx;
+		/* // background-color: #4CE88E; */
+		/* // background: linear-gradient(#FE8328, #FF4B21); */
+		background-image: linear-gradient(to bottom, #FF8D58, #FF5D37);
+
+		border-radius: 2.5px;
+	}
+
+	.page-line2 {
+		position: absolute;
+		left: 182rpx;
+		top: 78rpx;
+		width: 56rpx;
+		height: 6rpx;
+		/* // background-color: #4CE88E; 
+		// background: linear-gradient(#FE8328, #FF4B21); */
+		background-image: linear-gradient(to bottom, #FF5725, #FF5725);
+
+		border-radius: 2.5px;
+	}
+
+	.bangwosong {
+		width: 700rpx;
+		height: 155px;
+	}
+
+	.bangwosong-item {
+		width: 700rpx;
+		height: 75px;
+		display: flex;
+		flex-direction: row;
+		/* background-color: #007AFF; */
+		align-items: center;
+	}
+
+	.bangwosong-item-cycle {
+		width: 8px;
+		height: 8px;
+		border-radius: 4px;
+		border-width: 2px;
+		border-color: #FF5725;
+		margin-left: 24px;
+	}
+
+	.bangwosong-item-middle {
+		margin-left: 8px;
+		height: 75px;
+		width: 480rpx;
+		/* // background-color: #007AFF; */
+		display: flex;
+		flex-direction: column;
+		border-bottom: 1px solid #f0f0f0;
+		lines: 1;
+		text-overflow: ellipsis;
+	}
+
+	.bangwosong-item-ads {
+		width: 590rpx;
+		margin-top: 15px;
+		height: 20px;
+		line-height: 20px;
+		font-size: 16px;
+		font-weight: bold;
+		color: #323232;
+
+
+	}
+
+	.bangwosong-item-ads-tip {
+		width: 480rpx;
+		height: 20px;
+		line-height: 20px;
+		font-size: 13px;
+		color: #FF5725;
+		text-align: left;
+	}
+
+	.bangwosong-right {
+		width: 70px;
+		height: 75px;
+		border-bottom: 1px solid #f0f0f0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.bangwosong-right-line {
+		background-color: #DEDEDE;
+		width: 1px;
+		height: 15px;
+		left: 8px;
+	}
+
+	.bangwosong-right-title {
+		left: 16px;
+		color: #989898;
+		font-size: 14px;
+		line-height: 75px;
+		height: 75px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.noOpenView {
+		width: 480rpx;
+		height: 340rpx;
+		margin-top: 200rpx;
+		margin-left: 135rpx;
+	}
+
+	.noChangeBtn {
+		width: 270rpx;
+		height: 80rpx;
+		line-height: 80rpx;
+		background-color: #FF5725;
+		border-radius: 40rpx;
+		color: #FFFFFF;
+		font-size: 32rpx;
+		font-weight: bold;
+		text-align: center;
+		margin-top: 80rpx;
+		margin-left: 240rpx;
+
+	}
+</style>

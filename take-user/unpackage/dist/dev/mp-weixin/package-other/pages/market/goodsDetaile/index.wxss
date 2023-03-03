@@ -1,0 +1,178 @@
+
+.cellContentView {
+		width: 100%;
+		background-color: #FFFFFF;
+		margin-bottom: 1px;
+}
+.iconImage {
+		margin-left: 15px;
+		margin-top: 20px;
+		width: 40px;
+		height: 40px;
+		border-radius: 20px;
+		/* background-color: #007AFF; */
+}
+.nameTimeView {
+		margin-left: 8px;
+		margin-top: 20px;
+		height: 40px;
+		flex: 1;
+}
+.userNickeName {
+		height: 20px;
+		line-height: 20px;
+		font-size: 15px;
+		color: #343434;
+}
+.textContent{
+		margin-left: 15px;
+		width: calc(100% - 30px);
+		line-height: 20px;
+		font-size: 14px;
+		color: #181818;
+}
+.middle-Content{
+		margin-left: 15px;
+		width: calc(100% - 30px);
+		display: flex;
+		flex-wrap: wrap;
+		position: relative;
+		margin-top: 10px;
+}
+	/* .middle-Content::after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		height: 1px;
+		background-color: #F0F0F0;
+	} */
+.picBackView {
+		width: calc(33.3% - 3px); 
+		border-radius: 8px;
+		margin-bottom: 5px; 
+		overflow: hidden;
+		position: relative;
+		/* height: 0;
+		padding-bottom: calc(33.3% - 3px);
+		background-color: #007AFF;
+		background-size: calc(100%) calc(100%); */
+}
+.pic-image {
+		
+		width: 100%;
+		height: 100%;
+		padding-bottom: calc(100%);
+}
+.bottomView {
+		margin-left: 15px;
+		width: calc(100% - 30px);
+		height: 20px;
+		align-items: center;
+		border-bottom: 1px solid #D6DADE;
+}
+	/* .image:last-child {
+	    margin-right: auto;
+	} */
+.picBackView:not(:nth-child(3n)) {
+	    margin-right: 4.5px;
+}
+.tabbar_sel {
+		height: 29px;
+		border-radius: 4px;
+		font-size: 12px;
+		font-weight: bold;
+		color: #FFF;
+		padding-left: 10px;
+		padding-right: 10px;
+		background-color: #FF5725;
+		margin-right: 8px;
+		line-height: 29px;
+		margin-top: 10.5px;
+}
+.tabbar_nor {
+		height: 29px;
+		border-radius: 4px;
+		font-size: 12px;
+		color: #646464;
+		padding-left: 10px;
+		padding-right: 10px;
+		background-color: #FEF0E5;
+		margin-right: 8px;
+		line-height: 29px;
+		margin-top: 10.5px;
+}
+page {
+	width: 100%;
+	height: 100%;
+	background-color: #FFF;
+}
+.headerImage {
+	width: 100%;
+	height: 100%;
+	/* background-color: #f09; */
+}
+.back-image {
+	left: 15px;
+	width: 32px;
+	height: 32px;
+	position: absolute;
+}
+.cartImage {
+	right: 15px;
+	background: #FFF;
+	border-radius: 16px;
+	width: 32px;
+	height: 32px;
+	position: absolute;
+}
+.name {
+	margin-left: 15px;
+	line-height: 25px;
+	font-weight: bold;
+	font-size: 18px;
+	width: calc(100% - 30px);
+}
+.cartNunsBtn {
+	width: 25px;
+	height: 25px;
+	margin-left: 15px;
+	margin-top: 17.5px;
+}
+.numsLabel {
+	color: #181818;
+	font-size: 18px;
+	font-weight: bold;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 17.5px;
+	height: 25px;
+	line-height: 25px;
+}
+.cart {
+	margin-top: 10px;
+	margin-right: 15px;
+	width: 120px;
+	background-color: #FF5725;
+	border-radius: 8px;
+	font-weight: bold;
+	line-height: 40px;
+	height: 40px;
+	text-align: center;
+	color: #FFF;
+}
+.shoukong {
+	margin-top: 10px;
+	margin-left: 15px;
+	width: calc(100% - 30px);
+	background-color: #D8D8D8;
+	border-radius: 8px;
+	font-weight: bold;
+	line-height: 40px;
+	height: 40px;
+	text-align: center;
+	color: #FFF;
+	font-size: 14px;
+	font-weight: bold;
+}
+

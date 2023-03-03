@@ -1,0 +1,22 @@
+import type { CacheDurationSeconds } from '@typescript-eslint/types';
+export declare const DEFAULT_TSCONFIG_CACHE_DURATION_SECONDS = 30;
+/**
+ * A map with key-level expiration.
+ */
+export declare class ExpiringCache<TKey, TValue> {
+    #private;
+    /**
+     * The mapping of path-like string to the resolved TSConfig(s)
+     */
+    protected readonly map: Map<TKey, Readonly<{
+        value: TValue;
+        lastSeen: [number, number];
+    }>>;
+    constructor(cacheDurationSeconds: CacheDurationSeconds);
+    set(key: TKey, value: TValue): this;
+    get(key: TKey): TValue | undefined;
+    protected cleanupKey(key: TKey): void;
+    get size(): number;
+    clear(): void;
+}
+//# sourceMappingURL=ExpiringCache.d.ts.map

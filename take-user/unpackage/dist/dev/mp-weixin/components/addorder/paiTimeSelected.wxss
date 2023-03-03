@@ -1,0 +1,67 @@
+
+.showView {
+	width: 750rpx;
+	height: 476rpx;
+	border-radius: 32rpx 32rpx 0 0;
+	background-color: #FFFFFF;
+	position: fixed;
+	bottom: 0;
+}
+.heaerView {
+	display: flex;
+	flex-direction: row;
+	height: 108rpx;
+	/* border-bottom: 1px solid #f0f0f0; */
+}
+.cancleBtn {
+	position: absolute;
+	height: 40rpx;
+	margin-top: 34rpx;
+	margin-left: 20rpx;
+	line-height: 40rpx;
+	color: #989898;
+	font-size: 34rpx;
+	/* background-color: #007AFF; */
+}
+.closeBtn {
+	position: absolute;
+	height: 40rpx;
+	margin-top: 34rpx;
+	right: 20rpx;
+	line-height: 40rpx;
+	color: #323232;
+	font-size: 34rpx;
+}
+.titleText {
+	height: 108rpx;
+	line-height: 108rpx;
+	/* left: 160rpx; */
+	width: 750rpx;
+	color: #323232;
+	font-size: 36rpx;
+	font-weight: bold;
+	display: inline-block;
+	text-align: center;
+}
+.contentView {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	/* top: 54px; */
+	bottom: 0px;
+	width: 750rpx;
+	left: 0;
+	height: 368rpx;
+	/* background-color: #18BC37; */
+}
+.item {
+	height: 40px;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-size: 16px;
+	line-height: 40px;
+	color: #323232;
+	font-weight: bold;
+}
+

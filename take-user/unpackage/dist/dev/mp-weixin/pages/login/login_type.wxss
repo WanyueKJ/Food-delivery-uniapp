@@ -1,0 +1,268 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* @import url("./login_type.css"); */
+.logo_image {
+	width: 64px;
+	height: 64px;
+
+
+
+
+	margin-top: 120px;
+
+	border-radius: 8px;
+	/* margin-left: calc(50% - 40px); */
+}
+.button_type {
+	width: 86%;
+	height: 45px;
+	border-radius: 8px;
+	font-size: 16px;
+	text-align: center;
+	line-height: 45px;
+}
+.newstate {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	/* margin-top: 20px; */
+	width: 100%;
+	position: absolute;
+	bottom: 20px;
+}
+.opatity {
+	opacity: 0.5;
+}
+.xieyi {
+	color: #FF5725;
+	font-size: 12px;
+}
+.xieyis {
+	font-size: 12px;
+	color: #181818;
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+	margin-left: 5px;
+}
+

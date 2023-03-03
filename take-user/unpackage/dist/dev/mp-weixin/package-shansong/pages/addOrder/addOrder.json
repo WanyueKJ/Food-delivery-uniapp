@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "timev": "/components/addorder/order-time",
+    "wupin-msg-v": "/components/addorder/order-wupin",
+    "coupon-msg-v": "/components/addorder/order-coupon",
+    "tip-money-v": "/components/addorder/order-tip",
+    "price-datl": "/components/addorder/order-priceDatl",
+    "pay-view": "/components/payview/payview"
+  }
+}

@@ -1,0 +1,1 @@
+module.exports={extends:["./base"],rules:{camelCase:"off",eqeqeq:"off","func-type":"off","max-len":"off","no-param-reassign":"off","no-underscore-dangle":"off","no-var":"off","prefer-const":"off","prefer-template":"off","template-curly-spacing":"off"}};

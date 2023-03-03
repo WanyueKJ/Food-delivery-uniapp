@@ -1,0 +1,40 @@
+
+page{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: #FAFAFA;
+}
+.topView{
+	width: 100%;
+	position: relative;
+}
+.searchbackView{
+	position: absolute;
+	margin-left: 12px;
+	bottom: 5px;
+	height: 30px;
+	background-color: #efeef2;
+	border-radius: 15px;
+	width: calc(100% - 74px);
+}
+.searchInput{
+	margin-left: 5px;
+	width: calc(100% - 45px);
+	height: 100%;
+	line-height: 30px;
+	font-size: 15px;
+	color: #323232;
+}
+.cancleBtn{
+	position: absolute;
+	bottom: 5px;
+	right: 0px;
+	width: 50px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+	color: #989898;
+	text-align: center;
+}
+

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "starv": "/components/banxing/banStar",
+    "daka-result": "/package-other/components/daka/index"
+  }
+}

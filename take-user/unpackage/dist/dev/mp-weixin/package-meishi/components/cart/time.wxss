@@ -1,0 +1,88 @@
+
+.showView {
+	width: 750rpx;
+	height: 800rpx;
+	border-radius: 32rpx 32rpx 0 0;
+	background-color: #FFFFFF;
+	position: fixed;
+	bottom: 0;
+}
+.heaerView {
+	display: flex;
+	flex-direction: row;
+	height: 108rpx;
+	border-bottom: 1px solid #f0f0f0;
+}
+.titleText {
+	height: 108rpx;
+	line-height: 108rpx;
+	/* margin-left: 160rpx; */
+	margin-left: 15px;
+	flex: 1;
+	color: #323232;
+	font-size: 36rpx;
+	font-weight: bold;
+	/* display:inline-block; */
+	/* text-align: center; */
+}
+.closeBtn {
+	/* position: absolute; */
+	width: 40rpx;
+	height: 40rpx;
+	margin-top: 34rpx;
+	margin-right: 20rpx;
+	/* margin-left: 40rpx; */
+	/* background-color: #007AFF; */
+}
+.contentView {
+	display: flex;
+	flex-direction: row;
+	/* top: 54px; */
+	bottom: 0px;
+	width: 750rpx;
+	left: 0;
+}
+.leftView {
+	margin-left: 0;
+	width: 200rpx;
+	background-color: #F9F9F9;
+	height: 692rpx;
+	display: flex;
+	flex-direction: column;
+}
+.leftItem {
+	width: 200rpx;
+	height: 100rpx;
+	line-height: 100rpx;
+	color: #323232;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+}
+.rightView {
+	margin-left: 40rpx;
+	width: 480rpx;
+	height: 692rpx;
+	display: flex;
+	flex-direction: column;
+	background-color: #FFFFFF;
+}
+.timeLabelItem {
+	width: 480rpx;
+	height: 100rpx;
+	line-height: 100rpx;
+	color: #323232;
+	font-size: 16px;
+}
+.onelinele {
+	overflow: hidden;
+	-webkit-line-clamp: 1;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	/* white-space: nowrap; */
+	word-wrap: break-word;
+	lines: 1;
+	white-space: nowrap;
+}
+
