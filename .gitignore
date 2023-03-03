@@ -1,0 +1,3 @@
+*.apk
+*.ipa
+!.gitignore
