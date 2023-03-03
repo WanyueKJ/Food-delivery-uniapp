@@ -14,14 +14,14 @@
 ---
 
 ### 系统演示
-![输入图片说明](images/1.png)
-![输入图片说明](images/2.png)
-![输入图片说明](images/3.png)
-![输入图片说明](images/4(4).png)
-![输入图片说明](images/5.png)
-![输入图片说明](images/6.png)
-![输入图片说明](images/7.png)
-![输入图片说明](images/8.png)
+![输入图片说明](https://gitee.com/WanYueKeJi/wanyue_waimai_web/raw/master/images/1.png)
+![输入图片说明](https://gitee.com/WanYueKeJi/wanyue_waimai_web/raw/master/images/2.png)
+![输入图片说明](https://gitee.com/WanYueKeJi/wanyue_waimai_web/raw/master/images/3.png)
+![输入图片说明](https://gitee.com/WanYueKeJi/wanyue_waimai_web/raw/master/images/4(4).png)
+![输入图片说明](https://gitee.com/WanYueKeJi/wanyue_waimai_web/raw/master/images/5.png)
+![输入图片说明](https://gitee.com/WanYueKeJi/wanyue_waimai_web/raw/master/images/6.png)
+![输入图片说明](https://gitee.com/WanYueKeJi/wanyue_waimai_web/raw/master/images/7.png)
+![输入图片说明](https://gitee.com/WanYueKeJi/wanyue_waimai_web/raw/master/images/8.png)
 
    
 ### 项目介绍
