@@ -1,0 +1,44 @@
+
+page {
+	width: 100%;
+	height: 100%;
+	background-color: #f5f5f5;
+	overflow: hidden;
+}
+.nothing {
+	margin-top: 150px;
+	width: 100%;
+	height: 140px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.classView {
+	background-color: rgba(0, 0, 0, 0.2);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.classItem {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 15px;
+	font-size: 14px;
+	color: #181818;
+	background-color: white;
+	border-bottom: 1px solid #e6e6e6;
+}
+.search {
+	width: 100%;
+	height: 44px;
+	background-color: #f5f5f5;
+	color: #AAAAAA;
+	padding-left: 25px;
+	font-size: 14px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+

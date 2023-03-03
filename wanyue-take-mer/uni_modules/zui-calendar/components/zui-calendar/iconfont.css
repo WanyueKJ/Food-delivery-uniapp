@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "iconfont";
+  src: url('../../static/calendar/iconfont.woff2?t=1661934945336') format('woff2'),
+       url('../../static/calendar/iconfont.woff?t=1661934945336') format('woff'),
+       url('../../static/calendar/iconfont.ttf?t=1661934945336') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 32rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+	color: #909193;
+}
+
+.icon-zhankai:before {
+  content: "\eb0b";
+}
+
+.icon-shousuo:before {
+  content: "\e672";
+}
+
+.icon-dui:before {
+  content: "\e645";
+}
+
+.icon-cuo:before {
+  content: "\e646";
+}
+
+.icon-xiangyou1:before {
+  content: "\e775";
+}
+
+.icon-xiangzuo1:before {
+  content: "\e779";
+}
+
+.icon-jiantou_xiangyouliangci:before {
+  content: "\eb09";
+}
+
+.icon-jiantou_xiangzuoliangci:before {
+  content: "\eb0a";
+}
+
+

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "zui-calendar": "/uni_modules/zui-calendar/components/zui-calendar/zui-calendar"
+  }
+}

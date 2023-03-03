@@ -1,0 +1,162 @@
+
+page {
+	width: 100%;
+	height: 100%;
+	background-color: #F5F5F5;
+	overflow: hidden;
+}
+.topImageView {
+	width: 100%;
+	overflow: hidden;
+	height: 64px;
+	background-color: #2F3E51;
+	/* position: relative; */
+	background-size: 100% auto;
+}
+.backimg {
+	width: 20px;
+	height: 20px;
+	margin-left: 15px;
+}
+.nav {
+	display: flex;
+	align-items: center;
+	height: 44px;
+	width: 100%;
+}
+.nav_title {
+	margin-left: 25%;
+	height: 20px;
+	line-height: 20px;
+	color: white;
+	font-size: 16px;
+	text-align: center;
+}
+.title {
+	width: 100%;
+	padding-left: 15px;
+	padding-top: 17px;
+	height: 10px;
+	height: 44px;
+	font-size: 14px;
+	text-align: left;
+	color: #6f6f6f;
+	line-height: 10px;
+}
+.inputBackView {
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	border-bottom: 1px solid #E6E6E6;
+	align-items: center;
+}
+.leftTipLabel {
+	margin-left: 15px;
+	
+	/* height: 51px;
+	line-height: 51px; */
+	/* top: 0; */
+	font-size: 16px;
+	color: #323232;
+}
+.inputV {
+	/* border-bottom: 1px solid #f0f0f0; */
+	height: 51px;
+	line-height: 51px;
+	top: 0;
+	font-size: 14px;
+	display: flex;
+	flex:1;
+	/* width: calc(100% - 150px); */
+	margin-right: 15px;
+	margin-left: 15px;
+}
+.morenImage {
+	 margin-right: 20px; 
+	margin-left: 10px;
+	height: 16px;
+	width: 16px;
+	/* margin-top: 18px; */
+	/* position: absolute; */
+}
+.subBtnClass {
+	position: absolute;
+	bottom: 40rpx;
+	margin-left: 20rpx;
+	width: 710rpx;
+	height: 96rpx;
+	border-radius: 48rpx;
+	background-color: #00c1de;
+	line-height: 96rpx;
+	color: #FFFFFF;
+	font-size: 32rpx;
+	font-weight: bold;
+	text-align: center;
+}
+.bottom_txt {
+	/* width: 105px; */
+	height: 14px;
+	font-size: 14px;
+	text-align: center;
+	color: #323232;
+	line-height: 14px;
+	margin-top: 23px;
+	margin-left: 15px;
+}
+.bottom_right {
+	position: absolute;
+	height: 38px;
+	background: #00c1de;
+	border-radius: 2px;
+	right: 15px;
+	bottom: 11px;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 38px;
+	width: 100px;
+}
+.price {
+	position: relative;
+	height: 40px;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	width: 50%;
+	margin-top: 10px;
+	margin-left: 15px;
+}
+.moneyF {
+
+	height: 30px;
+	font-size: 12px;
+	text-align: center;
+	color: #f40404;
+	line-height: 30px;
+}
+.money {
+	height: 40px;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	color: #f40404;
+	line-height: 40px;
+	margin-left: 5px;
+}
+.tip2 {
+	margin-left: 10px;
+	height: 40px;
+	font-size: 13px;
+	text-align: center;
+	color: #989898;
+	line-height: 40px;
+}
+.arrow {
+	width: 12px;
+	height: 12px;
+}
+

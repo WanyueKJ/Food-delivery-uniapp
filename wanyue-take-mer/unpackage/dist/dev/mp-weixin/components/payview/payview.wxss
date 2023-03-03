@@ -1,0 +1,77 @@
+
+.showView {
+	width: 750rpx;
+	height: 680rpx;
+	border-radius: 16px 16px 0 0;
+	background-color: #FFFFFF;
+	position: fixed;
+	bottom: 0;
+}
+.heaerView {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	height: 128rpx;
+	width: 750rpx;
+	border-bottom: 1px solid #ECECEC;
+}
+.titleText {
+	height: 128rpx;
+	line-height: 128rpx;
+	color: #323232;
+	font-size: 34px;
+	font-weight: bold;
+}
+.payType-item-image {
+	margin-left: 12px;
+	width: 26px;
+	height: 26px;
+	margin-top: 17px;
+}
+.payType-item-name {
+	margin-left: 12px;
+	/* width: 100px; */
+	height: 60px;
+	line-height: 60px;
+	color: #323232;
+	font-size: 16px;
+	flex: 1;
+}
+.item-yue-label {
+	height: 60px;
+	line-height: 60px;
+	color: #646464;
+	font-size: 12px;
+	margin-right: 10px;
+}
+.payType-item-Btn {
+	/* position: absolute; */
+	margin-right: 24rpx;
+	margin-top: 42rpx;
+	width: 40rpx;
+	height: 40rpx;
+}
+.subBtnClass {
+	position: absolute;
+	bottom: 40px;
+	margin-left: 24rpx;
+	width: 702rpx;
+	height: 40px;
+	border-radius: 3px;
+	background-color:#00C1DE;
+	line-height: 40px;
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+}
+.closeBtn{
+	position: absolute;
+	width: 40rpx;
+	height: 40rpx;
+	margin-top: 34rpx;
+	right: 20rpx;
+	/* margin-left: 40rpx; */
+	/* background-color: #007AFF; */
+}
+

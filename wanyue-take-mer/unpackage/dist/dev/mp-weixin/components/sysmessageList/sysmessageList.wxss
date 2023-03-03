@@ -1,0 +1,55 @@
+
+.cell {
+	width: 100%;
+	height: 64px;
+	display: flex;
+	flex-direction: row;
+	/* align-items: center; */
+}
+.nothing {
+	margin-top:150px;
+	width: 100%;
+	height: 140px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.leftImg {
+	background-color: #FFF;
+	margin-left: 15px;
+	margin-top: 13px;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+}
+.contentView {
+	margin-top: 13px;
+	margin-left: 10px;
+	width: calc(100% - 80px);
+	height: 55px;
+	border-bottom: 0.5px solid #E7E7E7;
+	display: flex;
+	flex-direction: row;
+}
+.title{
+	/* display: flex;
+	flex-direction: row; */
+	color: #AAA;
+	font-size: 12px;
+	height: 30px;
+	overflow: hidden;
+	word-break: break-all;  /* break-all(允许在单词内换行。) */
+	text-overflow: ellipsis;  /* 超出部分省略号 */
+	display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+	-webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+	-webkit-line-clamp: 1; /** 显示的行数 **/
+}
+.redBage {
+	margin-top: 5px;
+	margin-right: 0;
+	width: 6px;
+	height: 6px;
+	border-radius: 3px;
+	background-color: #FF4C4C;
+}
+

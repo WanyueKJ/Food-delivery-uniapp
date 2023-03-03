@@ -1,0 +1,1 @@
+<view style="margin-top:10px;"><block wx:for="{{data}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view><view class="inputBackView"><view class="title">{{item}}</view><image class="rightArrow" src="../../../static/ads-seld-right.png" mode="aspectFit" data-event-opts="{{[['tap',[['click',[index]]]]]}}" bindtap="__e"></image></view></view></block></view>

@@ -1,0 +1,203 @@
+
+page {
+	width: 100%;
+	height: 100%;
+	background-color: #F5F5F5;
+}
+.firstclasslist {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	width: calc(100% - 30px);
+}
+.firstclasslist text {
+	height: 30px;
+	font-size: 16px;
+	text-align: left;
+	color: #181818;
+	line-height: 40px;
+	margin-left: 35px;
+	margin-right: 35px;
+	flex: 1;
+}
+.bg {
+	background-color: white;
+	margin-left: 15px;
+	width: calc(100% - 30px);
+	margin-right: 15px;
+	height: 175px;
+	display: flex;
+	flex-direction: column;
+}
+.fenleibackview {
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 15px;
+	height: 40px;
+	background: #ffffff;
+	border: 0.5px solid #c5c5c5;
+	border-radius: 3px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.rightClassArrow {
+	margin-left: 15px;
+	margin-right: 15px;
+	width: 24px;
+	height: 24px;
+}
+.man {
+	position: absolute;
+	right: 20px;
+	height: 20px;
+	font-size: 14px;
+	text-align: left;
+	color: #181818;
+	line-height: 20px;
+}
+.guqing {
+	position: absolute;
+	right: 80px;
+	height: 20px;
+	font-size: 14px;
+	text-align: left;
+	color: #181818;
+	line-height: 20px;
+}
+.delete {
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 15px;
+	height: 44px;
+	line-height: 44px;
+	font-size: 16px;
+	text-align: center;
+	color: #F40404;
+	line-height: 44px;
+	background-color: white;
+}
+.right_switch {
+	position: absolute;
+	right: 32px;
+	width: 20px;
+	height: 20px;
+}
+.tuijian {
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+	height: 44px;
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	border-bottom: 1px solid #E6E6E6;
+	align-items: center;
+	margin-top: 15px;
+}
+.rightTxt {
+	position: absolute;
+	right: 20px;
+	font-size: 16px;
+	line-height: 44px;
+	height: 44px;
+}
+.guanlibtn {
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	font-size: 16px;
+	text-align: center;
+	color: #00c1de;
+	line-height: 44px;
+	background-color: white;
+}
+.inputBackView {
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+	height: 44px;
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	border-bottom: 1px solid #E6E6E6;
+	align-items: center;
+}
+.inputBackView2 {
+	width: 100%;
+	/* padding-left: 15px;
+	padding-right: 15px; */
+	height: 44px;
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	align-items: center;
+	justify-content: space-around;
+}
+.leftbtn {
+	width: 160px;
+	border-radius: 2px;
+	height: 30px;
+	font-size: 14px;
+	text-align: center;
+	line-height: 30px;
+}
+.rightbtn {
+	width: 160px;
+	border-radius: 2px;
+	height: 30px;
+	font-size: 14px;
+	text-align: center;
+	line-height: 30px;
+}
+.inputV {
+	height: 44px;
+	line-height: 44px;
+	top: 0;
+	font-size: 14px;
+	width: calc(100% - 150px);
+	margin-left: 15px;
+	/* background-color: #DD524D; */
+}
+.pic {
+	width: 64px;
+	height: 64px;
+
+	margin-left: 5px;
+}
+.rightArrow {
+	right: 20px;
+	height: 16px;
+	width: 16px;
+	position: absolute;
+}
+.picView {
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+	height: 76px;
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	align-items: center;
+}
+.title {
+	width: 100%;
+	padding-left: 15px;
+	padding-top: 17px;
+	height: 10px;
+	height: 44px;
+	font-size: 14px;
+	text-align: left;
+	color: #6f6f6f;
+	line-height: 10px;
+}
+.title2 {
+	/* height: 44px;
+	line-height: 44px; */
+	top: 0;
+	font-size: 16px;
+	color: #181818;
+}
+

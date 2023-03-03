@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "t-u-i-message-list": "/components/tui-chat/message-list/index",
+    "t-u-i-message-input": "/components/tui-chat/message-input/index"
+  }
+}

@@ -1,0 +1,81 @@
+
+page {
+	width: 100%;
+	height: 100%;
+}
+.top {
+	display: flex;
+	flex-direction: row;
+	position: absolute;
+	width: 100%;
+	height: 60px;
+	bottom: 100px;
+	/* background-color: black; */
+    align-items: center;
+	/* justify-content: center; */
+}
+.tip {
+	display: flex;
+	flex-direction: row;
+	position: absolute;
+	width: 100%;
+	height: 20px;
+	color: #ffffff;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	bottom: 200px;
+}
+.scancode {
+	width: 90px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-left: 97px;
+	align-items: center;
+	justify-content: center;
+}
+.scan {
+	height: 21px;
+	font-size: 15px;
+	text-align: center;
+	color: #ffffff;
+	line-height: 21px;
+}
+.content_img {
+	margin-top: 0;
+	width: 5px;
+	height: 5px;
+	border-radius: 2.5px;
+	background-color: white;
+}
+.quan {
+	/* width: 90px;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	background-color: yellow; */
+	width: 90px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.content_img2 {
+	margin-top: 0;
+	width: 5px;
+	height: 5px;
+	border-radius: 2.5px;
+}
+.quantxt {
+	height: 20px;
+	font-size: 15px;
+	text-align: center;
+	color: #ffffff;
+	line-height: 20px;
+}
+

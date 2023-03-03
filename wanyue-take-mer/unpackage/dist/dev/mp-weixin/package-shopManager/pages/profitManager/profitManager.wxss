@@ -1,0 +1,107 @@
+
+page {
+	width: 100%;
+	height: 100%;
+	background-color: #ffffff;
+}
+.nothing {
+	margin-top:150px;
+	width: 100%;
+	height: 140px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.picker-view {
+	width: 750rpx;
+	height: 600rpx;
+}
+.item {
+	height: 50px;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+.recordtitle {
+	width: 100%;
+	height: 44px;
+	align-items: center;
+	border-bottom: 1px solid #e6e6e6;
+}
+.title2 {
+	width: 25%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	font-size: 13px;
+}
+.rightView {
+	align-items: center;
+	margin-left: 15px;
+	margin-right: 15px;
+	height: 100%;
+}
+.middleview {
+	width: calc(100% - 30px);
+	margin-left: 15px;
+	margin-right: 15px;
+	height: 44px;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.title1 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #181818;
+	flex: 1;
+}
+.time {
+	margin-left: 15px;
+	text-align: right;
+	color: #383838;
+	font-size: 14px;
+}
+.tixianbtn {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	width: 80px;
+	height: 30px;
+	background: #00c1de;
+	border-radius: 1px;
+	font-size: 14px;
+	text-align: center;
+	color: #ffffff;
+	line-height: 20px;
+}
+.tixian {
+	margin-top: 10px;
+	color: white;
+}
+.bg {
+	margin: 15px;
+	background-color: #2C3E54;
+	border-radius: 4px;
+	height: 150px;
+}
+.tab_nor {
+	font-size: 15px;
+	color: white;
+	display: flex;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 15px;
+	flex-direction: column;
+	position: relative;
+	justify-content: center;
+}
+

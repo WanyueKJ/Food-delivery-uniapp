@@ -1,0 +1,647 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+
+		{
+			"path": "pages/shopManager/shopManager",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/webView/webView",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+
+		},
+		// {
+		// 	"path": "pages/message/message",
+		// 	"style": {
+		// 		"navigationBarTitleText": "",
+		// 		"enablePullDownRefresh": false,
+		// 		"navigationStyle": "custom",
+		// 		"app-plus": {
+		// 			"titleNView": false
+		// 		}
+		// 	}
+
+		// },
+		
+		{
+			"path": "pages/login/country",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+
+		},
+		
+		
+		{
+            "path" : "pages/video/video",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false
+				}
+            }
+            
+        }
+    ],
+	
+	"subpackages": [
+		{
+			"root": "package-index",
+			"pages":[
+			{
+				"path": "pages/ziti",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false,
+					"navigationStyle": "custom",
+					"app-plus": {
+						"titleNView": false
+					}
+				}
+			},
+			{
+				"path": "pages/scan",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+			
+			}, 
+			{
+				"path": "pages/surecode",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false,
+					"navigationStyle": "custom",
+					"app-plus": {
+						"titleNView": false
+					}
+				}
+			},
+			
+			{
+				"path": "pages/indexOrderDetail",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+			
+			}, 
+			{
+				"path": "pages/scanQRCode",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+			
+			}, 
+			{
+				"path": "pages/evalueDetail",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+			
+			}
+		]
+		},
+		{
+			"root":"package-mine",
+			"pages":[
+				{
+					"path": "pages/editProfile/editProfile",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				
+				},
+				{
+					"path": "pages/editProfile/editName",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				},
+				{
+					"path": "pages/editProfile/shopType",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				},
+				{
+					"path": "pages/address/address",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				}, {
+					"path": "pages/address/handSelecedAds",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+						// "navigationStyle": "custom",
+						// "app-plus": {
+						// 	"titleNView": false
+						// }
+					}
+				
+				},
+				{
+					"path": "pages/print/cloundprint",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				},
+				{
+					"path": "pages/print/printsetup",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				
+				},
+				
+				{
+					"path": "pages/address/editAds",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				}
+			]
+		},
+		{
+			"root":"package-publishOrder",
+			"pages":[
+				{
+					"path": "pages/newOrder",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				},
+				{
+					"path": "pages/beizhu",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+				
+					}
+				
+				}, {
+					"path": "pages/postOrderDetail",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				},
+				{
+					"path": "pages/order-map-detaile",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				},
+				{
+					"path": "pages/orderEvaluate",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				},
+				{
+					"path": "pages/refundOrder/applyRefund",
+					"style": {
+						"navigationBarTitleText": "申请退款",
+						"enablePullDownRefresh": false
+					}
+				
+				}, {
+					"path": "pages/refundOrder/refundDetails",
+					"style": {
+						"navigationBarTitleText": "退款详情",
+						"enablePullDownRefresh": false
+					}
+				
+				}
+			]
+		},
+		{
+			"root":"package-shopManager",
+			"pages":[
+				{
+					"path": "pages/goodsManager/goodsManager",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				}, {
+					"path": "pages/searchgoods/searchgoods",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				}, {
+					"path": "pages/goodsManager/addGoods",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				},
+				{
+					"path": "pages/goodsManager/addGoodsPics",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				}, {
+					"path": "pages/classifyManager/classifyManager",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				
+				}, {
+					"path": "pages/classifyManager/addClassify",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				}, {
+					"path": "pages/specManager/specManager",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				},
+				{
+				     "path" : "pages/specManager/sepcMSManger",
+				     "style" :                                                                                    
+				     {
+				         "navigationBarTitleText": "",
+				         "enablePullDownRefresh": false,
+						 "navigationStyle": "custom",
+						 "app-plus": {
+						 	"titleNView": false
+						 }
+				     }
+				     
+				 },
+				{
+					"path": "pages/specManager/specServiceManager",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				},
+				{
+					"path": "pages/shopSet/shopSet",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "pages/shopSet/businessPics",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "pages/shopSet/addShopPics",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				},
+				{
+					"path": "pages/shopSet/bankSet",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				}, {
+					"path": "pages/shopSet/aboutShop",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				}, {
+					"path": "pages/shopSet/zitiAddress",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				
+				}, {
+					"path": "pages/shopSet/orderService",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				
+				}, {
+					"path": "pages/shopSet/orderServiceEdit",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				}, {
+					"path": "pages/shopTime/shopTime",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				
+				}, {
+					"path": "pages/shopTime/shopTimeEdit",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				
+				}, {
+					"path": "pages/commentManager/commentManager",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "pages/youhuiquan/youhuiquan",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				
+				}, {
+					"path": "pages/profitManager/profitManager",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				
+				}, {
+					"path": "pages/verifyAccount/verifyAccount",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				
+				}, {
+					"path": "pages/youhuiquan/youhuiquanSet",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				
+				}, {
+					"path": "pages/profitManager/tixian",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				
+				},  {
+					"path": "pages/shopSet/bank",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				
+				}, {
+					"path": "pages/commentManager/commentDetail",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "pages/shopSet/foodsAdPics",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false,
+						"navigationStyle": "custom",
+						"app-plus": {
+							"titleNView": false
+						}
+					}
+				}]	
+		}
+		
+	
+	],
+
+	"tabBar": {
+		"color": "#323232",
+		"selectedColor": "#00C1DE",
+		"borderStyle": "black",
+		"backgroundColor": "#f8f8f8",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "外卖订单",
+				"iconPath": "static/tabbar/tab-home-n@2x.png",
+				"selectedIconPath": "static/tabbar/tab-home-s@2x.png"
+			},
+		
+			{
+				"pagePath": "pages/shopManager/shopManager",
+				"text": "店铺管理",
+				"iconPath": "static/tabbar/tab-shopM-n@2x.png",
+				"selectedIconPath": "static/tabbar/tab-shopM-s@2x.png"
+			},
+			{
+				"pagePath": "pages/mine/mine",
+				"text": "我的",
+				"iconPath": "static/tabbar/tab-mine-n@2x.png",
+				"selectedIconPath": "static/tabbar/tab-mine-s@2x.png"
+			}
+
+		]
+	},
+
+	"permission": {
+		"scope.userLocation": {
+			"desc": "你的位置信息将用于万岳外卖商家获取定位展示" // 高速公路行驶持续后台定位
+		}
+	},
+	"requiredBackgroundModes": [
+		"location"
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF",
+		"titleNView": {
+			"type": "default",
+			"backgroundColor": "#FFFFFF"
+		}
+	},
+	"condition": { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [{
+			"name": "", //模式名称
+			"path": "", //启动页面，必选
+			"query": "" //启动参数，在页面的onLoad函数里面得到
+		}]
+	}
+}

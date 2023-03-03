@@ -1,0 +1,258 @@
+
+page {
+	width: 100%;
+	height: 100%;
+	background-color: #fcfcfc;
+}
+.scroll {
+	/* margin-top: 0px; */
+}
+.mapView {
+	width: 750rpx;
+	background-color: #1AAD19;
+}
+.prcieSingleItem {
+	width: 750rpx;
+	height: 60rpx;
+	display: flex;
+	flex-direction: row;
+}
+.leftNameLabel {
+	height: 60rpx;
+	font-size: 14px;
+	line-height: 60rpx;
+	color: #646464;
+	margin-left: 24rpx;
+	flex: 1;
+}
+.rightPriceLabel {
+	height: 60rpx;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 60rpx;
+	color: #323232;
+	margin-right: 25px;
+}
+.rightsongLabel {
+	height: 60rpx;
+	font-size: 14px;
+	line-height: 60rpx;
+	color: #323232;
+	margin-right: 25px;
+}
+.rightimg {
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	right: 12px;
+}
+.rightStatus {
+	position: absolute;
+	right: 25px;
+	height: 16px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: left;
+	color: #ff0b00;
+	line-height: 16px;
+}
+.section4 {
+	display: flex;
+	flex-direction: row;
+	height: 56px;
+	position: relative;
+	align-items: center;
+	margin-left: 12px;
+	margin-right: 12px;
+}
+.dingdan {
+	height: 52px;
+	font-size: 16px;
+	text-align: left;
+	color: #323232;
+	line-height: 52px;
+}
+.sectiontitle {
+	height: 52px;
+	font-size: 16px;
+	text-align: left;
+	color: #323232;
+	line-height: 52px;
+	padding-left: 12px;
+}
+.section1 {
+	display: flex;
+	flex-direction: row;
+	border-bottom: 1px solid #f0f0f0;
+	height: 56px;
+	position: relative;
+	align-items: center;
+	margin-left: 12px;
+	margin-right: 12px;
+}
+.mark {
+	width: 50px;
+	height: 20px;
+	background: #eefdff;
+	border: 1px solid #00c1de;
+	border-radius: 2px;
+	margin-left: 0;
+	height: 12px;
+	font-size: 12px;
+	font-weight: 400;
+	text-align: center;
+	color: #00c1de;
+	line-height: 12px;
+}
+.section2 {
+	display: flex;
+	flex-direction: row;
+	height: 70px;
+	margin-left: 12px;
+	margin-right: 12px;
+	position: relative;
+}
+.name {
+	margin-left: 15px;
+	height: 20px;
+	line-height: 20px;
+	color: #181818;
+	font-size: 16px;
+	margin-top: 15px;
+	font-weight: bold;
+}
+.point {
+	width: 8px;
+	height: 8px;
+	margin-left: 0;
+	margin-top: 31px;
+}
+.address {
+	left: 23px;
+	top: 40px;
+	height: 20px;
+	line-height: 20px;
+	color: #6F6F6F;
+	font-size: 14px;
+	position: absolute;
+}
+.section3 {
+	display: flex;
+	flex-direction: row;
+	border-bottom: 1px solid #f0f0f0;
+	height: 70px;
+	margin-left: 12px;
+	margin-right: 12px;
+	position: relative;
+}
+.btns {
+	display: flex;
+	flex-direction: row;
+	height: 50px;
+	width: 100%;
+	margin-top: 10px;
+	align-items: center;
+	justify-content: space-evenly;
+}
+.cancel {
+	width: 80px;
+	height: 30px;
+	background: #ffffff;
+	border: 0.5px solid #b8b8b8;
+	border-radius: 15px;
+	font-size: 14px;
+	text-align: center;
+	color: #323232;
+	line-height: 30px;
+}
+.pay {
+	width: 80px;
+	height: 30px;
+	font-size: 14px;
+	text-align: center;
+	color: #ffffff;
+	line-height: 30px;
+	height: 30px;
+	background: #00c1de;
+	border-radius: 15px;
+}
+.centerBtn {
+	color: #969696;
+	height: 30px;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	background-color: #E6E6E6;
+	width: 100px;
+	align-items: center;
+	margin-left: calc(50% - 50px);
+	margin-bottom: 20px;
+	margin-top: 10px;
+	/* position: absolute; */
+	/* margin-top: 5px; */
+}
+.centerBtn2 {
+	/* position: absolute; */
+	height: 30px;
+	width: 100px;
+	margin-left: calc(50% - 50px);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-color: #00C1DE;
+	color: white;
+	border-radius: 15px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+.desc {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 20px;
+	width: 100%;
+	text-align: center;
+	background-color: red;
+}
+.tip1 {
+	height: 20px;
+	font-size: 20px;
+	text-align: center;
+	color: #323232;
+	line-height: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.topstatus {
+	background-color: white;
+	border-radius: 4px;
+	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.01);
+	display: flex;
+	flex-direction: column;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+.backimg {
+	width: 20px;
+	height: 20px;
+	margin-left: 15px;
+}
+.nav {
+	display: flex;
+	align-items: center;
+	height: 44px;
+	width: 100%;
+}
+.nav_title {
+	width: 50%;
+	margin-left: 12%;
+	height: 20px;
+	line-height: 20px;
+	color: white;
+	font-size: 16px;
+	text-align: center;
+}
+
