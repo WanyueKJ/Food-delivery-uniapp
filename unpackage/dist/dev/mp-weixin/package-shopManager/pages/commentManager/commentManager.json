@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "pingjia": "/components/pingjia/pingjia",
+    "star-v": "/components/banxing/merbanStar"
+  }
+}

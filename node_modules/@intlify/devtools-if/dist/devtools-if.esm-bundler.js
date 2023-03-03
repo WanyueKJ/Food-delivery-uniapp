@@ -1,0 +1,11 @@
+/*!
+  * @intlify/devtools-if v9.1.10
+  * (c) 2022 kazuya kawaguchi
+  * Released under the MIT License.
+  */
+const IntlifyDevToolsHooks = {
+    I18nInit: 'i18n:init',
+    FunctionTranslate: 'function:translate'
+};
+
+export { IntlifyDevToolsHooks };

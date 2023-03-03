@@ -1,0 +1,131 @@
+
+page {
+	width: 100%;
+	height: 100%;
+	background-color: #F5F5F5;
+}
+.time {
+	width: 100px;
+	height: 30px;
+	border: 1px solid #e6e6e6;
+	margin-left: 15px;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.nolimit {
+	width: 100%;
+	height: 45px;
+	align-items: center;
+	display: flex;
+}
+.rightview {
+	align-items: center;
+	height: 100%;
+	flex: 1;
+	margin-left: 15px;
+	margin-right: 20px;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+}
+.rightimg {
+	width: 20px;
+	height: 20px;
+	right: 20px;
+	position: absolute;
+}
+.inputBackView2 {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 90px;
+	background-color: white;
+	border-bottom: 1px solid #e6e6e6;
+	align-items: center;
+	justify-content: center;
+}
+.top_title {
+	width: 100%;
+	height: 44px;
+	color: #6F6F6F;
+	font-size: 14px;
+	margin-left: 15px;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+}
+.inputBackView {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 44px;
+	background-color: white;
+	border-bottom: 1px solid #e6e6e6;
+	align-items: center;
+}
+.title {
+	font-size: 16px;
+	text-align: left;
+	color: #383838;
+	margin-left: 15px;
+}
+.inputV {
+	margin-left: 15px;
+	margin-right: 15px;
+	flex: 1;
+	height: 44px;
+	line-height: 44px;
+	top: 0;
+	font-size: 14px;
+}
+.inputV2 {
+	margin-left: 15px;
+	margin-right: 15px;
+	border: 1px solid #e6e6e6;
+	height: 22px;
+	line-height: 22px;
+	font-size: 14px;
+	width: 80px;
+}
+.picker-view {
+	width: 100%;
+	height: 400px;
+	bottom: 0;
+	position: absolute;
+}
+.item {
+	height: 50px;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+.inputBackView3 {
+	width: 100%;
+	/* padding-left: 15px;
+	padding-right: 15px; */
+	height: 44px;
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	align-items: center;
+	justify-content: space-around;
+}
+.leftbtn {
+	width: 160px;
+	border-radius: 2px;
+	height: 30px;
+	font-size: 14px;
+	text-align: center;
+	line-height: 30px;
+}
+.rightbtn {
+	width: 160px;
+	border-radius: 2px;
+	height: 30px;
+	font-size: 14px;
+	text-align: center;
+	line-height: 30px;
+}
+

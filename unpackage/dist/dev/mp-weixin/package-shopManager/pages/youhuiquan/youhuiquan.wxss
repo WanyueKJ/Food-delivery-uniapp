@@ -1,0 +1,80 @@
+
+page{
+	width: 100%;
+	height: 100%;
+	background-color: #f5f5f5;
+}
+.peopleNum{
+	margin-left: 15px;
+	color: #383838;
+	font-size: 14px;
+	align-items: center;
+	height: 44px;
+	line-height: 44px;
+}
+.rightdelete{
+	width: 20px;
+	height: 20px;
+	margin-right: 20px;
+}
+.rightedit{
+	width: 20px;
+	height: 20px;
+	margin-right: 20px;
+}
+.bg{
+	background-color: white;
+	width: 100%;
+}
+.title{
+	flex: 1;
+	margin-left: 15px;
+}
+.title1{
+	height: 20px;
+	font-size: 16px;
+	text-align: left;
+	color: #181818;
+}
+.title2{
+	height: 20px;
+	font-size: 14px;
+	text-align: left;
+	color: #AAAAAA;
+	line-height: 20px;
+	margin-top: 5px;
+}
+.addBtn{
+	margin-left: 15px;
+	margin-top: 15px;
+	margin-right: 15px;
+	background-color: #00C1DE;
+	color: white;
+	font-size: 16px;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: row;
+	height: 44px;
+}
+.inputBackView {
+	width: 100%;
+	height: 85px;
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	/* border-bottom: 1px solid #E6E6E6; */
+	align-items: center;
+}
+.editimg{
+	width: 20px;
+	height: 20px;
+	margin-right: 15px;
+}
+.deleteimg{
+	width: 20px;
+	height: 20px;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+

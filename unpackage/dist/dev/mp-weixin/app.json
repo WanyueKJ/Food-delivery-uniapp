@@ -1,0 +1,148 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/shopManager/shopManager",
+    "pages/mine/mine",
+    "pages/webView/webView",
+    "pages/login/login",
+    "pages/message/message",
+    "pages/login/country",
+    "pages/TUI-Chat/chat",
+    "pages/TUI-Conversation/create-conversation/create",
+    "pages/publishOrder/publishOrder",
+    "pages/video/video"
+  ],
+  "subPackages": [
+    {
+      "root": "package-index",
+      "pages": [
+        "pages/ziti",
+        "pages/scan",
+        "pages/surecode",
+        "pages/indexOrderDetail",
+        "pages/scanQRCode",
+        "pages/evalueDetail"
+      ]
+    },
+    {
+      "root": "package-mine",
+      "pages": [
+        "pages/editProfile/editProfile",
+        "pages/editProfile/editName",
+        "pages/editProfile/shopType",
+        "pages/address/address",
+        "pages/address/handSelecedAds",
+        "pages/print/cloundprint",
+        "pages/print/printsetup",
+        "pages/address/editAds"
+      ]
+    },
+    {
+      "root": "package-publishOrder",
+      "pages": [
+        "pages/newOrder",
+        "pages/beizhu",
+        "pages/postOrderDetail",
+        "pages/order-map-detaile",
+        "pages/orderEvaluate",
+        "pages/refundOrder/applyRefund",
+        "pages/refundOrder/refundDetails"
+      ]
+    },
+    {
+      "root": "package-shopManager",
+      "pages": [
+        "pages/goodsManager/goodsManager",
+        "pages/searchgoods/searchgoods",
+        "pages/goodsManager/addGoods",
+        "pages/goodsManager/addGoodsPics",
+        "pages/classifyManager/classifyManager",
+        "pages/classifyManager/addClassify",
+        "pages/specManager/specManager",
+        "pages/specManager/sepcMSManger",
+        "pages/specManager/specServiceManager",
+        "pages/shopSet/shopSet",
+        "pages/shopSet/businessPics",
+        "pages/shopSet/addShopPics",
+        "pages/shopSet/bankSet",
+        "pages/shopSet/aboutShop",
+        "pages/shopSet/zitiAddress",
+        "pages/shopSet/orderService",
+        "pages/shopSet/orderServiceEdit",
+        "pages/shopTime/shopTime",
+        "pages/shopTime/shopTimeEdit",
+        "pages/commentManager/commentManager",
+        "pages/youhuiquan/youhuiquan",
+        "pages/profitManager/profitManager",
+        "pages/verifyAccount/verifyAccount",
+        "pages/youhuiquan/youhuiquanSet",
+        "pages/profitManager/tixian",
+        "pages/shopSet/bank",
+        "pages/commentManager/commentDetail",
+        "pages/shopSet/foodsAdPics"
+      ]
+    },
+    {
+      "root": "package-message",
+      "pages": [
+        "pages/sysMsgDetail",
+        "pages/sysMsgList"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF",
+    "titleNView": {
+      "type": "default",
+      "backgroundColor": "#FFFFFF"
+    }
+  },
+  "tabBar": {
+    "color": "#323232",
+    "selectedColor": "#00C1DE",
+    "borderStyle": "black",
+    "backgroundColor": "#f8f8f8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "外卖订单",
+        "iconPath": "static/tabbar/tab-home-n@2x.png",
+        "selectedIconPath": "static/tabbar/tab-home-s@2x.png"
+      },
+      {
+        "pagePath": "pages/publishOrder/publishOrder",
+        "text": "发单列表",
+        "iconPath": "static/tabbar/tab-order-n@2x.png",
+        "selectedIconPath": "static/tabbar/tab-order-s@2x.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "static/tabbar/tab-msg-n@2x.png",
+        "selectedIconPath": "static/tabbar/tab-msg-s@2x.png"
+      },
+      {
+        "pagePath": "pages/shopManager/shopManager",
+        "text": "店铺管理",
+        "iconPath": "static/tabbar/tab-shopM-n@2x.png",
+        "selectedIconPath": "static/tabbar/tab-shopM-s@2x.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "static/tabbar/tab-mine-n@2x.png",
+        "selectedIconPath": "static/tabbar/tab-mine-s@2x.png"
+      }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于万岳外卖商家获取定位展示"
+    }
+  },
+  "usingComponents": {}
+}

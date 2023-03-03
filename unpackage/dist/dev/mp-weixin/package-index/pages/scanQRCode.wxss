@@ -1,0 +1,101 @@
+
+view,
+label,
+swiper-item,
+scroll-view {
+  display:flex;
+  flex-direction:column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+  align-items: stretch;
+  align-content: flex-start;
+}
+view,
+image,
+input,
+scroll-view,
+swiper,
+swiper-item,
+text,
+textarea,
+video {
+  position: relative;
+  border: 0px solid #000000;
+  box-sizing: border-box;
+}
+swiper-item {
+  position: absolute;
+}
+button {
+  margin: 0;
+}
+
+
+.barcode {
+	width: 375px;
+	height: 400px;
+}
+.top {
+	display: flex;
+	flex-direction: column;
+	width: 375px;
+	height: 267px;
+	background-color: black;
+}
+.tip {
+	display: flex;
+	flex-direction: row;
+	height: 20px;
+	color: #ffffff;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	margin-top: 10px;
+	margin-left: 85px;
+}
+.scancode {
+	width: 90px;
+	height: 40px;
+	top: 80px;
+	align-items: center;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	left: 70px;
+}
+.scan {
+	height: 21px;
+	font-size: 15px;
+	text-align: center;
+	color: #ffffff;
+	line-height: 21px;
+}
+.content_img {
+	margin-top: 0;
+	width: 5px;
+	height: 5px;
+	border-radius: 2.5px;
+	background-color: white;
+}
+.quan {
+	width: 80px;
+	height: 40px;
+	top: 80px;
+	/* align-items: center; */
+	display: flex;
+	flex-direction: row;
+	position: absolute;
+	right: 70px;
+}
+.quantxt{
+	height: 21px;
+	font-size: 15px;
+	text-align: center;
+	color: #ffffff;
+	line-height: 21px;
+}
+
+
+

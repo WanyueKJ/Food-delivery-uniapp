@@ -1,0 +1,77 @@
+uni-scroll-view .uni-scroll-view::-webkit-scrollbar {
+	/* 隐藏滚动条，但依旧具备可以滚动的功能 */
+	display: none
+}
+
+/deep/.uni-scroll-view ::-webkit-scrollbar {
+	/* 隐藏滚动条，但依旧具备可以滚动的功能 */
+	display: none;
+	width: 0;
+	height: 0;
+	color: transparent;
+	background: transparent;
+}
+
+/deep/::-webkit-scrollbar {
+	display: none;
+	width: 0;
+	height: 0;
+	color: transparent;
+	background: transparent;
+}
+
+::-webkit-scrollbar {
+	display: none;
+	width: 0 !important;
+	height: 0 !important;
+	-webkit-appearance: none;
+	background: transparent;
+}
+
+.oneline {
+	overflow: hidden;
+	-webkit-line-clamp: 1;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	white-space: nowrap;
+	word-wrap: break-word;
+	lines: 1;
+	text-overflow: ellipsis;
+}
+.uni-mask {
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.2);
+	display: flex;
+	/* align-items: center; */
+	justify-content: center;
+}.uni-mask-nvue {
+	position: fixed;
+	z-index: 999;
+	width: 750rpx;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.row {
+	display: flex;
+	flex-direction: row;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+}
+

@@ -1,0 +1,1 @@
+<view class="TUI-Emoji"><block wx:for="{{emojiList}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="TUI-emoji-image"><image class="emoji-image" data-name="{{item.emojiName}}" src="{{item.url}}" data-event-opts="{{[['tap',[['handleEnterEmoji',['$event']]]]]}}" bindtap="__e"></image></view></block></view>

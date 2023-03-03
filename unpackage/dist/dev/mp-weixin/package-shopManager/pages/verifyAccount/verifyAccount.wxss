@@ -1,0 +1,65 @@
+
+.page{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.nothing {
+	margin-top:150px;
+	width: 100%;
+	height: 140px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.recordtitle{
+	width: 100%;
+	height: 44px;
+	align-items: center;
+	border-bottom: 1px solid #e6e6e6;
+}
+.middleview {
+	width: calc(100% - 30px);
+	margin-left: 15px;
+	margin-right: 15px;
+	height: 44px;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.rightView {
+	align-items: center;
+	margin-left: 15px;
+	margin-right: 15px;
+	height: 100%;
+}
+.title2{
+	width: 25%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+}
+.title1 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #181818;
+	flex: 1;
+}
+.time{
+	margin-left: 15px;
+	margin-right: 5px;
+	flex: 1;
+	text-align: right;
+	color: #383838;
+	font-size: 14px;
+}
+.rightImg{
+	width: 20px;
+	height: 20px;
+	margin-right: 20px;
+}
+

@@ -1,0 +1,1 @@
+<view><view class="inputBackView"><view class="title">{{i18n.shop.time}}</view><view class="rightTxt">{{openDateStr}}</view><image class="img" src="../../../static/ads-seld-right.png" mode="aspectFit" data-event-opts="{{[['tap',[['click']]]]}}" bindtap="__e"></image></view></view>

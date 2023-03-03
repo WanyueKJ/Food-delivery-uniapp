@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "sysmessage-list": "/components/sysmessageList/sysmessageList",
+    "timlist": "/pages/TUI-Conversation/conversation/conversation"
+  }
+}

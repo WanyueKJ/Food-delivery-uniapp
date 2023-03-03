@@ -1,0 +1,120 @@
+
+.showView {
+	width: 750rpx;
+	height: 480rpx;
+	border-radius: 32rpx 32rpx 0 0;
+	background-color: #FFFFFF;
+	position: fixed;
+	bottom: 0;
+}
+.heaerView{
+	display: flex;
+	flex-direction: row;
+	height: 108rpx;
+	/* border-bottom: 1px solid #f0f0f0; */
+}
+.cancleBtn{
+	position: absolute;
+	height: 40rpx;
+	margin-top: 34rpx;
+	margin-left: 20rpx;
+	line-height: 40rpx;
+	color: #989898;
+	font-size: 34rpx;
+	/* background-color: #007AFF; */
+}
+.titleText{
+	height: 108rpx;
+	line-height: 108rpx;
+	margin-left: 160rpx;
+	width: 430rpx;
+	color: #323232;
+	font-size: 18px;
+	font-weight: bold;
+	display:inline-block;
+	text-align: center;
+}
+.closeBtn{
+	position: absolute;
+	height: 40rpx;
+	margin-top: 34rpx;
+	right: 20rpx;
+	line-height: 40rpx;
+	color: #323232;
+	font-size: 34rpx;
+}
+.contentView{
+	display: flex;
+	flex-direction: column;
+	/* top: 54px; */
+	bottom: 0px;
+	width: 750rpx;
+	left: 0;
+}
+.scroll {
+	margin-left: 20rpx;
+	width: 710rpx;
+	height: 200rpx;
+	margin-top: 10rpx;
+	/* position: absolute; */
+	/* background-color: #FF5625; */
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	/* white-space: nowrap;
+	display: flex;
+	justify-content: flex-start; */
+}
+.scrol-item{
+	/* display: inline-block; */
+	width: 222rpx;
+	height: 80rpx;
+	border-radius: 6rpx;
+	border-color: #D9D9D9;
+	border-width: 2rpx;
+	background-color: #FFFFFF;
+	margin-right: 10rpx;
+	margin-top: 12rpx;
+	color: #646464;
+	line-height: 80rpx;
+	font-size: 24rpx;
+	text-align: center;
+}
+.bot-input-Class{
+	margin-top: 20rpx;
+	margin-left: 20rpx;
+	width: 710rpx;
+	height: 80rpx;
+	border-radius: 8rpx;
+	border: 1px solid #00C1DE;
+	/* border-color: #00C1DE;
+	border-width: 2rpx; */
+	display: flex;
+	flex-direction: row;
+}
+.bot-Text{
+	margin-left: 20rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	font-size: 28rpx;
+	color: #00C1DE;
+}
+.bot-image{
+	margin-left: 20rpx;
+	height: 28rpx;
+	margin-top: 26rpx;
+	width: 28rpx;
+	color: #00C1DE;
+}
+.bot-Iput{
+	position: absolute;
+	margin-top:0;
+	width: 80rpx;
+	right: 0;
+	height: 80rpx;
+	line-height: 80rpx;
+	font-size: 28rpx;
+	color: #323232;
+	/* background-color: #007AFF; */
+}
+

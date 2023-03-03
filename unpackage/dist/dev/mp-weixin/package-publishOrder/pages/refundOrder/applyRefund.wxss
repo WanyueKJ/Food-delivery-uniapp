@@ -1,0 +1,29 @@
+
+page {
+	width: 100%;
+	height: 100%;
+	background-color: #F7F7F7;
+	overflow: hidden;
+}
+.submit {
+	width: calc(100% - 24px);
+	margin-left: 12px;
+	height: 42px;
+	line-height: 42px;
+	border-radius: 4px;
+	font-size: 18px;
+	color: #FFFFFF;
+	background-color: #00C1DE;
+	text-align: center;
+	position: absolute;
+	bottom: 60px;
+}
+.successView{
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF;
+	align-items: center;
+}
+

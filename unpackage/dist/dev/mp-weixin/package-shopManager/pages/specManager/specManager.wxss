@@ -1,0 +1,97 @@
+
+.inputBackView {
+	width: 100%;
+	height: 44px;
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	align-items: center;
+	margin-top: 10px;
+	border-bottom: 1px solid #E6E6E6;
+}
+.inputBackView2 {
+	width: 100%;
+	height: 44px;
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	align-items: center;
+	border-bottom: 1px solid #E6E6E6;
+	justify-content: center;
+}
+.inputBackView3 {
+	width: 100%;
+	height: 44px;
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	align-items: center;
+	justify-content: space-around;
+}
+.inputV {
+	height: 44px;
+	line-height: 44px;
+	top: 0;
+	font-size: 14px;
+	margin-left: 15px;
+	margin-right: 15px;
+	flex: 1;
+}
+.right {
+	position: absolute;
+	right: 20px;
+	font-size: 16px;
+	text-align: left;
+	color: #6f6f6f;
+}
+.title2 {
+	font-size: 14px;
+	text-align: left;
+	color: #181818;
+	/* line-height: 14px; */
+	margin-left: 15px;
+}
+.delete {
+	width: 100%;
+	height: 44px;
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	align-items: center;
+	font-size: 16px;
+	text-align: center;
+	color: #f42424;
+	line-height: 44px;
+	justify-content: center;
+}
+.add {
+	margin-top: 10px;
+	width: 100%;
+	height: 44px;
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	align-items: center;
+	font-size: 16px;
+	text-align: center;
+	color: #00C1DE;
+	line-height: 44px;
+	justify-content: center;
+}
+.leftbtn {
+	width: 160px;
+	border-radius: 2px;
+	height: 30px;
+	font-size: 14px;
+	text-align: center;
+	line-height: 30px;
+}
+.rightbtn {
+	width: 160px;
+	border-radius: 2px;
+	height: 30px;
+	font-size: 14px;
+	text-align: center;
+	line-height: 30px;
+}
+

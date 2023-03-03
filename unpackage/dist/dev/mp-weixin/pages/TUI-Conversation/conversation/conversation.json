@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-u-i-conversation-item": "/components/tui-conversation/conversation-item/index",
+    "t-u-i-message-list": "/components/tui-chat/message-list/index"
+  }
+}

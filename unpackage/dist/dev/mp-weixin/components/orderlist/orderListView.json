@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "pay-view": "/components/payview/payview",
+    "tip-money-v": "/components/addorder/order-tip"
+  }
+}

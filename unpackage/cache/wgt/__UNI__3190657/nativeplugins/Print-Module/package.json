@@ -1,0 +1,32 @@
+{
+	"name": "万岳打印插件",
+	"id": "Print-Module",
+	"version": "1.0.1",
+	"description": "提供人脸美颜，人脸美型，动态贴纸滤镜特效等美颜功能。适用于直播、短视频和社交软件等音视频平台。",
+	"_dp_type": "nativeplugin",
+	"_dp_nativeplugin": {
+		"android": {
+			"plugins": [
+				{
+					"type": "module",
+					"name": "PrintModule",
+					"class": "io.dcloud.uniplugin.PrintModule"
+				}
+			],
+			"abis": [
+			    "armeabi-v7a"
+			],
+		    "permissions": [
+			    "android.permission.CAMERA",
+				"android.permission.RECORD_AUDIO",
+				"android.permission.WRITE_EXTERNAL_STORAGE",
+				"android.permission.READ_EXTERNAL_STORAGE",
+				"android.permission.BLUETOOTH",
+				"android.permission.BLUETOOTH_ADMIN"
+			],
+			"integrateType": "aar",
+			"minSdkVersion": "21",
+            "useAndroidX": true
+		} 
+	 }	
+}
