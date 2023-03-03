@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['previewImage',['$event']]]]]}}" class="TUI-faceMessage" bindtap="__e"><image class="face-message" src="{{renderDom.src}}"></image></view>

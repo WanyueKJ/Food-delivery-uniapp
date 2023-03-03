@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["components/tui-chat/message-elements/audio-message/index"],{4130:function(n,e,t){"use strict";var o=t("657a"),a=t.n(o);a.a},"657a":function(n,e,t){},"6ecf":function(n,e,t){"use strict";t.r(e);var o=t("f00a"),a=t.n(o);for(var i in o)["default"].indexOf(i)<0&&function(n){t.d(e,n,(function(){return o[n]}))}(i);e["default"]=a.a},9631:function(n,e,t){"use strict";t.r(e);var o=t("f494"),a=t("6ecf");for(var i in a)["default"].indexOf(i)<0&&function(n){t.d(e,n,(function(){return a[n]}))}(i);t("4130");var u=t("f0c5"),s=Object(u["a"])(a["default"],o["b"],o["c"],!1,null,null,null,!1,o["a"],void 0);e["default"]=s.exports},f00a:function(n,e,t){"use strict";(function(n){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var t={data:function(){return{audio:{}}},components:{},props:{message:{type:Object,default:function(){}},isMine:{type:Boolean,default:!0}},watch:{message:{handler:function(n){this.setData({message:n})},immediate:!0,deep:!0}},beforeMount:function(){this.audio=n.createInnerAudioContext(),this.audio.onPlay((function(){console.log("开始播放")})),this.audio.onEnded((function(){console.log("停止播放")})),this.audio.onError((function(e){console.error(e,"onError"),n.showToast({icon:"none",title:"该音频暂不支持播放"})}))},methods:{handlePlayAudioMessage:function(){this.audio.src=this.message.payload.url,this.audio.play()}}};e.default=t}).call(this,t("543d")["default"])},f494:function(n,e,t){"use strict";t.d(e,"b",(function(){return o})),t.d(e,"c",(function(){return a})),t.d(e,"a",(function(){}));var o=function(){var n=this.$createElement;this._self._c},a=[]}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'components/tui-chat/message-elements/audio-message/index-create-component',
+    {
+        'components/tui-chat/message-elements/audio-message/index-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('543d')['createComponent'](__webpack_require__("9631"))
+        })
+    },
+    [['components/tui-chat/message-elements/audio-message/index-create-component']]
+]);

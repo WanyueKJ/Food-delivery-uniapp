@@ -1,0 +1,181 @@
+page {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: #FFFFFF;
+}
+
+.page {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: #FFFFFF;
+}
+
+.title {
+	color: rgba(50, 50, 50, 1);
+	font-size: 22px;
+	font-weight: bolder;
+	height: 40px;
+	margin-left: 15px;
+}
+
+.titledanhis {
+	position: absolute;
+	right: 15px;
+	height: 50px;
+	line-height: 50px;
+	color: rgba(152, 152, 152, 1);
+	font-size: 16px;
+	align-items: center;
+}
+
+.titledanhis image {
+	width: 15px;
+	height: 15px;
+}
+
+.titledan {
+	position: relative;
+	margin-top: 20px;
+	color: rgba(50, 50, 50, 1);
+	font-size: 16px;
+	width: 100%;
+	height: 40px;
+	border-top: 10px solid #F5F5F5;
+}
+
+.titledantitle {
+	font-weight: bolder;
+	margin-left: 15px;
+	height: 40px;
+	line-height: 50px;
+}
+
+.centerviews {
+	position: relative;
+	display: flex;
+	border-radius: 8px;
+	width: calc(100% - 30px);
+	height: 164px;
+	margin-left: 15px;
+	background: linear-gradient(to right, #FF9A55, #FE6637);
+}
+
+.zongshouru {
+	color: rgba(255, 255, 255, 1);
+	font-size: 14px;
+	margin-left: 15px;
+	margin-top: 20px;
+}
+
+.yuan {
+	color: rgba(255, 255, 255, 1);
+	font-size: 30px;
+	font-weight: bolder;
+	margin-left: 15px;
+}
+
+.tixian {
+	position: absolute;
+	right: 15px;
+	background-color: rgba(254, 221, 100, 1);
+	width: 46px;
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+	color: rgba(50, 50, 50, 1);
+	font-size: 14px;
+	margin-top: 20px;
+	border-radius: 2px;
+}
+
+.cdetail {
+	margin-top: 20px;
+	margin-left: 15px;
+	
+}
+
+.cdetailcell {
+	color: rgba(255, 255, 255, 1);
+}
+
+.cdetailcelltitle {
+	color: rgba(255, 255, 255, 1);
+	font-size: 14px;
+}
+
+.cdetailcellprice {
+	font-size: 22px;
+	color: rgba(255, 255, 255, 1);
+	font-weight: bolder;
+}
+
+.scroll {
+	width: 100%;
+	background-color: #FFFFFF;
+	margin-top: 10px;
+}
+
+.cellroe {
+	width: 100%;
+	position: relative;
+}
+
+.moths {
+	position: absolute;
+	right: 15px;
+	color: rgba(50, 50, 50, 1);
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 20px;
+}
+
+.month {
+	color: rgba(50, 50, 50, 1);
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 15px;
+	margin-top: 20px;
+}
+
+.mouthtimes {
+	color: rgba(152, 152, 152, 1);
+	font-size: 12px;
+	margin-left: 15px;
+}
+
+.mothsprice {
+	color: rgba(152, 152, 152, 1);
+	font-size: 10px;
+	position: absolute;
+	right: 15px;
+}
+
+.detailtime {}
+
+.monthcelldetail {
+	margin-top: 10px;
+	margin-left: 15px;
+}
+
+.monthcelldetailcell {
+	/* width: 80px; */
+	margin-right: 60px;
+}
+
+.monthcelldetailcelltitle {
+	text-align: left;
+	color: rgba(152, 152, 152, 1);
+	font-size: 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.monthcelldetailcellnums {
+	margin-top: 3px;
+	color: rgba(50, 50, 50, 1);
+	font-size: 20px;
+}

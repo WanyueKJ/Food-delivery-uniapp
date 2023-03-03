@@ -1,0 +1,99 @@
+{
+  "sdkversion": "1.0.0",
+  "pages": [
+    {
+      "route": "pages/index/index",
+      "window": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "route": "pages/login/BindMobile",
+      "window": {
+        "navigationBarTitleText": "更换手机号"
+      }
+    },
+    {
+      "route": "pages/set/index",
+      "window": {
+        "navigationBarTitleText": "设置"
+      }
+    },
+    {
+      "route": "pages/Mypurse/Withdrawal/index",
+      "window": {
+        "navigationBarTitleText": "提现"
+      }
+    },
+    {
+      "route": "pages/Mypurse/index",
+      "window": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "route": "pages/Mypurse/history/history",
+      "window": {
+        "navigationBarTitleText": "历史账单"
+      }
+    },
+    {
+      "route": "pages/Orderstatistics/index",
+      "window": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "route": "pages/mycomment/index",
+      "window": {
+        "navigationBarTitleText": "我的评价"
+      }
+    },
+    {
+      "route": "pages/login/regist",
+      "window": {
+        "navigationBarTitleText": "注册账号"
+      }
+    },
+    {
+      "route": "pages/login/login",
+      "window": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "route": "pages/webview/index",
+      "window": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "route": "pages/Missionmap/index",
+      "window": {
+        "navigationBarTitleText": "任务地图"
+      }
+    },
+    {
+      "route": "pages/uploadphoto/index",
+      "window": {
+        "navigationBarTitleText": "图片上传"
+      }
+    },
+    {
+      "route": "pages/detailmap/index",
+      "window": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
+      }
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF"
+  }
+}

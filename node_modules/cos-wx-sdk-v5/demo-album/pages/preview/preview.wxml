@@ -1,0 +1,19 @@
+<view class="main">
+    <view wx:if="{{url}}">
+        <view class="preview-success">上传成功</view>
+        <view class="preview-url">{{url}}</view>
+    </view>
+    <view class="preview-tips">复制 URL，可在浏览器中下载您上传的对象</view>
+    <view class="preview-button-wrap">
+        <button class="preview-button" bindtap="copyLink">复制链接</button>
+        <button class="preview-button" bindtap="saveImage">保存到本地</button>
+    </view>
+    <view wx:if="showPreview" class="preview-outer">
+        <view wx:if="{{type==='image'}}">
+            <image data-src="{{url}}" class="preview-image" src="{{url}}" mode="aspectFill"></image>
+        </view>
+        <view wx:else class="preview-inner">
+            <video data-src="{{url}}" class="preview-video" src="{{url}}" mode="aspectFill"></video>
+        </view>
+    </view>
+</view>

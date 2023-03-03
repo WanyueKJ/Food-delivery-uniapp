@@ -1,0 +1,1035 @@
+<template>
+	<view>
+		<view class="page" :style="'height:' + windowHeight + 'px;'">
+			<!-- <map id="mymap" :scale="scale" :latitude="latitude" :longitude="longitude" :markers="markers"
+				:polyline="polyline" class="map" :style="'height:' + windowHeight + 'px;'">
+				<image @click="back" :style="'top:' + top + 'px;'" class="backimage"
+					src="../../static/image/backback.png">
+				</image>
+			</map> -->
+			<!-- #ifdef MP-WEIXIN -->
+			<view id="drapview" ref="drapview" class="drapview"
+				:style="'height:' + drapHeight +'px;bottom:' + drapbottom +'px;'">
+				<!-- #endif -->
+				<!-- #ifdef APP-PLUS -->
+				<view id="drapview" ref="drapview"  class="drapview"
+					:style="'height: 100%;margin-top:'+top+''">
+					<!-- #endif -->
+					
+						<!-- #ifdef APP-PLUS -->
+						<view class="drapbtn">
+							<view class="drapbtnline"></view>
+						</view>
+						<view class="scroll">
+							<!-- #endif -->
+							<text class="peisongxinxi">{{i18n.order.peisongxinxi}}</text>
+							<!-- 时间 -->
+							<block v-if="info">
+
+								<view v-if="info.status != 6" class="section1 row">
+									<image v-if="info.ispre == 1" class="section1-image-yu "
+										src="../../static/image/yu.png"></image>
+									<image v-else class="section1-image" src="../../static/image/shijian.png"></image>
+									<block v-if="(info.type == 4 || info.type == 5) && info.status == 4">
+										<text class="section1-time">{{i18n.order.fuwuzhong}}</text>
+									</block>
+									<block v-if="(info.type == 4 || info.type == 5) && info.status == 3" class="row">
+										<text class="section1-time">{{info.service_time}}</text>
+										<text class="section1-times">{{i18n.order.daoda}}</text>
+									</block>
+									<block v-if="info.type == 1 || info.type == 2" class="row">
+										<text class="section1-time">{{info.service_time}}</text>
+										<text class="section1-times">{{i18n.order.qujian}}</text>
+									</block>
+									<block v-if="info.type == 3" class="row">
+										<text class="section1-time">{{info.service_time}}</text>
+										<text class="section1-times">{{i18n.order.songda}}</text>
+									</block>
+									<block v-if="info.type == 6" class="row">
+										<text class="section1-time">{{info.service_time}}</text>
+										<text class="section1-times">{{i18n.order.songda}}</text>
+									</block>
+								</view>
+								<!-- 取 帮 排 买 -->
+								<view class="section2 row">
+									<view class="section2-left column">
+										<block v-if="info.type == 1 || info.type == 2 || info.type == 6">
+											<image v-if="info.status == 4" class="section2-leftimage"
+												src="../../static/image/quh.png"></image>
+											<image v-if="info.status == 3 || info.status == 6"
+												class="section2-leftimage" src="../../static/image/qu.png"></image>
+										</block>
+										<block v-if="info.type == 3">
+											<image v-if="info.status == 4" class="section2-leftimage"
+												src="../../static/image/maih.png"></image>
+											<image v-if="info.status == 3" class="section2-leftimage"
+												src="../../static/image/mai.png"></image>
+										</block>
+										<block v-if="info.type == 4">
+											<image v-if="info.status == 3 || info.status == 4"
+												class="section2-leftimage" src="../../static/image/pai.png"></image>
+											<image v-else class="section2-leftimage" src="../../static/image/paih.png">
+											</image>
+										</block>
+										<block v-if="info.type == 5">
+											<image v-if="info.status == 3 || info.status == 4"
+												class="section2-leftimage" src="../../static/image/ban.png"></image>
+											<image v-else class="section2-leftimage" src="../../static/image/banh.png">
+											</image>
+										</block>
+
+
+										<block v-if="info.type ==4 || info.type == 5">
+											<text v-if="info.myDistance"
+												class="section2-lefttexts">{{info.myDistance}}</text>
+										</block>
+										<block v-else>
+											<block v-if="info.myDistance">
+												<block v-if="info.status == 3">
+													<block v-if="info.type ==3">
+														<block v-if="info.f_lng == ''">
+
+														</block>
+														<block v-else>
+															<text class="section2-lefttexts">{{info.myDistance}}</text>
+														</block>
+													</block>
+													<block v-else>
+														<text class="section2-lefttexts">{{info.myDistance}}</text>
+													</block>
+
+												</block>
+											</block>
+											<text v-if="info.status == 4" class="section2-lefttexts">---</text>
+										</block>
+									</view>
+									<view class="section2-right column">
+										<block v-if="info.type != 4 && info.type != 5">
+											<block v-if="info.type == 3">
+												<block v-if="info.extra.type == 2">
+													<text
+														class="section2-right-title oneline">{{i18n.order.jiujingoumai}}</text>
+												</block>
+												<block v-else>
+													<text class="section2-right-title oneline">{{info.f_name}}</text>
+													<text class="section2-right-des oneline">{{info.f_addr}}</text>
+												</block>
+											</block>
+											<block v-else>
+												<text class="section2-right-title oneline">{{info.f_name}}</text>
+												<text class="section2-right-des oneline">{{info.f_addr}}</text>
+											</block>
+
+										</block>
+										<block v-else>
+											<text class="section2-right-title oneline">{{info.t_name}}</text>
+											<text class="section2-right-des oneline">{{info.t_addr}}</text>
+										</block>
+									</view>
+									<image v-if="info.type == 4 || info.type == 5"
+										@click="qudaohang(info.t_lng,info.t_lat,info.t_name)" class="daohangimgage"
+										src="../../static/image/daohang.png">
+									</image>
+									<image v-else @click="qudaohang(info.f_lng,info.f_lat,info.f_name)"
+										class="daohangimgage" src="../../static/image/daohang.png">
+									</image>
+								</view>
+								<view v-if="info.type != 4 && info.type != 5" class="line"></view>
+								<view v-if="info.type != 4 && info.type != 5" class="section3 row">
+									<view class="section2-left column">
+										<image v-if="info.status == 5 || info.status == 6" class="section2-leftimage"
+											src="../../static/image/songh.png"></image>
+										<image v-else class="section2-leftimage" src="../../static/image/song.png">
+										</image>
+										<text class="section2-lefttexts"
+											v-if="info.allDistance">{{info.allDistance}}</text>
+									</view>
+									<view class="section2-right column">
+										<text class="section2-right-title oneline">{{info.t_name}}</text>
+										<text class="section2-right-des oneline">{{info.t_addr}}</text>
+									</view>
+									<image @click="qudaohang(info.t_lng,info.t_lat,info.t_name)" class="daohangimgage"
+										src="../../static/image/daohang.png">
+									</image>
+								</view>
+								<view class="section4 row">
+									<text v-if="info.type_t" class="section4-type1">{{info.type_t}}</text>
+									<text v-if="info.ispre == 1" class="section4-type2"
+										:style="info.ispre == 1?'background-color: #FDC208;':''">{{info.tips}}</text>
+								</view>
+								<view class="section7 column">
+									<text v-if="info.type == 1 || info.type == 2 || info.type == 6"
+										class="section7-title">{{i18n.order.wupinxinxi}}</text>
+									<text v-if="info.type == 3" class="section7-title">{{i18n.order.daigouGoods}}</text>
+									<text v-if="info.type == 4 || info.type == 5"
+										class="section7-title">{{i18n.order.fuwuneirong}}</text>
+									<text class="section7-des twoline" v-if="info.type != 6">{{info.tips}}</text>
+									<view class="section7-beizhu" v-if="info.type == 3">
+										<text class="section7-beizhutext">{{i18n.order.feiyongdianfu}}</text>
+									</view>
+									<view v-for="(item,index) in info.product" :key="index" v-if="info.type == 6"
+										class="row" style="width: 100%;height: 30px;align-items: center;">
+										<text style="font-size: 14px;color: #323232;"
+											:style="item.product_attr_id > 0 || (item.more_product_attr && item.more_product_attr.length > 0) ?'' : 'flex: 1;'">{{item.product.use_name}}</text>
+										<text
+											style="font-size: 12px;color: #646464;flex: 1;margin-left: 3px;margin-top: 1px;"
+											v-if="item.product_attr_id > 0">({{item.productAttr.use_attr_name}})</text>
+											<view class="row" style="font-size: 12px;color: #646464;flex: 1;margin-left: 3px;margin-top: 1px;"
+											v-if="item.more_product_attr && item.more_product_attr.length > 0">
+												<text style="font-size: 12px;color: #646464;">(</text>
+												<text style="font-size: 12px;color: #646464;" v-for="(attr,a) in item.more_product_attr" :key="a">{{attr.attr.use_attr_name + (a < item.more_product_attr.length -1 ? '、' : '')}}</text>
+												<text style="font-size: 12px;color: #646464;">)</text>
+											</view>
+										<text style="font-size: 14px;color: #323232;">x{{item.cart_num}}</text>
+									</view>
+									<view class="" style="width: 100%;height: 10px;" v-if="info.type == 6">
+
+									</view>
+								</view>
+								<view class="section8 column" v-if="info.reminder_count > 0">
+									<text class="section7-title">{{i18n.order.cuidanhuashu}}</text>
+									<view
+										style="max-width: 710rpx;min-height: 32px;border-radius: 4px;background-color: rgba(121,0,178,0.05);margin-bottom: 15px;">
+										<text
+											style="margin-left: 20rpx;margin-top: 6px;line-height: 20px;font-size: 14px;color: #FF4D29;margin-bottom: 6px;">{{info.reminder_content}}</text>
+									</view>
+
+								</view>
+								<view class="section8 column">
+									<text class="section7-title">{{i18n.order.orderMsg}}</text>
+									<view class="row section8-cell">
+										<text class="section8-celltitle">{{i18n.order.orderNum}}</text>
+										<text class="section8-celldes">{{info.orderno}}</text>
+									</view>
+									<view v-if="info.type != 3" class="row section8-cell">
+										<text v-if="info.type == 1 || info.type == 2"
+											class="section8-celltitle">{{i18n.order.qujianshijian}}</text>
+										<text v-if="info.type == 4"
+											class="section8-celltitle">{{i18n.order.paiduishijian}}</text>
+										<text v-if="info.type == 5"
+											class="section8-celltitle">{{i18n.order.banshishijian}}</text>
+										<text v-if="info.type == 6"
+											class="section8-celltitle">{{i18n.order.songdashijian}}</text>
+										<text class="section8-celldes">{{info.service_time}}</text>
+									</view>
+									<view v-if="info.type == 1 || info.type == 2 || info.type == 3"
+										class="row section8-cell">
+										<text class="section8-celltitle">{{i18n.order.qiwangsongda}}</text>
+										<text class="section8-celldes">{{info.expect_time}}</text>
+									</view>
+									<view v-if="info.type == 4" class="row section8-cell">
+										<text class="section8-celltitle">{{i18n.order.paiduishichang}}</text>
+										<text
+											class="section8-celldes">{{info.extra.length + i18n.order.fenzhong}}</text>
+									</view>
+									<view v-if="info.isdel == 1" class="row section8-cell">
+										<text class="section8-celltitle">{{i18n.order.quxiaodingdan}}</text>
+										<text class="section8-celldes">{{info.deltime}}</text>
+									</view>
+								</view>
+								<!-- 订单照片 -->
+								<view v-if="info.thumbs.length > 0" class="section8 column">
+									<text class="section7-title">{{i18n.order.orderPhoto}}</text>
+									<view class="row phtots">
+										<block v-for="(item,index) in info.thumbs">
+											<image @click="previamge(index)" class="orderimage" :src="item"></image>
+										</block>
+									</view>
+								</view>
+								<!-- 订单配送收入 -->
+								<view class="section8 column">
+									<text class="section7-title">{{i18n.order.orderShouru}}</text>
+									<view class="row section8-cell">
+										<text class="section8-celltitle">{{i18n.order.peisongfei}}</text>
+										<text class="section8-celldes">{{'¥' + info.rider_basic}}</text>
+									</view>
+									
+									<view class="row section8-cell">
+										<text class="section8-celltitle">{{i18n.order.heji}}</text>
+										<text class="section8-celldes"
+											style="color: rgba(238,0,2,1);font-size: 16px">{{'¥' + info.income}}</text>
+									</view>
+								</view>
+								<!-- 要求送达 -->
+								<view class="section9 column">
+									<text class="section7-title">{{i18n.order.yaoqiusongda}}</text>
+									<view class="row section9-times">
+										<view v-if="info.type == 1 || info.type == 2"
+											v-for="(item,index) in [i18n.order.xiadan,i18n.order.jiedan,i18n.order.qujian,i18n.order.songda]"
+											class="section9-cell">
+											<text v-if="index == 0" class="section9-celltime">{{info.add_time}}</text>
+											<text v-if="index == 1" class="section9-celltime">{{info.grap_time2}}</text>
+											<block v-if="index == 2">
+												<text v-if="info.pick_time2.length > 0"
+													class="section9-celltime">{{info.pick_time2}}</text>
+												<text v-else class="section9-celltime">-</text>
+											</block>
+											<block v-if="index == 3">
+												<text v-if="info.complete_time2.length > 0"
+													class="section9-celltime">{{info.complete_time2}}</text>
+												<text v-else class="section9-celltime">-</text>
+											</block>
+											<text class="section9-celltext">{{item}}</text>
+										</view>
+										<view v-if="info.type == 6" 
+											v-for="(item,index) in [i18n.order.xiadan,i18n.order.jiedan,i18n.yilou.paidan,i18n.order.songda]"
+											class="section9-cell">
+											<text v-if="index == 0" class="section9-celltime">{{info.add_time}}</text>
+											<text v-if="index == 1" class="section9-celltime">{{info.grap_time2}}</text>
+											<block v-if="index == 2">
+												<text v-if="info.pick_time2.length > 0"
+													class="section9-celltime">{{info.pick_time2}}</text>
+												<text v-else class="section9-celltime">-</text>
+											</block>
+											<block v-if="index == 3">
+												<text v-if="info.complete_time2.length > 0"
+													class="section9-celltime">{{info.complete_time2}}</text>
+												<text v-else class="section9-celltime">-</text>
+											</block>
+											<text class="section9-celltext">{{item}}</text>
+										</view>
+										<view v-if="info.type == 3"
+											v-for="(item,index) in [i18n.order.xiadan,i18n.order.jiedan,i18n.order.buy,i18n.order.songda]"
+											class="section9-cell">
+											<text v-if="index == 0" class="section9-celltime">{{info.add_time}}</text>
+											<text v-if="index == 1" class="section9-celltime">{{info.grap_time2}}</text>
+											<block v-if="index == 2">
+												<text v-if="info.pick_time2.length > 0"
+													class="section9-celltime">{{info.pick_time2}}</text>
+												<text v-else class="section9-celltime">-</text>
+											</block>
+											<block v-if="index == 3">
+												<text v-if="info.complete_time2.length > 0"
+													class="section9-celltime">{{info.complete_time2}}</text>
+												<text v-else class="section9-celltime">-</text>
+											</block>
+											<text class="section9-celltext">{{item}}</text>
+										</view>
+										<view v-if="info.type == 4 || info.type == 5"
+											v-for="(item,index) in [i18n.order.xiadan,i18n.order.jiedan,i18n.order.fuwu,i18n.order.songda]"
+											class="section9-cell">
+											<text v-if="index == 0" class="section9-celltime">{{info.add_time}}</text>
+											<text v-if="index == 1" class="section9-celltime">{{info.grap_time2}}</text>
+											<block v-if="index == 2">
+												<text v-if="info.pick_time2.length > 0"
+													class="section9-celltime">{{info.pick_time2}}</text>
+												<text v-else class="section9-celltime">-</text>
+											</block>
+											<block v-if="index == 3">
+												<text v-if="info.complete_time2.length > 0"
+													class="section9-celltime">{{info.complete_time2}}</text>
+												<text v-else class="section9-celltime">-</text>
+											</block>
+											<text class="section9-celltext">{{item}}</text>
+										</view>
+									</view>
+								</view>
+							</block>
+							<!-- #ifdef MP-WEIXIN -->
+					</scroll-view>
+					<!-- #endif -->
+					<!-- #ifdef APP-PLUS -->
+				</view>
+				<!-- #endif -->
+				<view style="height: 20px;width: 750rpx;"></view>
+			</view>
+		</view>
+		<view class="bottom box-shadow row" :style="'height:' + safeAreaBottom + 'px;'" style="justify-content: space-between">
+			<view class="bottom-lianxi row ">
+				<view @click="connect" >
+					<image class="bottom-lianxiimage" src="../../static/image/lianxi.png"></image>
+					<text class="bottom-lianxitext">{{i18n.order.lianxi}}</text>
+				</view>
+			</view>
+			
+		
+
+			<block v-if="info">
+				<block v-if="info.type == 1 || info.type == 2">
+					<text @click="StartService" v-if="info.status == 3" class="bottombtn"
+						style="width: 390rpx;">{{i18n.order.querenqujian}}</text>
+					<text @click="serviceCompleted" v-if="info.status == 4" class="bottombtn"
+						style="width: 390rpx;">{{i18n.order.querensongda}}</text>
+				</block>
+				<block v-if="info.type == 3">
+					<text @click="StartService" v-if="info.status == 3" class="bottombtn"
+						style="width: 390rpx;">{{i18n.order.querengoumai}}</text>
+					<text @click="serviceCompleted" v-if="info.status == 4" class="bottombtn"
+						style="width: 390rpx;">{{i18n.order.querensongda}}</text>
+				</block>
+				<block v-if="info.type == 6">
+					<text @click="StartService" v-if="info.status == 3" class="bottombtn"
+						style="width: 390rpx;">{{i18n.order.querenqujian}}</text>
+					<text @click="serviceCompleted" v-if="info.status == 4" class="bottombtn"
+						style="width: 390rpx;">{{i18n.order.querensongda}}</text>
+				</block>
+				<block v-if="info.type == 4 || info.type == 5">
+					<text @click="StartService" v-if="info.status == 3" class="bottombtn" 
+						style="width: 390rpx;">{{i18n.order.kaishifuwu}}</text>
+					<text @click="serviceCompleted" v-if="info.status == 4" class="bottombtn"
+						style="width: 390rpx;">{{i18n.order.fuwuwancheng}}</text>
+				</block>
+				<block v-if="info.status == 6">
+					<text class="bottombtn" style="width: 390rpx;">{{i18n.order.yiwancheng}}</text>
+				</block>
+			</block>
+		</view>
+		
+		<phoneinput @cancleinput="cancleinput" v-if="showphoneCode == true" @finishcode="finishcode"></phoneinput>
+	</view>
+</template>
+
+<script>
+	// #ifdef APP-PLUS
+	const Binding = uni.requireNativePlugin('bindingx');
+	let obj = null
+	// #endif
+	const time = 460
+	var amapFile = require('../../js/amap-wx.130.js');
+	var myAmapFun = new amapFile.AMapWX({
+		key: getApp().globalData.GaoDeKey_amapkey
+	});
+	import phoneinput from '../../components/phoneinput/indexn.nvue'
+	export default {
+		components: {
+			phoneinput
+		},
+		computed: {
+			i18n() {
+				// return this.$t('index')
+				return getApp().globalData.$t('index') //当然页面中就是按Vue页面里那样使用了  
+			},
+		},
+		data() {
+			return {
+				showphoneCode: false,
+				AppdrapviewHeight: 0,
+				draptop: 0,
+				drapbottom: 0,
+				polyline: [],
+				showorderview: false,
+				
+				
+				safeAreaBottom: 0,
+				top: 20,
+				minheight: 60,
+				StartY: 0,
+				StartX: 0,
+				windowHeight: 0,
+				drapHeight: 0,
+				markers: [],
+				distance: 0,
+				scale: 16,
+				longitude: '',
+				latitude: '',
+				platform: '',
+				position: {
+					y: 0
+				},
+				oid: 0,
+				info: null,
+				mylocation: {
+					latitude: 0,
+					longitude: 0
+				},
+				
+			}
+		},
+		onShow() {
+			this.finishedThumb()
+		},
+		mounted() {
+			// #ifdef APP-PLUS
+			const drapview = this.getEl(this.$refs.drapview)
+			obj = Binding.bind({
+				anchor: drapview,
+				eventType: 'pan',
+				props: [{
+					element: drapview,
+					property: 'transform.translateY',
+					expression: `y+${this.position.y}`,
+				}]
+			}, (e) => {
+				if (e.state === 'end') {}
+			})
+			// #endif
+		},
+		onLoad(option) {
+			var that = this
+			this.oid = option.oid
+			this.mylocation = uni.getStorageSync('mylocation')
+			this.latitude = this.mylocation.latitude
+			this.longitude = this.mylocation.longitude
+			console.log(this.latitude, this.longitude)
+			this.safeAreaBottom = getApp().globalData.safeAreaBottom + 66
+			this.top = getApp().globalData.top
+			this.minheight = 40
+			this.windowHeight = getApp().globalData.windowHeight - getApp().globalData.top - 44
+			this.drapHeight = this.safeAreaBottom + 100
+			this.drapbottom = this.safeAreaBottom
+			this.draptop = this.top
+		},
+		onReady() {
+			console.log('onReady')
+			this.getdata()
+		},
+		methods: {
+			cancleinput() {
+				this.showphoneCode = false
+			},
+			relaxcancle() {
+				this.showorderview = false
+			},
+			relaxsure() {
+				
+			},
+			RiderOrdersTrans() {
+				const value = uni.getStorageSync('userinfo');
+				var that = this
+				if (this.info.status == 6) {
+					return
+				}
+				uni.showLoading({
+					title: '',
+					mask: false
+				});
+				//判断是否限制转单次数
+				this.sendRequest('Rider.Orders.CheckTrans', {
+					cityid: value.cityid
+				}).then(function(data) {
+					if (parseInt(data.info[0].istip) == 1) {
+						that.showorderview = true
+					} else {
+						setTimeout(function() {
+							that.qweqweqwewq()
+						}, 500);
+					}
+				})
+			},
+			qweqweqwewq() {
+				var that = this
+				
+			},
+			finishcode(code) {
+				uni.showLoading({
+					title: '',
+					mask: false
+				});
+				var that = this
+				this.sendRequest('Rider.Orders.Complete', {
+					oid: this.info.id,
+					code: code
+				}, true).then(function(data) {
+					console.log(data)
+					that.getdata()
+					setTimeout(() => {
+						uni.navigateBack({
+							delta: 1
+						});
+					}, 1000)
+					that.showphoneCode = false
+				})
+			},
+			serviceCompleted() {
+				this.showphoneCode = true
+			},
+			getdata() {
+				var that = this
+				this.sendRequest('Rider.Orders.GetDetail', {
+					oid: this.oid
+				}).then(data => {
+					that.info = data.info[0]
+					that.makeline()
+				}).catch(data => {
+					uni.showToast({
+						title: data.msg,
+						icon: 'none'
+					})
+					setTimeout(() => {
+						uni.navigateBack({
+							delta: 1
+						});
+					}, 1000)
+				})
+			},
+			StartService() {
+				var that = this
+				uni.navigateTo({
+					url: '../uploadphoto/index',
+				});
+			},
+			finishedThumb() {
+				var that = this
+				uni.getStorage({
+					key: 'finishthumb',
+					success(res) {
+						if (res.data.length > 0) {
+							console.log('pppppppppppppppppppppppppp')
+							console.log(res)
+							that.sendRequest('Rider.Orders.Start', {
+								oid: that.info.id,
+								thumbs: JSON.stringify(res.data),
+							}, true).then(function(data) {
+								console.log(data)
+								uni.setStorage({
+									key: 'finishthumb',
+									data: ''
+								})
+								that.getdata()
+							}).catch(data => {
+								uni.setStorage({
+									key: 'finishthumb',
+									data: ''
+								})
+							})
+						}
+					}
+				})
+			},
+			connect() {
+				var that = this
+				var tonum = that.info.recip_phone;
+
+				if (that.info.type < 3 && that.info.status == 3) {
+					tonum = that.info.pick_phone
+				}
+				console.log(that.info)
+				uni.makePhoneCall({
+					phoneNumber: tonum,
+					success: (res) => {
+
+					},
+					// 失败回调
+					fail: (res) => {
+						console.log('调用失败!', JSON.stringify(res))
+					}
+				})
+				// uni.getStorage({
+				// 	key: 'Config',
+				// 	success(res) {
+				// 		var url = that.decypt(res.data.service_url)
+				// 		uni.setStorage({
+				// 			key: 'weburl',
+				// 			data: url,
+				// 			success() {
+				// 				uni.navigateTo({
+				// 					url: '../webview/index',
+				// 				})
+				// 			}
+				// 		})
+				// 	}
+				// })
+			},
+			previamge(index) {
+				uni.previewImage({
+					current: index,
+					urls: this.info.thumbs
+				})
+			},
+			makeline() {
+
+				var that = this
+				console.log(that.info)
+				//订单类型 1帮送 2帮取 3帮买 4 帮排队 5帮办
+				let endlatitude;
+				let endlongitude;
+
+				if (that.info.status == 3) {
+					if (that.info.type == 1 || that.info.type == 2 || that.info.type == 3 || that.info.type == 6) {
+						endlatitude = that.info.f_lat
+						endlongitude = that.info.f_lng
+						if (that.info.type == 3 && that.info.f_lng == '') {
+							endlatitude = that.info.t_lat
+							endlongitude = that.info.t_lng
+						}
+					} else {
+						endlatitude = that.info.t_lat
+						endlongitude = that.info.t_lng
+					}
+				} else {
+					endlatitude = that.info.t_lat
+					endlongitude = that.info.t_lng
+				}
+
+				that.markers = [{
+					iconPath: "../../static/image/qidianicon.png",
+					id: 1,
+					latitude: that.latitude,
+					longitude: that.longitude,
+					width: 40,
+					height: 40,
+					'coordType': 'wgs84',
+				}, {
+					iconPath: "../../static/image/zhongdianicon.png",
+					id: 2,
+					latitude: endlatitude,
+					longitude: endlongitude,
+					width: 40,
+					height: 40,
+					'coordType': 'wgs84',
+				}]
+
+				setTimeout(() => {
+					myAmapFun.getRidingRoute({
+						origin: that.longitude + ',' + that.latitude,
+						destination: endlongitude + ',' + endlatitude,
+						success: function(data) {
+							console.log('路径规划完成')
+							console.log('距离：' + data.paths[0].distance)
+							that.scale = that.scalesize(data.paths[0].distance)
+
+							var mydistance = 0
+							if (data.paths[0].distance > 1000) {
+								mydistance = that.fomatFloat(data.paths[0]
+									.distance / 1000, 1) + 'km'
+							} else {
+								mydistance = data.paths[0].distance + 'm'
+							}
+							that.info.myDistance = mydistance
+
+							let allDistance = parseFloat(data.paths[0].distance) + parseFloat(that.info
+								.extra.distance)
+
+							if (allDistance > 1000) {
+								allDistance = that.fomatFloat(allDistance / 1000, 1) + 'km'
+							} else {
+								allDistance = allDistance + 'm'
+							}
+
+							that.info.allDistance = allDistance
+
+							console.log('mydistance：' + that.info.myDistance)
+							console.log('allDistance：' + that.info.allDistance)
+
+							var points = [];
+							if (data.paths && data.paths[0] && data.paths[0]
+								.rides) {
+								var rides = data.paths[0].rides;
+								for (var i = 0; i < rides.length; i++) {
+									var poLen = rides[i].polyline.split(';');
+									for (var j = 0; j < poLen.length; j++) {
+										// if (i === rides.length / 2) {
+										// 	that.longitude = parseFloat(poLen[j]
+										// 		.split(',')[0])
+										// 	that.latitude = parseFloat(poLen[j]
+										// 		.split(',')[1])
+										// 	break
+										// }
+										points.push({
+											longitude: parseFloat(poLen[j].split(',')[0]),
+											latitude: parseFloat(poLen[j].split(',')[1])
+										})
+									}
+								}
+							}
+							that.polyline = [{
+								points: points,
+								color: "#FF5725",
+								width: 6
+							}]
+							// that.$forceUpdate()
+							// uni.hideLoading()
+						},
+						fail: function(data) {
+							uni.hideLoading()
+							uni.showModal({
+								title: this.i18n.order.lujinguihuashibai,
+								content: '',
+								showCancel: false,
+								cancelText: '',
+								confirmText: this.i18n.sure,
+								success: res => {},
+								fail: () => {},
+								complete: () => {}
+							});
+							console.log(data)
+						}
+					})
+				}, 0)
+
+			},
+			qudaohang(l, t, name) {
+				this.openLocation('__UNI__7350749', l, t, name)
+			},
+			openLocation(appid, lng, lat, name) {
+				var farray = this.wgs84togcj02(lng, lat)
+				lng = farray[0]
+				lat = farray[1]
+				console.log(farray)
+				uni.openLocation({
+					latitude: parseFloat(lat),
+					longitude: parseFloat(lng),
+					success: function() {
+						console.log('success');
+					},
+					fail(err) {
+						console.log(err);
+					}
+				});
+			},
+			getEl(el) {
+				if (typeof el === 'string' || typeof el === 'number') return el;
+				if (WXEnvironment) {
+					return el.ref;
+				} else {
+					return el instanceof HTMLElement ? el : el.$el;
+				}
+			},
+			fomatFloat(value, n) {
+				var f = Math.round(value * Math.pow(10, n)) / Math.pow(10, n);
+				var s = f.toString();
+				var rs = s.indexOf('.');
+				if (rs < 0) {
+					s += '.';
+				}
+				for (var i = s.length - s.indexOf('.'); i <= n; i++) {
+					s += "0";
+				}
+				return s;
+			},
+			scalesize(distance) {
+				if (distance >= 1000000) {
+					return 3
+				} else if (distance >= 500000 && distance < 1000000) {
+					return 5
+				} else if (distance >= 200000 && distance < 500000) {
+					return 7
+				} else if (distance >= 100000 && distance < 200000) {
+					return 9
+				} else if (distance >= 50000 && distance < 100000) {
+					return 9
+				} else if (distance >= 20000 && distance < 50000) {
+					return 11
+				} else if (distance >= 10000 && distance < 20000) {
+					return 12
+				} else if (distance >= 5000 && distance < 10000) {
+					return 13
+				} else if (distance >= 2000 && distance < 5000) {
+					return 13
+				} else if (distance >= 1000 && distance < 2000) {
+					return 13
+				} else {
+					return 13
+				}
+			},
+			back() {
+				uni.navigateBack({
+					delta: 1
+				})
+			},
+			touchStart(e) {
+				// #ifdef MP-WEIXIN
+				this.StartY = e.changedTouches[0].pageY
+				this.StartX = e.changedTouches[0].pageX
+				// #endif
+				// #ifdef APP-PLUS
+				this.bindstart(e)
+				// #endif		
+			},
+			wgs84togcj02(lng, lat) {
+				//定义一些常量
+				var x_PI = 3.14159265358979324 * 3000.0 / 180.0;
+				var PI = 3.1415926535897932384626;
+				var a = 6378245.0;
+				var ee = 0.00669342162296594323;
+				var dlat = this.transformlat(lng - 105.0, lat - 35.0);
+				var dlng = this.transformlng(lng - 105.0, lat - 35.0);
+				var radlat = lat / 180.0 * PI;
+				var magic = Math.sin(radlat);
+				magic = 1 - ee * magic * magic;
+				var sqrtmagic = Math.sqrt(magic);
+				dlat = (dlat * 180.0) / ((a * (1 - ee)) / (magic * sqrtmagic) * PI);
+				dlng = (dlng * 180.0) / (a / sqrtmagic * Math.cos(radlat) * PI);
+				var mglat = lat + dlat;
+				var mglng = lng + dlng;
+				return [mglng, mglat]
+			},
+			transformlat(lng, lat) {
+				//定义一些常量
+				var x_PI = 3.14159265358979324 * 3000.0 / 180.0;
+				var PI = 3.1415926535897932384626;
+				var a = 6378245.0;
+				var ee = 0.00669342162296594323;
+				var ret = -100.0 + 2.0 * lng + 3.0 * lat + 0.2 * lat * lat + 0.1 * lng * lat + 0.2 * Math.sqrt(Math.abs(
+					lng));
+				ret += (20.0 * Math.sin(6.0 * lng * PI) + 20.0 * Math.sin(2.0 * lng * PI)) * 2.0 / 3.0;
+				ret += (20.0 * Math.sin(lat * PI) + 40.0 * Math.sin(lat / 3.0 * PI)) * 2.0 / 3.0;
+				ret += (160.0 * Math.sin(lat / 12.0 * PI) + 320 * Math.sin(lat * PI / 30.0)) * 2.0 / 3.0;
+				return ret
+			},
+			transformlng(lng, lat) {
+				//定义一些常量
+				var x_PI = 3.14159265358979324 * 3000.0 / 180.0;
+				var PI = 3.1415926535897932384626;
+				var a = 6378245.0;
+				var ee = 0.00669342162296594323;
+				var ret = 300.0 + lng + 2.0 * lat + 0.1 * lng * lng + 0.1 * lng * lat + 0.1 * Math.sqrt(Math.abs(lng));
+				ret += (20.0 * Math.sin(6.0 * lng * PI) + 20.0 * Math.sin(2.0 * lng * PI)) * 2.0 / 3.0;
+				ret += (20.0 * Math.sin(lng * PI) + 40.0 * Math.sin(lng / 3.0 * PI)) * 2.0 / 3.0;
+				ret += (150.0 * Math.sin(lng / 12.0 * PI) + 300.0 * Math.sin(lng / 30.0 * PI)) * 2.0 / 3.0;
+				return ret
+			},
+			bindstart(e) {
+				const drapview = this.getEl(this.$refs.drapview)
+				obj = Binding.bind({
+					anchor: drapview,
+					eventType: 'pan',
+					props: [{
+						element: drapview,
+						property: 'transform.translateY',
+						expression: `y+${this.position.y}`,
+					}]
+				}, (e) => {
+					if (e.state === 'end') {
+						if (!e.deltaY) {
+							return
+						}
+						this.position.y += e.deltaY
+						const query = uni.createSelectorQuery().in(this);
+						query.select('#drapview').boundingClientRect(data => {
+							let moveY = 0
+							if (this.position.y < 0) {
+								if (data.bottom < this.windowHeight) {
+									moveY = -(this.position.y + data.height - this
+										.windowHeight / 3)
+								}
+							} else {
+								if (this.position.y > 200) {
+									moveY = 0 - this.position.y
+								}
+							}
+							const expression_y =
+								`easeInOutCubic(t,${this.position.y},${moveY},${time})`
+							let result = Binding.bind({
+								eventType: 'timing',
+								exitExpression: `t>=${time}`,
+								props: [{
+									element: drapview,
+									property: 'transform.translateY',
+									expression: expression_y
+								}]
+							}, (e) => {
+								if (e.state === 'end' || e.state === 'exit') {
+									this.position.y += moveY
+									// Binding.unbind({
+									// 	eventType: 'timing',
+									// 	token: result.gesToken
+									// })
+								}
+							});
+						}).exec();
+					}
+				})
+			},
+			touchMove(e) {
+				// #ifdef MP-WEIXIN
+				var distanceY = e.changedTouches[0].pageY - this.StartY
+				var distanceX = e.changedTouches[0].pageX - this.StartX
+				if (Math.abs(distanceX) > Math.abs(distanceY) && distanceX > 0) {} else if (Math.abs(
+						distanceX) > Math
+					.abs(
+						distanceY) && distanceX < 0) {} else if (Math.abs(distanceX) < Math.abs(distanceY) &&
+					distanceY <
+					0) {
+					if (this.drapHeight == this.windowHeight - this.top - 40 || this.drapHeight > this
+						.windowHeight -
+						this.top - 40) {
+						return
+					}
+				} else if (Math.abs(distanceX) < Math.abs(distanceY) && distanceY > 0) {
+					if (this.drapHeight == this.minheight || this.drapHeight < this.minheight) {
+						this.drapHeight = this.minheight
+						return
+					}
+				} else {
+					return
+				}
+				this.drapHeight = this.windowHeight - e.changedTouches[0].pageY
+				// #endif
+			},
+			decypt(code) {
+				var newcode = '';
+				var str = '1ecxXyLRB.COdrAi:q09Z62ash-QGn8VFNIlb=fM/D74WjS_EUzYuw?HmTPvkJ3otK5gp&*'
+				for (var i = 0; i < code.length; i++) {
+					var codeIteam = code[i];
+					for (var j = 0; j < str.length; j++) {
+						var stringIteam = str[j];
+						if (codeIteam == stringIteam) {
+							if (j == 0) {
+								newcode += str[str.length - 1];
+							} else {
+								newcode += str[j - 1];
+							}
+						}
+					}
+				}
+				return newcode;
+			},
+			sendRequest(url, data, toast) {
+				var promise = new Promise(function(resolve, reject) {
+					const value = uni.getStorageSync('userinfo');
+					var toolData = {}
+					// #ifdef APP-PLUS
+					if (uni.getSystemInfoSync().platform == 'ios') {
+						toolData.source = 2
+					} else {
+						toolData.source = 1
+					}
+					// #endif
+					// #ifdef MP-WEIXIN
+					toolData.source = 3
+					// #endif
+					if (value) {
+						toolData.uid = value.id
+						toolData.token = value.token
+						toolData.cityid = value.cityid
+					}
+					const system_info = uni.getStorageSync('system_info')
+					var lag = system_info.language ? system_info.language : 'th-TH'
+					// #ifdef APP-PLUS
+					lag = system_info.appLanguage ? system_info.appLanguage : 'th-TH'
+					// #endif
+					console.log(lag)
+					const cur_lang = lag.indexOf('zh') != -1 ? toolData.lang = 'zh' : toolData.lang = 'th'
+
+					uni.request({
+						url: getApp().globalData.mainurl + url,
+						data: Object.assign(toolData, data),
+						success: function(res) {
+							setTimeout(() => {
+								uni.hideLoading();
+							}, 400)
+							if (toast) {
+								uni.showToast({
+									title: res.data.data.msg,
+									icon: 'none'
+								})
+							}
+							if (res.data.ret == 200) {
+								if (res.data.data.code == 0) {
+									resolve(res.data.data)
+								} else {
+									reject(res.data.data)
+								}
+							} else {
+								uni.showToast({
+									title: res.data.msg,
+									icon: 'none'
+								})
+							}
+						},
+						fail: function(err) {
+							console.log(err)
+							uni.hideLoading();
+						}
+					})
+				})
+				return promise;
+			},
+		},
+	}
+</script>
+
+<style>
+	@import url("./index.css");
+</style>

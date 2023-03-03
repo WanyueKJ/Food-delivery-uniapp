@@ -1,0 +1,152 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{ //首页
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom",
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}, { //更换手机号
+			"path": "pages/login/BindMobile",
+			"style": {
+				"navigationBarTitleText": "更换手机号",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}, { //设置
+			"path": "pages/set/index",
+			"style": {
+				"navigationBarTitleText": "设置",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}, { //提现
+			"path": "pages/Mypurse/Withdrawal/index",
+			"style": {
+				"navigationBarTitleText": "提现",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}, { //我的钱包
+			"path": "pages/Mypurse/index",
+			"style": {
+				"navigationBarTitleText": "",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}, { //历史账单
+			"path": "pages/Mypurse/history/history",
+			"style": {
+				"navigationBarTitleText": "历史账单",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}, { //订单统计
+			"path": "pages/Orderstatistics/index",
+			"style": {
+				"navigationBarTitleText": "",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}, { //我的评价
+			"path": "pages/mycomment/index",
+			"style": {
+				"navigationBarTitleText": "我的评价",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}, { //注册账号
+			"path": "pages/login/regist",
+			"style": {
+				"navigationBarTitleText": "注册账号",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{ //登录
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{ //登录
+			"path": "pages/login/country",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{ //H5页面
+			"path": "pages/webview/index",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{ //任务地图
+			"path": "pages/Missionmap/index",
+			"style": {
+				"navigationBarTitleText": "任务地图",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{ //图片上传
+			"path": "pages/uploadphoto/index",
+			"style": {
+				"navigationBarTitleText": "图片上传",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{ //任务详情
+			"path": "pages/detailmap/index",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}
+		
+		
+	],
+	"permission": {
+		"scope.userLocation": {
+			"desc": "获取你的位置信息"
+		},
+		"scope.userLocationBackground": {
+			"desc": "获取你的位置信息"
+		}
+	},
+	"requiredBackgroundModes": ["location"],
+	"app-plus": {
+		"compatible": {
+			"ignoreVersion": true //true表示忽略版本检查提示框，HBuilderX1.9.0及以上版本支持  
+		}
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF"
+	}
+
+}

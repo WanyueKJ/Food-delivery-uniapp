@@ -1,0 +1,14 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-u-i-text-message": "/components/tui-chat/message-elements/text-message/index",
+    "t-u-i-image-message": "/components/tui-chat/message-elements/image-message/index",
+    "t-u-i-video-message": "/components/tui-chat/message-elements/video-message/index",
+    "t-u-i-audio-message": "/components/tui-chat/message-elements/audio-message/index",
+    "t-u-i-custom-message": "/components/tui-chat/message-elements/custom-message/index",
+    "t-u-i-tip-message": "/components/tui-chat/message-elements/tip-message/index",
+    "t-u-i-system-message": "/components/tui-chat/message-elements/system-message/index",
+    "t-u-i-face-message": "/components/tui-chat/message-elements/face-message/index",
+    "t-u-i-file-message": "/components/tui-chat/message-elements/file-message/index"
+  }
+}

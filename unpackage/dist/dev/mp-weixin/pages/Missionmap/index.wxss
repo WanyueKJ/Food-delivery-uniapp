@@ -1,0 +1,273 @@
+
+view,
+label,
+swiper-item,
+scroll-view {
+  display:flex;
+  flex-direction:column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+  align-items: stretch;
+  align-content: flex-start;
+}
+view,
+image,
+input,
+scroll-view,
+swiper,
+swiper-item,
+text,
+textarea,
+video {
+  position: relative;
+  border: 0px solid #000000;
+  box-sizing: border-box;
+}
+swiper-item {
+  position: absolute;
+}
+button {
+  margin: 0;
+}
+
+page {
+	overflow: hidden;
+	width: 750rpx;
+}
+.animation_pop {
+	transition: all 0.5s ease;
+	-webkit-transform: translateY(-200%) !important;
+	        transform: translateY(-200%) !important;
+}
+.row {
+	flex-direction: row;
+}
+.zhuandan {
+	width: 24px;
+	height: 24px;
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+.column {
+	flex-direction: column;
+}
+.page {
+	width: 750rpx;
+	overflow: hidden;
+}
+.map {
+	width: 750rpx;
+	/* position: absolute; */
+}
+.tip {
+	position: absolute;
+	top: 0;
+	width: 82px;
+	height: 140px;
+	margin-left: 15px;
+	background-color: #FFFFFF;
+}
+.tipsub {
+	width: 82px;
+	height: 28px;
+	line-height: 26px;
+	align-items: center;
+}
+.tiptext {
+	width: 52px;
+	height: 26px;
+	line-height: 26px;
+	color: #646464;
+	font-size: 12px;
+	text-align: center;
+}
+.tipimage {
+	margin-left: 10px;
+	width: 16px;
+	height: 16px;
+}
+.drapview {
+	position: fixed;
+	background-color: #FFFFFF;
+	width: 750rpx;
+}
+.scroll {
+	width: 750rpx;
+	background-color: #F7F7F7;
+}
+.drapbtn {
+	width: 750rpx;
+	height: 50px;
+	background-color: #F7F7F7;
+}
+.drapbtnline {
+	margin-top: 10px;
+	margin-left: 330rpx;
+	width: 90rpx;
+	height: 4px;
+	border-radius: 2px;
+	background-color: #D9D9D9;
+}
+.drapbtntext {
+	margin-top: 5px;
+	width: 750rpx;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+	color: #646464;
+	font-size: 16px;
+}
+.cell {
+	width: 720rpx;
+	margin-left: 15rpx;
+	/* height: 255px; */
+	margin-bottom: 15px;
+	/* margin-top: 15px; */
+	border-radius: 8px;
+	background-color: #FFFFFF;
+	overflow: hidden;
+}
+.section1 {
+	height: 30px;
+	width: 660rpx;
+	margin-left: 30rpx;
+	position: relative;
+	margin-top: 10px;
+}
+.section1-image-yu {
+	margin-top: 4px;
+	width: 28px;
+	height: 22px;
+	flex-shrink: 0;
+}
+.section1-image {
+	margin-top: 8px;
+	width: 14px;
+	height: 14px;
+}
+.section1-time {
+	height: 30px;
+	line-height: 30px;
+	color: #FF5725;
+	font-size: 16px;
+	font-weight: bold;
+	margin-left: 5px;
+}
+.section1-times {
+	height: 30px;
+	line-height: 30px;
+	color: #323232;
+	font-size: 16px;
+	font-weight: bold;
+}
+.section2 {
+	width: 660rpx;
+	margin-left: 30rpx;
+	height: 40px;
+	margin-top: 20px;
+	position: relative;
+}
+.section2-left {
+	width: 24px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	border-radius: 12px;
+	background-color: #CACACA;
+	color: #FFFFFF;
+	font-size: 16px;
+}
+.section2-right {
+	width: 500rpx;
+	margin-left: 50rpx;
+	height: 40px;
+}
+.daohangimgage {
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+.section2-right-title {
+	height: 20px;
+	line-height: 20px;
+	color: #323232;
+	font-size: 18px;
+	font-weight: bolder;
+	overflow: visible;
+}
+.section2-right-des {
+	height: 30px;
+	line-height: 30px;
+	color: #646464;
+	font-size: 12px;
+	overflow: visible;
+}
+.section3 {
+	position: relative;
+	width: 660rpx;
+	margin-left: 15px;
+	height: 40px;
+	margin-top: 30px;
+}
+.line {
+	background-color: #E4E4E4;
+	width: 1px;
+	height: 22px;
+	margin-left: 25px;
+}
+.section4 {
+	margin-top: 10px;
+	width: 660rpx;
+	height: 40px;
+	margin-left: 75px;
+	align-items: center;
+}
+.section6 {
+	width: 550rpx;
+	margin-left: 150rpx;
+	margin-bottom: 10px;
+	background-color: #EEEEEE;
+}
+.sectionbeizhu {
+	lines: 10;
+	height: -webkit-max-content;
+	height: max-content;
+	width: 550rpx;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 20rpx;
+	margin-right: 20rpx;
+	line-height: 15px;
+	color: #323232;
+	font-size: 12px;
+	border-radius: 2px;
+}
+.section4-type1 {
+	background-color: #01C382;
+	width: 52px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	border-radius: 2px;
+	font-size: 12px;
+	color: #FFFFFF;
+	margin-right: 10px;
+}
+.section4-type2 {
+	background-color: #0BD3AC;
+	padding-left: 5px;
+	padding-right: 5px;
+	width: -webkit-max-content;
+	width: max-content;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	border-radius: 2px;
+	font-size: 12px;
+	color: #FFFFFF;
+	margin-right: 10px;
+}
+

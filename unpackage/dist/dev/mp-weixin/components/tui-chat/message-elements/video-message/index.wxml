@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['playerHander',['$event']]]]]}}" class="{{['video-box '+(isMine?'my-video':'')]}}" bindtap="__e"></view>

@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "",
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "cancleorder": "/components/cancleorder/index",
+    "cell": "/components/defaultcell/index",
+    "navbar": "/components/navsearchbar/index",
+    "unidrawer": "/uni_modules/uni-drawer/components/uni-drawer/uni-drawer",
+    "phoneset": "/components/phoneset/index",
+    "graborders": "/components/Graborders/index",
+    "phoneinput": "/components/phoneinput/index",
+    "relaxview": "/components/relaxview/index",
+    "relaxokview": "/components/relaxokview/index"
+  }
+}

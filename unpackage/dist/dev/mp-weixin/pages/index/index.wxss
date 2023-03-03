@@ -1,0 +1,202 @@
+.page {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: #F2F2F2;
+}
+page {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.swiper{
+	width: 100%;
+}
+.pagebar {
+	width: 100%;
+	height: 50px;
+	background-color: #171615;
+}
+.bar_item {
+	margin-top: 10px;
+	height: 30px;
+	width: 33%;
+	text-align: center;
+}
+.findishnums{
+	background-color: #E80000;
+	width: 16px;
+	height: 16px;
+	border-radius: 8px;
+	line-height: 16px;
+	text-align: center;
+	font-size: 10px;
+	color: #FFFFFF;
+	position: absolute;
+	top: -10px;
+	right: 20px;
+}
+.Smain {
+	color: #FFFFFF;
+	font-size: 18px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+.Smain::after {
+	left: calc(50% - 15px);
+	content: "";
+	position: absolute;
+	width: 30px;
+	height: 3px;
+	border-radius: 2px;
+	background-color: #FFFFFF;
+	bottom: -5px;
+}
+.Snormal {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	color: #C6C6C6;
+	font-size: 18px;
+	text-align: center;
+}
+.bottom {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: #FFFFFF;
+}
+.bottom_left {
+	width: 80px;
+	height: 53px;
+	align-items: center;
+	justify-content: center;
+}
+.bottom_left image {
+	width: 21px;
+	height: 16px;
+}
+.bottom_left text {
+	color: #646464;
+	font-size: 12px;
+}
+.bottom_right {
+	margin-left: 10px;
+	width: calc(100% - 110px);
+	height: 38px;
+	border-radius: 4px;
+	border: 1px solid #E4E5E4;
+	align-items: center;
+	justify-content: center;
+}
+.bottom_right image {
+	width: 16px;
+	height: 16px;
+}
+.bottom_right text {
+	color: #323232;
+	font-size: 16px;
+	font-weight: bold;
+	height: 38px;
+	line-height: 38px;
+	margin-left: 5px;
+}
+.scroll {
+	width: 100%;
+	background-color: #F2F2F2;
+	position: relative;
+}
+.drawscroll {
+	width: 100%;
+}
+.drawscroll-header {
+	height: 60px;
+	width: 100%;
+}
+.drawscroll-header image {
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+	margin-left: 10px;
+	flex-shrink: 0;
+}
+.drawscroll-right {
+	margin-left: 10px;
+	color: #323232;
+	width: calc(100% - 80px);
+}
+.drawscroll-right-name {
+	font-size: 20px;
+	font-weight: bolder;
+}
+.drawscroll-right-mobile {
+	font-size: 14px;
+}
+.drawscroll-menu {
+	margin-top: 10px;
+	width: calc(100% - 20px);
+	margin-left: 10px;
+	height: 60px;
+	border-bottom: 1px solid #F9F9F9;
+	margin-bottom: 20px;
+}
+.drawscroll-menu-sub {
+	height: 60px;
+	width: 33%;
+}
+.drawscroll-menu-sub-title {
+	width: 100%;
+	text-align: center;
+	color: #646464;
+	font-size: 12px;
+	height: 20px;
+	line-height: 20px;
+	margin-top: 5px;
+}
+.drawscroll-menu-sub-des {
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	color: #323232;
+	font-size: 16px;
+	font-weight: bolder;
+}
+.drawscroll-menu-sub-title image {
+	width: 10px;
+	height: 10px;
+}
+.userlist_cell {
+	position: relative;
+	width: calc(100% - 30px);
+	margin-left: 15px;
+	height: 50px;
+	align-items: center;
+}
+.userlist_cell text{
+	height: 50px;
+	line-height: 50px;
+	color: #323232;
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 10px;
+}
+.userlist_cell_icon {
+	width: 20px;
+	height: 20px;
+}
+.jiantou {
+	position: absolute;
+	right: 0;
+	width: 20px;
+	height: 20px;
+}
+.daohangimgage{
+	position: absolute;
+	right: 15px;
+	width: 32px;
+	height: 32px;
+	margin-top: 60px;
+}
+

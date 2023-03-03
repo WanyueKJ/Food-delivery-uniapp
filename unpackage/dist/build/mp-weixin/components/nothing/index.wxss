@@ -1,0 +1,1 @@
+.nothing{position:absolute;left:calc(50% - 60px);top:calc(50% - 40px);width:120px;height:140px;display:flex;flex-direction:column;align-items:center}.nothing image{width:60px;height:60px}.nothing text{width:100%;display:block;text-align:center;font-size:18rpx;color:#c7c7c7;margin-top:10px}

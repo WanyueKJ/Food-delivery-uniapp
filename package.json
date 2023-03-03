@@ -1,0 +1,22 @@
+{
+    "id": "adsorb-button",
+    "name": "adsorb-button",
+    "version": "1.0.1",
+    "description": "使用bindingx编写的一个拖拽按钮，带有吸附效果 ，针对nvue写的，所以只保证在nvue页面中",
+    "keywords": [
+        "nvue",
+        "拖拽",
+        "按钮"
+    ],
+    "dependencies": {
+        "aegis-mp-sdk": "^1.24.57",
+        "aegis-web-sdk": "^1.35.23",
+        "aegis-weex-sdk": "^1.24.46",
+        "cos-wx-sdk-v5": "^1.2.0",
+        "number-precision": "^1.6.0",
+        "tim-js-sdk": "^2.17.0",
+        "tim-upload-plugin": "^1.0.4",
+        "tim-wx-sdk": "^2.20.1",
+        "vue-i18n": "^9.2.2"
+    }
+}
