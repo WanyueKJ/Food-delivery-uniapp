@@ -72,8 +72,8 @@ Wan Yue City take-out system, the system includes the merchant side, distributio
 
 
 
-  ###  开源交流群【加群回答请填写“gitee外卖”】
-  ###  Open Source Communication Group [ add group answer please fill in“Gitee take-out”] 
+  ###  开源交流群【加群回答请填写“github外卖”】
+  ###  Open Source Communication Group [ add group answer please fill in“GitHub takeaway”] 
 
 ![输入图片说明](https://gitee.com/WanYueKeJi/wanyue_education_web/raw/master/%E4%B8%87%E5%B2%B3%E7%A7%91%E6%8A%80%E5%BC%80%E6%BA%90%E8%AE%A8%E8%AE%BA10%E7%BE%A4%E7%BE%A4%E8%81%8A%E4%BA%8C%E7%BB%B4%E7%A0%81.png)  ![输入图片说明](https://gitee.com/WanYueKeJi/wanyue_education_web/raw/master/%E4%B8%87%E5%B2%B3%E7%A7%91%E6%8A%80%E5%BC%80%E6%BA%90%E8%AE%A8%E8%AE%BA15%E7%BE%A4%E7%BE%A4%E8%81%8A%E4%BA%8C%E7%BB%B4%E7%A0%81.png)
 
