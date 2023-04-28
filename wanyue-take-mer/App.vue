@@ -54,7 +54,7 @@
 			menuButtonLeft: 0,
 			menuButtonHeight: 0,
 			navHeight: 0,
-			weburl: 'https://takeout.sdwanyue.com',
+			weburl: 'https://takeout.sdwanyue.com/',
 			// weburl: 'https://take.sdwanyue.com/',
 			version: '1.2.0',
 			platform: '',
