@@ -55,7 +55,7 @@
 			// #endif
 			// #ifndef H5
 			weburl: 'https://takeout.sdwanyue.com/',
-			// weburl: 'https://take.sdwanyue.com/',
+			// weburl: 'https://takeout.sdwanyue.com/',
 			// #endif
 			version: '1.2.0',
 			platform: '',
