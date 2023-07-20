@@ -1,5 +1,5 @@
 <script>
-	// APP 和 小程序平台
+	// APP和小程序平台
 	// #ifdef  APP-PLUS 
 	import COS from 'cos-wx-sdk-v5';
 	// #endif
